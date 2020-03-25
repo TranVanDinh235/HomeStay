@@ -1,0 +1,52 @@
+<resources>
+
+    <!-- Base application theme. -->
+<!--    <style name="AppTheme" parent="Theme.AppCompat.Light">-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--    </style>-->
+
+
+    <style name="Theme.MyApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/deep_purple_500</item>
+        <item name="colorPrimaryDark">@color/material_on_background_disabled</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="materialCalendarFullscreenTheme">@style/CustomThemeOverlay_MaterialCalendar_Fullscreen</item>
+    </style>
+
+    <style name="CustomThemeOverlay_MaterialCalendar_Fullscreen"
+        parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen">
+        <item name="materialCalendarStyle">@style/Custom_MaterialCalendar.Fullscreen</item>
+<!--        <item name="materialCalendarHeaderLayout">@style/Custom_MaterialCalendar.HeaderLayout</item>-->
+        <item name="materialCalendarHeaderTitle">@style/Custom_MaterialCalendar.HeaderTitle</item>
+        <item name="materialCalendarHeaderToggleButton">@style/Custom_MaterialCalendar.HeaderToggleButton</item>
+        <item name="materialCalendarHeaderConfirmButton">@style/Custom_MaterialCalendar.HeaderConfirmButton</item>
+    </style>
+
+    <style name="Custom_MaterialCalendar.Fullscreen"
+        parent="@style/Widget.MaterialComponents.MaterialCalendar.Fullscreen">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="Custom_MaterialCalendar.HeaderLayout"
+        parent="@style/Widget.MaterialComponents.MaterialCalendar.HeaderLayout">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="Custom_MaterialCalendar.HeaderTitle"
+        parent="@style/Widget.MaterialComponents.MaterialCalendar.HeaderTitle">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="Custom_MaterialCalendar.HeaderToggleButton"
+        parent="@style/Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="Custom_MaterialCalendar.HeaderConfirmButton"
+        parent="@style/Widget.MaterialComponents.MaterialCalendar.HeaderConfirmButton">
+        <item name="android:name">Lưu</item>
+    </style>
+</resources>

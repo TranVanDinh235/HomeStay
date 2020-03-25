@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">HomeStay</string>
+    <string name="api_retry_error">Please retry!</string>
+    <string name="api_default_error">Something wrong happened!</string>
+    <string name="some_error">Some Error Occurred!</string>
+    <string name="connection_error">Internet connection lost!</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <!--    bottom app bar-->
+    <string name="title_discover">Khám phá</string>
+    <string name="title_storage">Lưu trữ</string>
+    <string name="title_message">Tin nhắn</string>
+    <string name="title_more">Thêm</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="text_search">Xung quanh vị trí hiện tại</string>
+
+    <!--empty state-->
+    <string name="empty_screen">We do not have anything\nhere right now.</string>
+    <string name="please_retry">Please Retry</string>
+    <string name="retry">Retry</string>
+    <string name="mtrl_picker_save" description="Confirms the selection [CHAR_LIMIT=12]">Lưu</string>
+    <string name="title_default">2 Nguời lớn 1 Phòng 0 Trẻ em</string>
+    <string name="check_in_label">Nhận phòng</string>
+    <string name="check_out_label">Trả phòng</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="finest_homestays">Lựa chọn tốt nhất</string>
+    <string name="popular_place">Điểm đến hàng đầu</string>
+</resources>

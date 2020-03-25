@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_4sdp"
+        android:padding="@dimen/_4sdp">
+
+        <ImageView
+            android:id="@+id/imv_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_notifications_black_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/icon_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_search_gray_24dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_light"
+            android:text="@string/text_search" />
+
+        <ImageView
+            android:id="@+id/icon_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_search_gray_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_date_picker"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:elevation="@dimen/_8sdp">
+
+            <ImageView
+                android:id="@+id/icon_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_forward_black_24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_check_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/icon_right"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_check_in_label">
+
+                <TextView
+                    android:id="@+id/tv_check_in_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:textSize="@dimen/_40sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="10" />
+
+                <TextView
+                    android:id="@+id/tv_check_in_day_of_week"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_check_in_month"
+                    app:layout_constraintStart_toEndOf="@+id/tv_check_in_date"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="Thứ 5" />
+
+                <TextView
+                    android:id="@+id/tv_check_in_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_check_in_day_of_week"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_check_in_day_of_week"
+                    android:text="thg5" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_check_in_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:text="@string/check_in_label"
+                app:layout_constraintBottom_toTopOf="@+id/layout_check_in"
+                app:layout_constraintStart_toStartOf="@+id/layout_check_in"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_check_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/icon_right"
+                app:layout_constraintTop_toBottomOf="@+id/tv_check_out_label">
+
+                <TextView
+                    android:id="@+id/tv_check_out_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:textSize="@dimen/_40sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="10" />
+
+                <TextView
+                    android:id="@+id/tv_check_out_day_of_week"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:fontFamily="@font/raleway_semibold"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_check_out_month"
+                    app:layout_constraintStart_toEndOf="@+id/tv_check_out_date"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Thứ 3" />
+
+                <TextView
+                    android:id="@+id/tv_check_out_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_check_out_day_of_week"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_check_out_day_of_week"
+                    tools:text="Th5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_check_out_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:text="@string/check_out_label"
+                app:layout_constraintBottom_toTopOf="@+id/layout_check_out"
+                app:layout_constraintStart_toStartOf="@+id/layout_check_out"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_option"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_light"
+            android:text="@string/title_default"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_14sdp"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/icon_location"
+            app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_search"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/raleway_light"
+                android:text="@string/search"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_14sdp"
+                android:padding="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
+
+            <ImageView
+                android:id="@+id/search_map"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_forward_black_24dp"
+                android:padding="@dimen/_4sdp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/finest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="@string/finest_homestays"
+            android:textSize="@dimen/_16sdp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_finest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:numColumns="2"/>
+
+        <TextView
+            android:id="@+id/top_deal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/raleway_bold"
+            tools:text="Ưu đãi đặc biệt"
+            android:textSize="@dimen/_16sdp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_top_deal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:scrollbars="horizontal"/>
+
+        <TextView
+            android:id="@+id/popular_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="@string/popular_place"
+            android:textSize="@dimen/_16sdp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_popular_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:scrollbars="horizontal"/>
+
+        <TextView
+            android:id="@+id/promotion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/raleway_bold"
+            tools:text="Yêu không cần cớ - Cần phòng cơ"
+            android:textSize="@dimen/_16sdp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/gird_view_promotion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:numColumns="2"/>
+
+        <TextView
+            android:id="@+id/SG_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/raleway_bold"
+            tools:text="Sài Gòn tháng 3"
+            android:textSize="@dimen/_16sdp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/_8sdp"
+            android:id="@+id/recycler_SG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal"/>
+
+        <TextView
+            android:id="@+id/HN_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/raleway_bold"
+            tools:text="Hà Nội tháng 3- Những ngày giao mùa"
+            android:textSize="@dimen/_16sdp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/_8sdp"
+            android:id="@+id/recycler_HN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal"/>
+
+        <TextView
+            android:id="@+id/VT_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/raleway_bold"
+            tools:text="Vũng Tàu tháng 3 - Mở đầu may mắn"
+            android:textSize="@dimen/_16sdp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/_8sdp"
+            android:id="@+id/recycler_VT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal"/>
+
+        <TextView
+            android:id="@+id/DL_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/raleway_bold"
+            tools:text="Đà Lạt mùa nhớ - Đà Lạt mùa yêu"
+            android:textSize="@dimen/_16sdp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/_8sdp"
+            android:id="@+id/recycler_DL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal"/>
+
+    </LinearLayout>
+</ScrollView>
