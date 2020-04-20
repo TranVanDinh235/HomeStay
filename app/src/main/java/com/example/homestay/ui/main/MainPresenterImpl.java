@@ -18,7 +18,7 @@ public class MainPresenterImpl<V extends MainView> extends BasePresenter<V>
     }
 
     @Override
-    public void onAttach(V mvpView) {
+    public void onAttach(V view) {
 
     }
 

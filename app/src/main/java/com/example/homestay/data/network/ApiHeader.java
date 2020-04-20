@@ -25,7 +25,7 @@ public class ApiHeader {
     public static final class PublicApiHeader {
 
         @Expose
-        @SerializedName("api_key")
+        @SerializedName("Authorization")
         private String mApiKey;
 
         @Inject
@@ -50,13 +50,13 @@ public class ApiHeader {
 
         @Expose
         @SerializedName("user_id")
-        private Long mUserId;
+        private Integer mUserId;
 
         @Expose
         @SerializedName("access_token")
         private String mAccessToken;
 
-        public ProtectedApiHeader(String mApiKey, Long mUserId, String mAccessToken) {
+        public ProtectedApiHeader(String mApiKey, Integer mUserId, String mAccessToken) {
             this.mApiKey = mApiKey;
             this.mUserId = mUserId;
             this.mAccessToken = mAccessToken;
@@ -70,11 +70,11 @@ public class ApiHeader {
             mApiKey = apiKey;
         }
 
-        public Long getUserId() {
+        public Integer getUserId() {
             return mUserId;
         }
 
-        public void setUserId(Long mUserId) {
+        public void setUserId(Integer mUserId) {
             this.mUserId = mUserId;
         }
 

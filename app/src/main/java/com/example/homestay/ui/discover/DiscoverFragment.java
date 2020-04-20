@@ -1,23 +1,27 @@
 package com.example.homestay.ui.discover;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.util.Pair;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.load.engine.cache.DiskCacheAdapter;
 import com.example.homestay.R;
-import com.example.homestay.data.network.model.DiscoverResponse;
+import com.example.homestay.data.network.model.CityResponse;
+import com.example.homestay.data.network.model.TopicResponse;
 import com.example.homestay.di.PerActivity;
 import com.example.homestay.di.component.ActivityComponent;
 import com.example.homestay.ui.base.BaseFragment;
-import com.example.homestay.ui.discover.adapter.DiscoverAdapter;
+import com.example.homestay.ui.discover.adapter.CityAdapter;
+import com.example.homestay.ui.discover.adapter.TopicAdapter;
 import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.datepicker.MaterialDatePicker;
 
@@ -28,52 +32,31 @@ import butterknife.ButterKnife;
 
 
 @PerActivity
-public class DiscoverFragment extends BaseFragment implements DiscoverView, DiscoverAdapter.Callback {
+public class DiscoverFragment extends BaseFragment implements DiscoverView, CityAdapter.Callback {
 
     @Inject
     DiscoverPresenter<DiscoverView> mPresenter;
 
+    @Inject
+    CityAdapter mCityAdapter;
+
+    @Inject
+    TopicAdapter mTopicAdapter;
+
+    @Inject
+    LinearLayoutManager mLayoutManagerHorizontal;
+
+    @Inject
+    LinearLayoutManager mLayoutManagerVertical;
+
     @BindView(R.id.layout_date_picker) ConstraintLayout layoutDatePicker;
 
-    @BindView(R.id.finest) TextView finest;
+    @BindView(R.id.layout_discover_cites)
+    RecyclerView mCityRecyclerView;
 
-    @BindView(R.id.top_deal) TextView topDeals;
+    @BindView(R.id.layout_discover_topics)
+    RecyclerView mTopicRecyclerView;
 
-    @BindView(R.id.popular_place) TextView popularPlace;
-
-    @BindView(R.id.promotion) TextView promotion;
-
-    @BindView(R.id.HN_title) TextView HaNoiTitle;
-
-    @BindView(R.id.SG_title) TextView SaiGonTitle;
-
-    @BindView(R.id.VT_title) TextView VungTauTitle;
-
-    @BindView(R.id.DL_title) TextView DaLatTitle;
-
-    @BindView(R.id.recycler_finest)
-    RecyclerView finestGirdView;
-
-    @BindView(R.id.gird_view_promotion)
-    RecyclerView promotionGirdView;
-
-    @BindView(R.id.recycler_HN)
-    RecyclerView HNRecyclerView;
-
-    @BindView(R.id.recycler_VT)
-    RecyclerView VTRecyclerView;
-
-    @BindView(R.id.recycler_DL)
-    RecyclerView DLRecyclerView;
-
-    @BindView(R.id.recycler_SG)
-    RecyclerView SGRecyclerView;
-
-    @BindView(R.id.recycler_popular_place)
-    RecyclerView popularPlaceRecyclerView;
-
-    @BindView(R.id.recycler_view_top_deal)
-    RecyclerView topDealsRecyclerView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -86,6 +69,7 @@ public class DiscoverFragment extends BaseFragment implements DiscoverView, Disc
             component.inject(this);
             setUnBinder(ButterKnife.bind(this, root));
             mPresenter.onAttach(this);
+            mCityAdapter.setCallback(this);
         }
 
         MaterialDatePicker.Builder<?> builder = setupDateSelectorBuilder();
@@ -101,9 +85,18 @@ public class DiscoverFragment extends BaseFragment implements DiscoverView, Disc
 
     @Override
     protected void setUp(View view) {
-        view.setOnClickListener(v -> {
+        mLayoutManagerHorizontal.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mCityRecyclerView.setLayoutManager(mLayoutManagerHorizontal);
+        mCityRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mCityRecyclerView.setAdapter(mCityAdapter);
 
-        });
+        mLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);
+        mTopicRecyclerView.setLayoutManager(mLayoutManagerVertical);
+        mTopicRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mTopicRecyclerView.setAdapter(mTopicAdapter);
+
+        mPresenter.loadCity();
+        mPresenter.loadTopic();
     }
 
     private MaterialDatePicker.Builder<?> setupDateSelectorBuilder(){
@@ -120,21 +113,17 @@ public class DiscoverFragment extends BaseFragment implements DiscoverView, Disc
     }
 
     @Override
-    public void showData(DiscoverResponse discoverResponse) {
-        finest.setText(discoverResponse.getData().getFinest());
-        topDeals.setText(discoverResponse.getData().getTopDeals());
-        popularPlace.setText(discoverResponse.getData().getPopularPlace());
-        promotion.setText(discoverResponse.getData().getPromotion());
-        HaNoiTitle.setText(discoverResponse.getData().getHNtitle());
-        SaiGonTitle.setText(discoverResponse.getData().getSGtitle());
-        DaLatTitle.setText(discoverResponse.getData().getDLtitle());
-        VungTauTitle.setText(discoverResponse.getData().getVTtitle());
-
-
+    public void showTopic(TopicResponse response) {
+        mTopicAdapter.addItem(response.getTopics());
     }
 
     @Override
-    public void onHomeEmptyViewRetryClick() {
+    public void showCity(CityResponse response) {
+        mCityAdapter.addItem(response.getCities());
+    }
+
+    @Override
+    public void onCityItemClick() {
 
     }
 }

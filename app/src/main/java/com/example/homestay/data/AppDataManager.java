@@ -5,9 +5,13 @@ import android.content.Context;
 import com.example.homestay.data.db.DbHelper;
 import com.example.homestay.data.network.ApiHeader;
 import com.example.homestay.data.network.ApiHelper;
-import com.example.homestay.data.network.model.DiscoverResponse;
+import com.example.homestay.data.network.model.AuthResponse;
+import com.example.homestay.data.network.model.CityResponse;
+import com.example.homestay.data.network.model.TopicResponse;
 import com.example.homestay.data.prefs.PrefHelper;
 import com.example.homestay.di.ApplicationContext;
+
+import org.json.JSONObject;
 
 import javax.inject.Inject;
 
@@ -45,13 +49,63 @@ public class AppDataManager implements DataManager{
     }
 
     @Override
-    public Long getCurrentUserId() {
+    public String getRefreshToken() {
+        return mPreferencesHelper.getRefreshToken();
+    }
+
+    @Override
+    public void setRefreshToken(String refreshToken) {
+        mPreferencesHelper.setRefreshToken(refreshToken);
+    }
+
+    @Override
+    public String getCurrentUsername() {
+        return mPreferencesHelper.getCurrentUsername();
+    }
+
+    @Override
+    public void setCurrentUsername(String username) {
+        mPreferencesHelper.setCurrentUsername(username);
+    }
+
+    @Override
+    public String getCurrentUserEmail() {
+        return mPreferencesHelper.getCurrentUserEmail();
+    }
+
+    @Override
+    public void setCurrentUserEmail(String email) {
+        mPreferencesHelper.setCurrentUserEmail(email);
+    }
+
+    @Override
+    public Boolean isUserLoggedInMode() {
+        return mPreferencesHelper.isUserLoggedInMode();
+    }
+
+    @Override
+    public void setUserLoggedInMode(Boolean isLogged) {
+        mPreferencesHelper.setUserLoggedInMode(isLogged);
+    }
+
+    @Override
+    public Integer getCurrentUserId() {
         return mPreferencesHelper.getCurrentUserId();
     }
 
     @Override
-    public void setCurrentUserId(Long userId) {
+    public void setCurrentUserId(Integer userId) {
         mPreferencesHelper.setCurrentUserId(userId);
+    }
+
+    @Override
+    public String getCurrentUserProfilePicUrl() {
+        return mPreferencesHelper.getCurrentUserProfilePicUrl();
+    }
+
+    @Override
+    public void setCurrentUserProfilePicUrl(String url) {
+        mPreferencesHelper.setCurrentUserProfilePicUrl(url);
     }
 
     @Override
@@ -60,7 +114,27 @@ public class AppDataManager implements DataManager{
     }
 
     @Override
-    public Single<DiscoverResponse> doServerApiGetDiscoverCall() {
-        return mApiHelper.doServerApiGetDiscoverCall();
+    public Single<TopicResponse> doServerApiGetTopicCall() {
+        return mApiHelper.doServerApiGetTopicCall();
+    }
+
+    @Override
+    public Single<CityResponse> doServerApiGetCityCall() {
+        return mApiHelper.doServerApiGetCityCall();
+    }
+
+    @Override
+    public Single<AuthResponse> doServerApiLoginNativeCall(JSONObject body) {
+        return mApiHelper.doServerApiLoginNativeCall(body);
+    }
+
+    @Override
+    public Single<AuthResponse> doServerApiLoginGoogleCall(JSONObject body) {
+        return mApiHelper.doServerApiLoginGoogleCall(body);
+    }
+
+    @Override
+    public Single<AuthResponse> doServerApiLoginFacebookCall(JSONObject body) {
+        return mApiHelper.doServerApiLoginFacebookCall(body);
     }
 }

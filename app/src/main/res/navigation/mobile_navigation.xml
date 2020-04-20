@@ -12,10 +12,16 @@
         tools:layout="@layout/fragment_discover" />
 
     <fragment
-        android:id="@+id/navigation_marked"
-        android:name="com.example.homestay.ui.marked.MarkedFragment"
-        android:label="@string/title_storage"
-        tools:layout="@layout/fragment_marked" />
+        android:id="@+id/navigation_collection"
+        android:name="com.example.homestay.ui.collection.CollectionFragment"
+        android:label="@string/collection"
+        tools:layout="@layout/fragment_collection" />
+
+    <fragment
+        android:id="@+id/navigation_booking"
+        android:name="com.example.homestay.ui.booking.BookingFragment"
+        android:label="@string/booking"
+        tools:layout="@layout/fragment_booking" />
 
     <fragment
         android:id="@+id/navigation_message"
@@ -24,8 +30,8 @@
         tools:layout="@layout/fragment_message" />
 
     <fragment
-        android:id="@+id/navigation_more"
-        android:name="com.example.homestay.ui.more.MoreFragement"
+        android:id="@+id/navigation_profile"
+        android:name="com.example.homestay.ui.profile.ProfileFragement"
         android:label="@string/title_more"
-        tools:layout="@layout/fragment_more" />
+        tools:layout="@layout/fragment_profile" />
 </navigation>
