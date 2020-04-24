@@ -1,5 +1,7 @@
 package com.example.homestay.ui.discover;
 
+import android.util.Log;
+
 import com.example.homestay.data.DataManager;
 import com.example.homestay.ui.base.BasePresenter;
 import com.example.homestay.utils.rx.SchedulerProvider;
@@ -24,6 +26,9 @@ public class DiscoverPresenterImpl<V extends DiscoverView> extends BasePresenter
 
     @Override
     public void loadTopic() {
+        Log.e("dinh", getDataManager().getCurrentUserId().toString());
+        Log.e("dinh", getDataManager().isUserLoggedInMode().toString());
+        Log.e("dinh", getDataManager().getRefreshToken());
         getView().showLoading();
 
         getCompositeDisposable().add(getDataManager().doServerApiGetTopicCall()

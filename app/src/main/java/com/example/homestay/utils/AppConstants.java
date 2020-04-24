@@ -20,8 +20,8 @@ package com.example.homestay.utils;
  */
 
 public final class AppConstants {
-    public static final String IP_ADDRESS = "http://10.1.60.65:3030/homestay/v1/api";
-//    public static final String IP_ADDRESS = "http://12.22.88.100:3030/homestay/v1/api";
+    public static final String IP_ADDRESS = "http://10.1.60.76:3030/homestay/v1/api";
+//    public static final String IP_ADDRESS = "http://12.22.88.101:3030/homestay/v1/api";
 //    public static final String IP_ADDRESS = "http://192.168.1.10:3030/homestay/v1/api";
 
     public static final String STATUS_CODE_SUCCESS = "success";

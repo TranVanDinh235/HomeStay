@@ -35,7 +35,9 @@
         </activity>
         <activity
             android:name=".ui.main.MainActivity"
-            android:label="@string/title_activity_main">
+            android:label="@string/title_activity_main"
+            android:windowSoftInputMode="adjustPan">
+
 
         </activity>
         <activity android:name=".ui.list.ListHouseActivity" />
@@ -50,6 +52,9 @@
         </activity>
         <activity android:name=".ui.signup.SignUpActivity" />
         <activity android:name=".ui.splash.SplashActivity" />
+        <activity android:name=".ui.info.InfoActivity" >
+
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

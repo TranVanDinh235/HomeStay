@@ -13,6 +13,9 @@ import com.example.homestay.ui.discover.DiscoverPresenterImpl;
 import com.example.homestay.ui.discover.DiscoverView;
 import com.example.homestay.ui.discover.adapter.CityAdapter;
 import com.example.homestay.ui.discover.adapter.TopicAdapter;
+import com.example.homestay.ui.info.InfoPresenter;
+import com.example.homestay.ui.info.InfoPresenterImpl;
+import com.example.homestay.ui.info.InfoView;
 import com.example.homestay.ui.list.ListHousePresenter;
 import com.example.homestay.ui.list.ListHousePresenterImpl;
 import com.example.homestay.ui.list.ListHouseView;
@@ -108,6 +111,12 @@ public class ActivityModule {
     @Provides
     LoginPresenter<LoginView> provideLoginPresenter(
             LogPresenterImpl<LoginView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    InfoPresenter<InfoView> provideInfoPresenter(
+            InfoPresenterImpl<InfoView> presenter) {
         return presenter;
     }
 

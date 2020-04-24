@@ -5,6 +5,7 @@
     <string name="some_error">Some Error Occurred!</string>
     <string name="connection_error">Internet connection lost!</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="login_sign_up">Đăng nhập/Đăng ký</string>
 
     <!--    bottom app bar-->
     <string name="title_discover">Khám phá</string>
@@ -54,8 +55,26 @@
     <string name="not_account">Bạn chưa có tài khoản?</string>
     <string name="sign_up_with_email">ĐĂNG KÝ VỚI EMAIL</string>
 
+    <!--profile-->
+    <string name="full_name">*Họ và Tên</string>
+    <string name="gender">Giới tính</string>
+    <string name="phone">Số điện thoại</string>
+    <string name="address">Địa chỉ</string>
+    <string name="birth_day">Ngày sinh</string>
+    <string name="introduce">Giới thiệu bản thân</string>
+    <string name="logout">Đăng xuất</string>
 
     <!--login google-->
     <string name="server_client_id">233136474065-5s76pvccvu8l1ahujm9jt36h0ogh8t0k.apps.googleusercontent.com</string>
+
+    <!--long text-->
+    <string name="long_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet purus rhoncus ullamcorper ullamcorper. Nulla accumsan leo quis purus pretium mattis. Nunc in eros cursus, feugiat magna nec, pharetra nulla. Curabitur vel leo finibus, volutpat lorem sit amet, pharetra odio. Sed non arcu quis diam suscipit eleifend sit amet nec dui. Phasellus vel sagittis neque, vitae vulputate tortor. Phasellus a neque lectus. Sed venenatis nunc quis diam feugiat congue. Aliquam sit amet tempor arcu, nec vulputate orci. Integer nulla odio, suscipit tempor lacus id, varius laoreet nibh. In gravida tellus at iaculis finibus. Suspendisse potenti</string>
+    <string name="two_line_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </string>
+    <string name="personal_information">Thông tin cá nhân</string>
+    <string name="policy_provisions">Chính sách quy định</string>
+    <string name="setting">Cài đặt</string>
+    <string name="about_us">Về chúng tôi</string>
+    <string name="save_change">Lưu thay đổi</string>
+    <string name="back">Back</string>
 
 </resources>

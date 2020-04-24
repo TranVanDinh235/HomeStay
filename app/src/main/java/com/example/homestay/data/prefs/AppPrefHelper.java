@@ -76,7 +76,7 @@ public class AppPrefHelper implements PrefHelper {
 
     @Override
     public void setUserLoggedInMode(Boolean isLogged) {
-        mPrefs.edit().putBoolean(PREF_KEY_CURRENT_USER_EMAIL, isLogged).apply();
+        mPrefs.edit().putBoolean(PREF_KEY_USER_LOGGED_IN_MODE, isLogged).apply();
     }
 
     @Override

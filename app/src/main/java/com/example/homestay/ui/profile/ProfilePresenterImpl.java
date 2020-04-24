@@ -17,23 +17,9 @@ public class ProfilePresenterImpl<V extends ProfileView> extends BasePresenter<V
         super(dataManager, schedulerProvider, compositeDisposable);
     }
 
-    @Override
-    public void onAttach(V mvpView) {
-
-    }
 
     @Override
-    public void onDetach() {
-
-    }
-
-    @Override
-    public void handleApiError(ANError error) {
-
-    }
-
-    @Override
-    public void setUserAsLoggedOut() {
-
+    public boolean isUserLoggedInMode() {
+        return getDataManager().isUserLoggedInMode();
     }
 }

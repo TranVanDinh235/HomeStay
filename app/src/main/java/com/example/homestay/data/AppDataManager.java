@@ -8,6 +8,7 @@ import com.example.homestay.data.network.ApiHelper;
 import com.example.homestay.data.network.model.AuthResponse;
 import com.example.homestay.data.network.model.CityResponse;
 import com.example.homestay.data.network.model.TopicResponse;
+import com.example.homestay.data.network.model.UserResponse;
 import com.example.homestay.data.prefs.PrefHelper;
 import com.example.homestay.di.ApplicationContext;
 
@@ -136,5 +137,10 @@ public class AppDataManager implements DataManager{
     @Override
     public Single<AuthResponse> doServerApiLoginFacebookCall(JSONObject body) {
         return mApiHelper.doServerApiLoginFacebookCall(body);
+    }
+
+    @Override
+    public Single<UserResponse> doServerApiGetUserInfoCall(String userId) {
+        return mApiHelper.doServerApiGetUserInfoCall(userId);
     }
 }
