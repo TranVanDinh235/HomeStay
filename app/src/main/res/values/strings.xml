@@ -4,7 +4,8 @@
     <string name="api_default_error">Something wrong happened!</string>
     <string name="some_error">Some Error Occurred!</string>
     <string name="connection_error">Internet connection lost!</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="login_sign_up">Đăng nhập/Đăng ký</string>
 
     <!--    bottom app bar-->
     <string name="title_discover">Khám phá</string>
@@ -16,15 +17,64 @@
     <string name="title_notifications">Notifications</string>
     <string name="text_search">Xung quanh vị trí hiện tại</string>
 
+    <!--Login Validation-->
+    <string name="empty_email">Please provide a non empty email.</string>
+    <string name="invalid_email">Please provide a valid email.</string>
+    <string name="empty_password">Please provide a non empty password.</string>
+
+    <!--Facebook-->
+    <string name="facebook_app_id">1116456172023199</string> <string name="fb_login_protocol_scheme">fb1116456172023199</string>
+
     <!--empty state-->
     <string name="empty_screen">We do not have anything\nhere right now.</string>
     <string name="please_retry">Please Retry</string>
     <string name="retry">Retry</string>
     <string name="mtrl_picker_save" description="Confirms the selection [CHAR_LIMIT=12]">Lưu</string>
+
     <string name="title_default">2 Nguời lớn 1 Phòng 0 Trẻ em</string>
     <string name="check_in_label">Nhận phòng</string>
     <string name="check_out_label">Trả phòng</string>
     <string name="search">Tìm kiếm</string>
     <string name="finest_homestays">Lựa chọn tốt nhất</string>
     <string name="popular_place">Điểm đến hàng đầu</string>
+    <string name="city_label">Bạn muốn đến thành phố nào?</string>
+    <string name="home">Home</string>
+    <string name="collection">Yêu thích</string>
+    <string name="booking">Đặt chỗ</string>
+    <string name="account">Cá nhân</string>
+    <string name="near_you">Gần bạn</string>
+
+    <!--login-->
+    <string name="homes">HomeS</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="login">ĐĂNG NHẬP</string>
+    <string name="login_google">ĐĂNG NHẬP VỚI GOOGLE</string>
+    <string name="login_facebook">ĐĂNG NHẬP VỚI FACEBOOK</string>
+    <string name="not_account">Bạn chưa có tài khoản?</string>
+    <string name="sign_up_with_email">ĐĂNG KÝ VỚI EMAIL</string>
+
+    <!--profile-->
+    <string name="full_name">*Họ và Tên</string>
+    <string name="gender">Giới tính</string>
+    <string name="phone">Số điện thoại</string>
+    <string name="address">Địa chỉ</string>
+    <string name="birth_day">Ngày sinh</string>
+    <string name="introduce">Giới thiệu bản thân</string>
+    <string name="logout">Đăng xuất</string>
+
+    <!--login google-->
+    <string name="server_client_id">233136474065-5s76pvccvu8l1ahujm9jt36h0ogh8t0k.apps.googleusercontent.com</string>
+
+    <!--long text-->
+    <string name="long_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet purus rhoncus ullamcorper ullamcorper. Nulla accumsan leo quis purus pretium mattis. Nunc in eros cursus, feugiat magna nec, pharetra nulla. Curabitur vel leo finibus, volutpat lorem sit amet, pharetra odio. Sed non arcu quis diam suscipit eleifend sit amet nec dui. Phasellus vel sagittis neque, vitae vulputate tortor. Phasellus a neque lectus. Sed venenatis nunc quis diam feugiat congue. Aliquam sit amet tempor arcu, nec vulputate orci. Integer nulla odio, suscipit tempor lacus id, varius laoreet nibh. In gravida tellus at iaculis finibus. Suspendisse potenti</string>
+    <string name="two_line_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </string>
+    <string name="personal_information">Thông tin cá nhân</string>
+    <string name="policy_provisions">Chính sách quy định</string>
+    <string name="setting">Cài đặt</string>
+    <string name="about_us">Về chúng tôi</string>
+    <string name="save_change">Lưu thay đổi</string>
+    <string name="back">Back</string>
+
 </resources>

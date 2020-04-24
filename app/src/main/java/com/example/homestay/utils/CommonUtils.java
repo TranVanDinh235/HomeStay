@@ -24,6 +24,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.provider.Settings;
 import android.util.TypedValue;
 
+import org.kobjects.base64.Base64;
 
 import androidx.annotation.AttrRes;
 
@@ -31,6 +32,9 @@ import com.example.homestay.R;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -39,6 +43,7 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.crypto.Cipher;
 
 
 public final class CommonUtils {
@@ -93,7 +98,7 @@ public final class CommonUtils {
     }
 
     public static String getTimeStamp() {
-        return new SimpleDateFormat(AppConstants.TIMESTAMP_FORMAT, Locale.US).format(new Date());
+        return new SimpleDateFormat(AppConstants.TIMESTAMP_FORMAT, Locale.CHINESE).format(new Date());
     }
 
     public static Calendar getClearedUtc() {
@@ -119,5 +124,40 @@ public final class CommonUtils {
             case 4: return AppConstants.OTHER;
         }
         return AppConstants.OTHER;
+    }
+
+    public static String encrypt(String key, String plainTex) {
+
+        Cipher cipher;
+        PublicKey publicKey = stringToPublicKey(key);
+
+        try {
+            cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(Cipher.ENCRYPT_MODE, publicKey);
+            byte[] plaintBytes = plainTex.getBytes("UTF-8");
+            byte[] cipherData = cipher.doFinal(plaintBytes);
+            return Base64.encode(cipherData);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    private static PublicKey stringToPublicKey(String publicKeyString) {
+        try {
+            X509EncodedKeySpec spec = new X509EncodedKeySpec(Base64.decode(publicKeyString));
+            return KeyFactory.getInstance("RSA").generatePublic(spec);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String replace(String dataEncrypted){
+        dataEncrypted = dataEncrypted.replaceAll("\n", "");
+        dataEncrypted = dataEncrypted.replaceAll("\r", "");
+        return dataEncrypted;
     }
 }

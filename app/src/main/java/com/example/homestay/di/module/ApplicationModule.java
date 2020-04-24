@@ -11,6 +11,8 @@ import com.example.homestay.data.db.DbHelper;
 import com.example.homestay.data.network.ApiHeader;
 import com.example.homestay.data.network.ApiHelper;
 import com.example.homestay.data.network.AppApiHelper;
+import com.example.homestay.data.network.TokenAuthenticator;
+import com.example.homestay.data.network.TokenInterceptor;
 import com.example.homestay.data.prefs.AppPrefHelper;
 import com.example.homestay.data.prefs.PrefHelper;
 import com.example.homestay.di.ApiInfo;
@@ -87,11 +89,8 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    ApiHeader.ProtectedApiHeader provideProtectedApiHeader(@ApiInfo String apiKey,
-                                                           PrefHelper preferencesHelper) {
+    ApiHeader.ProtectedApiHeader provideProtectedApiHeader(PrefHelper preferencesHelper) {
         return new ApiHeader.ProtectedApiHeader(
-                apiKey,
-                preferencesHelper.getCurrentUserId(),
                 preferencesHelper.getAccessToken());
     }
 }

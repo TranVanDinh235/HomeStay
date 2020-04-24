@@ -10,11 +10,16 @@
 
 
     <style name="Theme.MyApp" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/deep_purple_500</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/material_on_background_disabled</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorBackground1</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="materialCalendarFullscreenTheme">@style/CustomThemeOverlay_MaterialCalendar_Fullscreen</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="CustomThemeOverlay_MaterialCalendar_Fullscreen"
         parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen">

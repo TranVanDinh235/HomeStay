@@ -6,7 +6,28 @@ public interface PrefHelper {
 
     void setAccessToken(String accessToken);
 
-    Long getCurrentUserId();
+    String getRefreshToken();
 
-    void setCurrentUserId(Long userId);
+    void setRefreshToken(String refreshToken);
+
+    String getCurrentUsername();
+
+    void setCurrentUsername(String username);
+
+    String getCurrentUserEmail();
+
+    void setCurrentUserEmail(String email);
+
+    Boolean isUserLoggedInMode();
+
+    void setUserLoggedInMode(Boolean isLogged);
+
+    Integer getCurrentUserId();
+
+    void setCurrentUserId(Integer userId);
+
+    String getCurrentUserProfilePicUrl();
+
+    void setCurrentUserProfilePicUrl(String url);
+
 }

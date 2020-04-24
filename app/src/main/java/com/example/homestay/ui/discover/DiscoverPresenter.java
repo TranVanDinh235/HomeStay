@@ -6,5 +6,9 @@ import com.example.homestay.ui.base.Presenter;
 
 @PerActivity
 public interface DiscoverPresenter<V extends MvpView> extends Presenter<V> {
-    void loadData();
+    void onViewPrepared();
+
+    void loadTopic();
+
+    void loadCity();
 }
