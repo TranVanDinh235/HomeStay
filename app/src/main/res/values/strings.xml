@@ -77,4 +77,7 @@
     <string name="save_change">Lưu thay đổi</string>
     <string name="back">Back</string>
 
+    <!--calendar-->
+    <string name="ok">Chọn</string>
+
 </resources>

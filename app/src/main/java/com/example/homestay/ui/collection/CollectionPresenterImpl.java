@@ -18,22 +18,22 @@ public class CollectionPresenterImpl<V extends CollectionView> extends BasePrese
     }
 
     @Override
-    public void onAttach(V mvpView) {
-
+    public boolean isUserLoggedInMode() {
+        return getDataManager().isUserLoggedInMode();
     }
 
     @Override
-    public void onDetach() {
+    public void getListHouse() {
+        getView().showLoading();
+        String userId = String.valueOf(getDataManager().getCurrentUserId());
+        getCompositeDisposable().add(getDataManager().doServerApiGetHouseByCollection(userId)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(response -> {
+                    getView().hideLoading();
+                    getView().showCollection(response);
+                }, throwable -> {
 
-    }
-
-    @Override
-    public void handleApiError(ANError error) {
-
-    }
-
-    @Override
-    public void setUserAsLoggedOut() {
-
+                }));
     }
 }

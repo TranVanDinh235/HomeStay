@@ -22,6 +22,7 @@ import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.provider.Settings;
+import android.util.Log;
 import android.util.TypedValue;
 
 import org.kobjects.base64.Base64;
@@ -32,6 +33,7 @@ import com.example.homestay.R;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
@@ -94,7 +96,7 @@ public final class CommonUtils {
         is.read(buffer);
         is.close();
 
-        return new String(buffer, "UTF-8");
+        return new String(buffer, StandardCharsets.UTF_8);
     }
 
     public static String getTimeStamp() {
@@ -134,7 +136,7 @@ public final class CommonUtils {
         try {
             cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(Cipher.ENCRYPT_MODE, publicKey);
-            byte[] plaintBytes = plainTex.getBytes("UTF-8");
+            byte[] plaintBytes = plainTex.getBytes(StandardCharsets.UTF_8);
             byte[] cipherData = cipher.doFinal(plaintBytes);
             return Base64.encode(cipherData);
 
@@ -159,5 +161,31 @@ public final class CommonUtils {
         dataEncrypted = dataEncrypted.replaceAll("\n", "");
         dataEncrypted = dataEncrypted.replaceAll("\r", "");
         return dataEncrypted;
+    }
+
+    public static String cutString(String str){
+        int mark = 26;
+        if(str.length() > 26) {
+            for (int i = 0; i < str.length() - 1; i++) {
+                if (str.charAt(i) == ' ') {
+                    mark = i;
+                }
+            }
+            return str.substring(0, Math.min(mark, 26)) + "..";
+        } else return str;
+    }
+
+    public static String getRate(String rateStr, int promotion){
+        long rateLong = Long.parseLong(rateStr);
+        rateLong = rateLong*(100 - promotion)/100/1000*1000;
+        String rate = String.valueOf(rateLong);
+        int length = rate.length();
+        for (int i = length-1; i > 0 ; i --){
+            if((length - i) % 3 == 0) {
+                rate = rate.substring(0, i) + "." + rate.substring(i);
+                i--;
+            }
+        }
+        return rate + '₫';
     }
 }

@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.homestay.data.network.model.entity.City;
+import com.example.homestay.data.network.model.entity.House;
 import com.example.homestay.data.network.model.entity.Topic;
 import com.example.homestay.di.ActivityContext;
+import com.example.homestay.ui.collection.CollectionAdapter;
 import com.example.homestay.ui.discover.DiscoverPresenter;
 import com.example.homestay.ui.discover.DiscoverPresenterImpl;
 import com.example.homestay.ui.discover.DiscoverView;
@@ -34,6 +36,9 @@ import com.example.homestay.ui.message.MessageView;
 import com.example.homestay.ui.profile.ProfilePresenter;
 import com.example.homestay.ui.profile.ProfilePresenterImpl;
 import com.example.homestay.ui.profile.ProfileView;
+import com.example.homestay.ui.review.ReviewPresenter;
+import com.example.homestay.ui.review.ReviewPresenterImpl;
+import com.example.homestay.ui.review.ReviewView;
 import com.example.homestay.utils.rx.AppSchedulerProvider;
 import com.example.homestay.utils.rx.SchedulerProvider;
 
@@ -121,6 +126,12 @@ public class ActivityModule {
     }
 
     @Provides
+    ReviewPresenter<ReviewView> provideReviewPresenter(
+            ReviewPresenterImpl<ReviewView> presenter) {
+        return presenter;
+    }
+
+    @Provides
     LinearLayoutManager provideLinearLayoutManager(AppCompatActivity activity){
         return new LinearLayoutManager(activity){
             @Override
@@ -138,5 +149,10 @@ public class ActivityModule {
     @Provides
     TopicAdapter provideTopicAdapter() {
         return new TopicAdapter(new ArrayList<Topic>());
+    }
+
+    @Provides
+    CollectionAdapter provideCollectionAdapter() {
+        return new CollectionAdapter(new ArrayList<House>());
     }
 }

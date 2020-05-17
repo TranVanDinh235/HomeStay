@@ -6,6 +6,8 @@ import android.content.Context;
 import com.example.homestay.R;
 import com.example.homestay.data.AppDataManager;
 import com.example.homestay.data.DataManager;
+import com.example.homestay.data.cache.AppCache;
+import com.example.homestay.data.cache.CacheHelper;
 import com.example.homestay.data.db.AppDbHelper;
 import com.example.homestay.data.db.DbHelper;
 import com.example.homestay.data.network.ApiHeader;
@@ -93,4 +95,12 @@ public class ApplicationModule {
         return new ApiHeader.ProtectedApiHeader(
                 preferencesHelper.getAccessToken());
     }
+
+    @Provides
+    @Singleton
+    CacheHelper provideCacheHelper(AppCache appCache) {return appCache;}
+
+    @Provides
+    @Singleton
+    TokenAuthenticator provideTokenAuthenticator(DataManager dataManager, ApiHeader apiHeader) {return new TokenAuthenticator(dataManager, apiHeader);}
 }

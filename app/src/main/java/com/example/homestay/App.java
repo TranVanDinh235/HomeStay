@@ -10,6 +10,7 @@ import com.example.homestay.data.network.TokenAuthenticator;
 import com.example.homestay.di.component.ApplicationComponent;
 import com.example.homestay.di.component.DaggerApplicationComponent;
 import com.example.homestay.di.module.ApplicationModule;
+import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import java.util.concurrent.TimeUnit;
 
@@ -24,7 +25,7 @@ public class App extends Application {
     DataManager mDataManager;
 
     @Inject
-    ApiHeader mApiHeader;
+    TokenAuthenticator tokenAuthenticator;
 
     private ApplicationComponent mApplicationComponent;
 
@@ -42,7 +43,7 @@ public class App extends Application {
 
 //        AppLogger.init();
         OkHttpClient okClient = new OkHttpClient.Builder()
-                .authenticator(new TokenAuthenticator(mDataManager, mApiHeader))
+                .authenticator(tokenAuthenticator)
                 .dispatcher(dispatcher)
                 .build();
 
@@ -50,6 +51,8 @@ public class App extends Application {
         if (BuildConfig.DEBUG) {
             AndroidNetworking.enableLogging(HttpLoggingInterceptor.Level.BODY);
         }
+
+        AndroidThreeTen.init(this);
     }
 
     public ApplicationComponent getComponent() {

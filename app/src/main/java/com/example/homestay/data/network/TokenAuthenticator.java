@@ -1,10 +1,13 @@
 package com.example.homestay.data.network;
 
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.example.homestay.data.DataManager;
 import com.example.homestay.data.network.model.Token;
+import com.example.homestay.utils.AppConstants;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -17,17 +20,21 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import okhttp3.Authenticator;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.Route;
 
-
+@Singleton
 public class TokenAuthenticator implements Authenticator {
 
     private DataManager dataManager;
     private ApiHeader apiHeader;
 
+    @Inject
     public TokenAuthenticator(DataManager dataManager, ApiHeader apiHeader) {
         this.dataManager = dataManager;
         this.apiHeader = apiHeader;
@@ -36,6 +43,7 @@ public class TokenAuthenticator implements Authenticator {
     @Override
     public Request authenticate(@NonNull Route route,@NonNull Response response) throws IOException {
 
+        Log.d(AppConstants.TAG, "authenticate: ");
         if(response.code() == 401){
             boolean refreshResult = refreshToken();
             if (refreshResult) {

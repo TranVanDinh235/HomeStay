@@ -6,4 +6,7 @@ import com.example.homestay.ui.base.Presenter;
 
 @PerActivity
 public interface CollectionPresenter<V extends MvpView> extends Presenter<V> {
+    boolean isUserLoggedInMode();
+
+    void getListHouse();
 }

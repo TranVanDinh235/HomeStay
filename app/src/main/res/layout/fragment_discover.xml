@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="80dp"
-    android:background="@color/colorBackground1">
+    android:paddingBottom="80dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,13 +16,12 @@
             android:id="@+id/layout_search"
             android:layout_width="match_parent"
             android:layout_height="47dp"
-            app:cardElevation="4dp"
+            app:cardElevation="0dp"
             app:cardCornerRadius="6dp"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="40dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:cardBackgroundColor="@color/colorBackground2">
+            android:layout_marginEnd="16dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -63,12 +61,63 @@
         </androidx.cardview.widget.CardView>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_check_in_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="@string/check_in_label"
+                android:textColor="@color/colorBackground1"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/tv_check_out_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="@string/check_out_label"
+                android:textColor="@color/colorBackground1"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/layout_discover_check_in_day_of_week"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Thứ 5"
+                android:textColor="@color/colorBackground1" />
+
+            <TextView
+                android:id="@+id/layout_discover_check_out_day_of_week"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:fontFamily="@font/work_sans_medium"
+                android:textColor="@color/colorBackground1"
+                tools:text="Thứ 3" />
+
+        </LinearLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_date_picker"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:background="@color/colorPrimary"
-            android:padding="16dp">
+            android:layout_height="wrap_content"
+            android:padding="4dp">
 
             <ImageView
                 android:id="@+id/icon_right"
@@ -81,163 +130,100 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_check_in"
+
+            <TextView
+                android:id="@+id/layout_discover_check_in_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="10"
+                android:textColor="@color/colorBackground1"
+                android:textSize="36sp"
                 app:layout_constraintEnd_toStartOf="@+id/icon_right"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_check_in_label">
-
-                <TextView
-                    android:id="@+id/tv_check_in_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_semibold"
-                    android:textSize="@dimen/_40sdp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:textColor="@color/colorBackground1"
-                    android:text="10" />
-
-                <TextView
-                    android:id="@+id/tv_check_in_day_of_week"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_medium"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:textColor="@color/colorBackground1"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_check_in_month"
-                    app:layout_constraintStart_toEndOf="@+id/tv_check_in_date"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="Thứ 5" />
-
-                <TextView
-                    android:id="@+id/tv_check_in_month"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_medium"
-                    android:textColor="@color/colorBackground1"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tv_check_in_day_of_week"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_check_in_day_of_week"
-                    android:text="thg5" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                android:id="@+id/tv_check_in_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/work_sans_medium"
-                android:text="@string/check_in_label"
-                android:textColor="@color/colorBackground1"
-                app:layout_constraintBottom_toTopOf="@+id/layout_check_in"
-                app:layout_constraintStart_toStartOf="@+id/layout_check_in"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_check_out"
+            <TextView
+                android:id="@+id/layout_discover_check_out_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:textColor="@color/colorBackground1"
+                android:textSize="36sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/icon_right"
-                app:layout_constraintTop_toBottomOf="@+id/tv_check_out_label">
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="13" />
 
-                <TextView
-                    android:id="@+id/tv_check_out_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_semibold"
-                    android:textSize="@dimen/_40sdp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:textColor="@color/colorBackground1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="10" />
 
-                <TextView
-                    android:id="@+id/tv_check_out_day_of_week"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:fontFamily="@font/work_sans_medium"
-                    android:textColor="@color/colorBackground1"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_check_out_month"
-                    app:layout_constraintStart_toEndOf="@+id/tv_check_out_date"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Thứ 3" />
 
-                <TextView
-                    android:id="@+id/tv_check_out_month"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_medium"
-                    android:textColor="@color/colorBackground1"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tv_check_out_day_of_week"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_check_out_day_of_week"
-                    tools:text="Th5" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/tv_check_out_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/work_sans_medium"
-                android:textColor="@color/colorBackground1"
-                android:text="@string/check_out_label"
-                app:layout_constraintBottom_toTopOf="@+id/layout_check_out"
-                app:layout_constraintStart_toStartOf="@+id/layout_check_out"
-                app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/layout_discover_check_in_month"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:fontFamily="@font/work_sans_medium"
+            android:text="thg5"
+            android:textColor="@color/colorBackground1"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/layout_discover_check_out_month"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:fontFamily="@font/work_sans_medium"
+            android:textColor="@color/colorBackground1"
+            tools:text="Th5" />
+
+    </LinearLayout>
 
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="54dp"
+            android:layout_height="48dp"
             android:gravity="center"
-            android:background="@color/white"
-            android:fontFamily="@font/work_sans_bold"
-            android:textSize="18sp"
+            android:fontFamily="@font/nunito_sans_semibold"
+            android:textSize="20sp"
             android:layout_marginTop="16dp"
-            android:text="@string/title_default"
-            android:textColor="@color/colorPrimary"
-            android:backgroundTint="@color/white"/>
+            android:text="@string/title_default"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/layout_btn_search"
             android:layout_width="match_parent"
-            android:layout_height="54dp"
-            app:cardCornerRadius="30dp"
+            android:layout_height="48dp"
+            app:cardElevation="0dp"
             android:layout_marginTop="32dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:cardBackgroundColor="@color/colorPrimary">
+            android:layout_marginEnd="16dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textAlignment="center"
-                android:fontFamily="@font/work_sans_bold"
-                android:textSize="18sp"
-                android:text="@string/search"
-                android:textColor="@color/colorBackground1" />
+                android:fontFamily="@font/nunito_sans_bold"
+                android:textSize="20sp"
+                android:text="@string/search" />
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/city_label"
-            android:fontFamily="@font/work_sans_semibold"
+            android:fontFamily="@font/nunito_sans_bold"
             android:layout_marginTop="48dp"
             android:textSize="20sp"
             android:paddingStart="@dimen/_8sdp"
@@ -276,7 +262,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/layout_discover_cites"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginStart="48dp" />
 

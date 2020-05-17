@@ -1,9 +1,9 @@
 package com.example.homestay.data.network;
 
-import android.util.Log;
-
 import com.example.homestay.data.network.model.AuthResponse;
 import com.example.homestay.data.network.model.CityResponse;
+import com.example.homestay.data.network.model.HouseListResponse;
+import com.example.homestay.data.network.model.HouseResponse;
 import com.example.homestay.data.network.model.TopicResponse;
 import com.example.homestay.data.network.model.UserResponse;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
@@ -86,6 +86,37 @@ public class AppApiHelper implements ApiHelper{
                 .addPathParameter("id", id)
                 .build()
                 .getObjectSingle(UserResponse.class);
+    }
+
+    @Override
+    public Single<HouseListResponse> doServerApiGetHouseByTopicItem(String id) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_TOPIC_ITEM_DATA)
+                .addHeaders("Content-Type", "application/json")
+                .addHeaders("Accept", "application/json")
+                .addPathParameter("id", id)
+                .build()
+                .getObjectSingle(HouseListResponse.class);
+    }
+
+    @Override
+    public Single<HouseListResponse> doServerApiGetHouseByCollection(String userId) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_COLLECTION_DATA)
+                .addHeaders("Content-Type", "application/json")
+                .addHeaders("Accept", "application/json")
+                .addPathParameter("id", userId)
+                .build()
+                .getObjectSingle(HouseListResponse.class);
+    }
+
+    @Override
+    public Single<HouseResponse> doServerApiGetHouse(String houseId, String userId) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_COLLECTION_DATA)
+                .addHeaders("Content-Type", "application/json")
+                .addHeaders("Accept", "application/json")
+                .addPathParameter("id", houseId)
+                .addQueryParameter("user_id", userId)
+                .build()
+                .getObjectSingle(HouseResponse.class);
     }
 
 

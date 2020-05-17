@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorBackground1">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                 android:fontFamily="@font/work_sans_medium"
                 android:textSize="18sp"
                 android:text="@string/login_sign_up"
-                android:textColor="@color/colorBackground1" />
+                android:textColor="@color/white" />
         </androidx.cardview.widget.CardView>
 
         <androidx.constraintlayout.widget.ConstraintLayout

@@ -55,14 +55,18 @@ dependencies {
     implementation "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
     implementation 'androidx.annotation:annotation:1.1.0'
-    implementation 'com.google.android.material:material:1.2.0-alpha04'
+    implementation 'com.google.android.material:material:1.2.0-alpha06'
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     implementation 'com.google.android.gms:play-services-auth:18.0.0'
     implementation 'com.facebook.android:facebook-login:[5,6)'
-
-    implementation 'com.applandeo:material-calendar-view:1.7.0'
+    implementation 'com.github.prolificinteractive:material-calendarview:2.0.0'
 
     implementation files('libs/ksoap2-android-assembly-2.4-jar-with-dependencies.jar')
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.0'
+    implementation 'org.greenrobot:eventbus:3.2.0'
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.joooonho:selectableroundedimageview:1.0.1'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
 }

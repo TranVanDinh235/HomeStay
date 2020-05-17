@@ -2,17 +2,23 @@ package com.example.homestay.data;
 
 import android.content.Context;
 
+import com.example.homestay.data.cache.CacheHelper;
 import com.example.homestay.data.db.DbHelper;
 import com.example.homestay.data.network.ApiHeader;
 import com.example.homestay.data.network.ApiHelper;
 import com.example.homestay.data.network.model.AuthResponse;
 import com.example.homestay.data.network.model.CityResponse;
+import com.example.homestay.data.network.model.HouseListResponse;
+import com.example.homestay.data.network.model.HouseResponse;
 import com.example.homestay.data.network.model.TopicResponse;
 import com.example.homestay.data.network.model.UserResponse;
 import com.example.homestay.data.prefs.PrefHelper;
 import com.example.homestay.di.ApplicationContext;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
 
 import org.json.JSONObject;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -26,16 +32,19 @@ public class AppDataManager implements DataManager{
     private final DbHelper mDbHelper;
     private final PrefHelper mPreferencesHelper;
     private final ApiHelper mApiHelper;
+    private final CacheHelper mCacheHelper;
 
     @Inject
     public AppDataManager(@ApplicationContext Context context,
                           DbHelper dbHelper,
                           PrefHelper preferencesHelper,
-                          ApiHelper apiHelper) {
+                          ApiHelper apiHelper,
+                          CacheHelper cacheHelper) {
         mContext = context;
         mDbHelper = dbHelper;
         mPreferencesHelper = preferencesHelper;
         mApiHelper = apiHelper;
+        mCacheHelper = cacheHelper;
     }
 
     @Override
@@ -142,5 +151,35 @@ public class AppDataManager implements DataManager{
     @Override
     public Single<UserResponse> doServerApiGetUserInfoCall(String userId) {
         return mApiHelper.doServerApiGetUserInfoCall(userId);
+    }
+
+    @Override
+    public Single<HouseListResponse> doServerApiGetHouseByTopicItem(String topicItemId) {
+        return mApiHelper.doServerApiGetHouseByTopicItem(topicItemId);
+    }
+
+    @Override
+    public Single<HouseListResponse> doServerApiGetHouseByCollection(String userId) {
+        return mApiHelper.doServerApiGetHouseByCollection(userId);
+    }
+
+    @Override
+    public Single<HouseResponse> doServerApiGetHouse(String houseId, String userId) {
+        return mApiHelper.doServerApiGetHouse(houseId, userId);
+    }
+
+    @Override
+    public List<CalendarDay> getSelectedDates() {
+        return mCacheHelper.getSelectedDates();
+    }
+
+    @Override
+    public void setSelectedDates(List<CalendarDay> selectedDates) {
+        mCacheHelper.setSelectedDates(selectedDates);
+    }
+
+    @Override
+    public void removeSelectedDates() {
+        mCacheHelper.removeSelectedDates();
     }
 }

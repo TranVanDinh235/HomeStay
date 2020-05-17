@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_190sdp"
+    android:layout_margin="@dimen/_12sdp"
+    android:orientation="vertical"
+    app:cardCornerRadius="30dp"
+    app:cardPreventCornerOverlap="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.joooonho.SelectableRoundedImageView
+            android:id="@+id/item_house_large_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image3"
+            app:sriv_left_bottom_corner_radius="30dip"
+            app:sriv_left_top_corner_radius="30dip"
+            app:sriv_right_bottom_corner_radius="30dip"
+            app:sriv_right_top_corner_radius="30dip"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/item_house_large_icon_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_nature"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            />
+
+        <TextView
+            android:id="@+id/item_house_large_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintBottom_toTopOf="@+id/item_house_large_weather"
+            app:layout_constraintEnd_toEndOf="@+id/item_house_large_weather"
+            app:layout_constraintStart_toEndOf="@+id/item_house_large_icon_weather"
+            tools:text="24C" />
+
+        <TextView
+            android:id="@+id/item_house_large_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/item_house_large_icon_weather"
+            app:layout_constraintStart_toEndOf="@+id/item_house_large_icon_weather"
+            android:layout_marginStart="@dimen/_4sdp"
+            tools:text="SUNNY" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="1dp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_gravity="center"
+            android:background="@color/white70"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2"
+            app:layout_constraintStart_toEndOf="@id/item_house_large_weather"
+            android:layout_marginStart="@dimen/_20sdp"/>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/white70"
+            app:layout_constraintBottom_toTopOf="@+id/item_house_large_icon_weather"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            />
+
+        <TextView
+            android:id="@+id/item_house_large_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp"
+            app:layout_constraintBottom_toTopOf="@+id/item_house_large_rate"
+            android:layout_marginStart="@dimen/_12sdp"
+            tools:text="Michelle's Sunshire" />
+
+        <TextView
+            android:id="@+id/item_house_large_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            tools:text="1.000.000d" />
+
+        <TextView
+            android:id="@+id/item_house_large_old_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/white70"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/item_house_large_rate"
+            app:layout_constraintStart_toEndOf="@+id/item_house_large_rate"
+            android:layout_marginStart="@dimen/_12sdp"
+            tools:text="1.200.000d" />
+
+        <TextView
+            android:id="@+id/item_house_large_stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintStart_toEndOf="@+id/view1"
+            app:layout_constraintTop_toTopOf="@+id/item_house_large_temperature"
+            android:layout_marginStart="@dimen/_16sdp"
+            tools:text="4.3" />
+
+        <TextView
+            android:id="@+id/item_house_large_num_vote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/item_house_large_stars"
+            app:layout_constraintStart_toEndOf="@+id/item_house_large_stars"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            tools:text="(1.9K)" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/ratingBarStyleSmall"
+            app:layout_constraintStart_toStartOf="@id/item_house_large_stars"
+            app:layout_constraintTop_toBottomOf="@+id/item_house_large_stars"
+            android:numStars="5"
+            android:stepSize="0.1"
+            android:isIndicator="true" />
+
+        <ImageView
+            android:id="@+id/item_house_large_remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete_bookmark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2"
+            android:layout_marginEnd="@dimen/_20sdp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

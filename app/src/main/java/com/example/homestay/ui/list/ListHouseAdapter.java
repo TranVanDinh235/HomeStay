@@ -3,7 +3,6 @@ package com.example.homestay.ui.list;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,8 +13,8 @@ import com.bumptech.glide.Glide;
 import com.example.homestay.R;
 import com.example.homestay.data.network.model.entity.House;
 import com.example.homestay.ui.base.BaseViewHolder;
-import com.example.homestay.ui.discover.adapter.TopicAdapter;
 import com.example.homestay.utils.CommonUtils;
+import com.joooonho.SelectableRoundedImageView;
 
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     @Override
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ListHouseAdapter.ViewHolder(
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.item_house_view, parent, false));
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.item_house_large, parent, false));
     }
 
     @Override
@@ -49,29 +48,14 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     public class ViewHolder extends BaseViewHolder{
 
-        @BindView(R.id.item_house_photo)
-        ImageView photoImageView;
+        @BindView(R.id.item_house_large_photo)
+        SelectableRoundedImageView photoImageView;
 
-        @BindView(R.id.item_house_title)
+        @BindView(R.id.item_house_large_title)
         TextView titleTextView;
 
-        @BindView(R.id.item_house_type)
-        TextView typeTextView;
-
-        @BindView(R.id.item_house_detail)
-        TextView detailTextView;
-
-        @BindView(R.id.item_house_address)
-        TextView addressTextView;
-
-        @BindView(R.id.item_house_review)
-        TextView reviewTextView;
-
-        @BindView(R.id.item_house_rate)
+        @BindView(R.id.item_house_large_rate)
         TextView rateTextView;
-
-        @BindView(R.id.item_house_new_rate)
-        TextView newRateTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -82,12 +66,7 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         protected void clear() {
             photoImageView.setImageDrawable(null);
             titleTextView.setText("");
-            typeTextView.setText("");
-            detailTextView.setText("");
-            addressTextView.setText("");
-            reviewTextView.setText("");
             rateTextView.setText("");
-            newRateTextView.setText("");
         }
 
         @Override

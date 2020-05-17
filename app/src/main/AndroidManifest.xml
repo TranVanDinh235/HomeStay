@@ -37,24 +37,26 @@
             android:name=".ui.main.MainActivity"
             android:label="@string/title_activity_main"
             android:windowSoftInputMode="adjustPan">
-
-
         </activity>
         <activity android:name=".ui.list.ListHouseActivity" />
-        <activity android:name=".ui.review.ReviewActivity" />
-        <activity android:name=".ui.house.HouseActivity" />
-        <activity android:name=".ui.login.LoginActivity">
+        <activity android:name=".ui.review.ReviewActivity"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.house.HouseActivity" />
+        <activity android:name=".ui.login.LoginActivity">
+
+        </activity>
         <activity android:name=".ui.signup.SignUpActivity" />
         <activity android:name=".ui.splash.SplashActivity" />
         <activity android:name=".ui.info.InfoActivity" >
 
         </activity>
+        <activity android:name=".ui.calendar.CalendarActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -2,6 +2,7 @@ package com.example.homestay.di.component;
 
 import com.example.homestay.di.PerActivity;
 import com.example.homestay.di.module.ActivityModule;
+import com.example.homestay.ui.calendar.CalendarActivity;
 import com.example.homestay.ui.collection.CollectionFragment;
 import com.example.homestay.ui.discover.DiscoverFragment;
 import com.example.homestay.ui.discover.adapter.TopicAdapter;
@@ -11,6 +12,7 @@ import com.example.homestay.ui.login.LoginActivity;
 import com.example.homestay.ui.main.MainActivity;
 import com.example.homestay.ui.message.MessageFragment;
 import com.example.homestay.ui.profile.ProfileFragment;
+import com.example.homestay.ui.review.ReviewActivity;
 
 import dagger.Component;
 
@@ -19,7 +21,7 @@ import dagger.Component;
 public interface ActivityComponent {
     void inject(DiscoverFragment discoverFragment);
 
-    void inject(CollectionFragment markedFragment);
+    void inject(CollectionFragment collectionFragment);
 
     void inject(MessageFragment messageFragment);
 
@@ -32,5 +34,9 @@ public interface ActivityComponent {
     void inject(LoginActivity loginActivity);
 
     void inject(InfoActivity infoActivity);
+
+    void inject(CalendarActivity calendarActivity);
+
+    void inject(ReviewActivity reviewActivity);
 
 }

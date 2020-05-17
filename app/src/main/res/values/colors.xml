@@ -3,9 +3,12 @@
     <color name="colorPrimary">#9378FF</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorBackground1">#FAF9FE</color>
+    <color name="colorBackground1">#467395</color>
     <color name="colorBackground2">#FBEEFF</color>
     <color name="colorText1">#120E21</color>
+    <color name="color_text_25">#40120E21</color>
+    <color name="color_text_50">#80120E21</color>
+    <color name="color_text_70">#B3120E21</color>
     <color name="colorText2">#99879D</color>
     <color name="black_effective">#2a2a2a</color>
     <color name="light_gray">#dbdbdb</color>
@@ -15,6 +18,8 @@
     <color name="bg_color">#f7f7f7</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
+    <color name="white50">#80ffffff</color>
+    <color name="white70">#B3ffffff</color>
     <color name="deep_purple_500">#673AB7</color>
     <color name="colorBtnFaceBook">#2196F3</color>
 </resources>
