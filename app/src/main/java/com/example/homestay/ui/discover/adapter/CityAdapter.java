@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.homestay.R;
-import com.example.homestay.data.network.model.entity.City;
+import com.example.homestay.data.network.entity.City;
 import com.example.homestay.ui.base.BaseViewHolder;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.List;
 
@@ -66,6 +67,12 @@ public class CityAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @BindView(R.id.item_city_name)
         TextView itemCityNameTextView;
 
+        @BindView(R.id.item_city_title)
+        TextView itemCityTitleTextView;
+
+        @BindView(R.id.item_city_load_more)
+        ExtendedFloatingActionButton loadMoreButton;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -93,6 +100,10 @@ public class CityAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
             if(item.getName() != null) {
                 itemCityNameTextView.setText(item.getName());
+            }
+
+            if(item.getTitle() != null){
+                itemCityTitleTextView.setText(item.getTitle());
             }
 
         }

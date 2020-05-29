@@ -20,8 +20,9 @@ package com.example.homestay.utils;
  */
 
 public final class AppConstants {
-    public static final String IP_ADDRESS = "http://10.1.60.76:3030/homestay/v1/api";
-//    public static final String IP_ADDRESS = "http://12.22.88.101:3030/homestay/v1/api";
+//    public static final String IP_ADDRESS = "http://10.1.60.76:3030/homestay/v1/api";
+//    public static final String IP_ADDRESS = "http://10.0.2.2:3030/homestay/v1/api";
+    public static final String IP_ADDRESS = "http://12.22.88.102:3030/homestay/v1/api";
 //    public static final String IP_ADDRESS = "http://192.168.1.10:3030/homestay/v1/api";
 
     public static final String STATUS_CODE_SUCCESS = "success";
@@ -48,10 +49,9 @@ public final class AppConstants {
     public static final String TAG_LIST_HOUSE_TYPE = "list house type";
     public static final String TAG_TOPIC_ITEM = "topic item";
     public static final String TAG_CITY = "city";
-    public static final String TAG_LIST_HOUSE_ID = "list house id";
-    public static final String TAG_LIST_HOUSE_PHOTO = "list house photo";
-    public static final String TAG_LIST_HOUSE_TITLE = "list house title";
     public static final String TAG_LIST_HOUSE_SUB_TITLE = "list house sub title";
+    public static final String TAG_TOPIC_ITEM_ID = "tag topic item id";
+    public static final String TAG_SEARCH_STRING = "tag search string";
 
 
 

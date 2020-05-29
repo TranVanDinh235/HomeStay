@@ -1,7 +1,9 @@
-package com.example.homestay.data.network.model.entity;
+package com.example.homestay.data.network.entity;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class House {
     @Expose
@@ -102,27 +104,27 @@ public class House {
 
     @Expose
     @SerializedName("facilities")
-    private String facilities;
+    private Facilities facilities;
 
     @Expose
     @SerializedName("kitchen_facilities")
-    private String kitchenFacilities;
+    private KitchenFacilities kitchenFacilities;
 
     @Expose
     @SerializedName("room_facilities")
-    private String roomFacilities;
+    private RoomFacilities roomFacilities;
 
     @Expose
     @SerializedName("entertainment")
-    private String entertainment;
+    private Entertainment entertainment;
 
     @Expose
     @SerializedName("special_facilities")
-    private String specialFacilities;
+    private SpecialFacilities specialFacilities;
 
     @Expose
     @SerializedName("families")
-    private String families;
+    private Families families;
 
     @Expose
     @SerializedName("views")
@@ -135,6 +137,23 @@ public class House {
     @Expose
     @SerializedName("city_id")
     private int cityId;
+
+    @Expose
+    @SerializedName("calendar")
+    private List<Calendar> calendars;
+
+    @Expose
+    @SerializedName("total_review")
+    private int totalReview;
+
+    @Expose
+    @SerializedName("num_of_stars")
+    private float numOfStars;
+
+    @Expose
+    @SerializedName("rate")
+    private String rate;
+
 
     public int getId() {
         return id;
@@ -328,51 +347,51 @@ public class House {
         this.houseManual = houseManual;
     }
 
-    public String getFacilities() {
+    public Facilities getFacilities() {
         return facilities;
     }
 
-    public void setFacilities(String facilities) {
+    public void setFacilities(Facilities facilities) {
         this.facilities = facilities;
     }
 
-    public String getKitchenFacilities() {
+    public KitchenFacilities getKitchenFacilities() {
         return kitchenFacilities;
     }
 
-    public void setKitchenFacilities(String kitchenFacilities) {
+    public void setKitchenFacilities(KitchenFacilities kitchenFacilities) {
         this.kitchenFacilities = kitchenFacilities;
     }
 
-    public String getRoomFacilities() {
+    public RoomFacilities getRoomFacilities() {
         return roomFacilities;
     }
 
-    public void setRoomFacilities(String roomFacilities) {
+    public void setRoomFacilities(RoomFacilities roomFacilities) {
         this.roomFacilities = roomFacilities;
     }
 
-    public String getEntertainment() {
+    public Entertainment getEntertainment() {
         return entertainment;
     }
 
-    public void setEntertainment(String entertainment) {
+    public void setEntertainment(Entertainment entertainment) {
         this.entertainment = entertainment;
     }
 
-    public String getSpecialFacilities() {
+    public SpecialFacilities getSpecialFacilities() {
         return specialFacilities;
     }
 
-    public void setSpecialFacilities(String specialFacilities) {
+    public void setSpecialFacilities(SpecialFacilities specialFacilities) {
         this.specialFacilities = specialFacilities;
     }
 
-    public String getFamilies() {
+    public Families getFamilies() {
         return families;
     }
 
-    public void setFamilies(String families) {
+    public void setFamilies(Families families) {
         this.families = families;
     }
 
@@ -398,5 +417,37 @@ public class House {
 
     public void setCityId(int cityId) {
         this.cityId = cityId;
+    }
+
+    public List<Calendar> getCalendars() {
+        return calendars;
+    }
+
+    public void setCalendars(List<Calendar> calendars) {
+        this.calendars = calendars;
+    }
+
+    public int getTotalReview() {
+        return totalReview;
+    }
+
+    public void setTotalReview(int totalReview) {
+        this.totalReview = totalReview;
+    }
+
+    public float getNumOfStars() {
+        return numOfStars;
+    }
+
+    public void setNumOfStars(float numOfStars) {
+        this.numOfStars = numOfStars;
+    }
+
+    public String getRate() {
+        return rate;
+    }
+
+    public void setRate(String rate) {
+        this.rate = rate;
     }
 }

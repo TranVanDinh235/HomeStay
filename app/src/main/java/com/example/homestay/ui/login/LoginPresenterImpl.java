@@ -2,12 +2,11 @@ package com.example.homestay.ui.login;
 
 import com.example.homestay.R;
 import com.example.homestay.data.DataManager;
-import com.example.homestay.data.network.model.LoginBody;
+import com.example.homestay.data.network.request.LoginBody;
 import com.example.homestay.ui.base.BasePresenter;
 import com.example.homestay.utils.CommonUtils;
 import com.example.homestay.utils.rx.SchedulerProvider;
 import com.google.gson.Gson;
-import com.google.gson.JsonParser;
 
 import org.json.JSONObject;
 
@@ -15,10 +14,10 @@ import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public class LogPresenterImpl<V extends LoginView> extends BasePresenter<V> implements LoginPresenter<V> {
+public class LoginPresenterImpl<V extends LoginView> extends BasePresenter<V> implements LoginPresenter<V> {
 
     @Inject
-    public LogPresenterImpl(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
+    public LoginPresenterImpl(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
     }
 

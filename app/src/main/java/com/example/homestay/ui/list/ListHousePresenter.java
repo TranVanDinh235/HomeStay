@@ -5,4 +5,7 @@ import com.example.homestay.ui.base.MvpView;
 import com.example.homestay.ui.base.Presenter;
 
 public interface ListHousePresenter<V extends MvpView> extends Presenter<V> {
+    void getDataTopicItemListHouse(String topicItemId);
+
+    void getDataSearchListHouse(String searchString);
 }

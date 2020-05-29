@@ -1,42 +1,49 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/_240sdp"
     android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:layout_marginStart="16dp"
-    android:orientation="vertical">
+    android:layout_marginStart="@dimen/_8sdp"
+    android:layout_marginTop="@dimen/_8sdp"
+    android:layout_marginBottom="@dimen/_8sdp"
+    app:cardElevation="@dimen/_4sdp">
 
-    <ImageView
-        android:id="@+id/item_topic_item_photo"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_135sdp"
-        android:src="@drawable/img_temp" />
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/item_topic_item_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_14sdp"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:layout_marginEnd="@dimen/_14sdp"
-        android:fontFamily="@font/work_sans_semibold"
-        android:textColor="@color/colorText1"
-        android:textSize="16sp"
-        tools:text="Deal of the Week: Ha Noi" />
+        <ImageView
+            android:id="@+id/item_topic_item_photo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_135sdp"
+            android:src="@drawable/img_temp" />
 
-    <TextView
-        android:id="@+id/item_topic_item_subtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_14sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_14sdp"
-        android:layout_marginBottom="@dimen/_12sdp"
-        android:fontFamily="@font/work_sans_medium"
-        android:textColor="@color/colorText2"
-        android:textSize="14sp"
-        tools:text="Tận hưởng cảm giác thư gian với chỗ ở giá tốt" />
+        <TextView
+            android:id="@+id/item_topic_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:fontFamily="@font/merriweather_bold"
+            android:textSize="16sp"
+            tools:text="Deal of the Week: Ha Noi" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/item_topic_item_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:fontFamily="@font/merriweather"
+            android:textSize="14sp"
+            tools:text="Tận hưởng cảm giác thư gian với chỗ ở giá tốt" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
 

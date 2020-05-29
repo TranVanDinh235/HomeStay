@@ -1,11 +1,11 @@
 package com.example.homestay.data.network;
 
-import android.util.Log;
-
-import com.example.homestay.data.network.model.AuthResponse;
-import com.example.homestay.data.network.model.CityResponse;
-import com.example.homestay.data.network.model.TopicResponse;
-import com.example.homestay.data.network.model.UserResponse;
+import com.example.homestay.data.network.request.LoginBody;
+import com.example.homestay.data.network.response.AuthResponse;
+import com.example.homestay.data.network.response.CityResponse;
+import com.example.homestay.data.network.response.ListHouseResponse;
+import com.example.homestay.data.network.response.TopicResponse;
+import com.example.homestay.data.network.response.UserResponse;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import org.json.JSONObject;
@@ -86,6 +86,22 @@ public class AppApiHelper implements ApiHelper{
                 .addPathParameter("id", id)
                 .build()
                 .getObjectSingle(UserResponse.class);
+    }
+
+    @Override
+    public Single<ListHouseResponse> doServerApiGetListHouseTopicItemCall(String topicItemId) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_TOPIC_ITEM_DATA)
+                .addHeaders("Content-Type", "application/json")
+                .addHeaders("Accept", "application/json")
+                .addHeaders("x-access-token", mApiHeader.getProtectedApiHeader().getAccessToken())
+                .addPathParameter("id", topicItemId)
+                .build()
+                .getObjectSingle(ListHouseResponse.class);
+    }
+
+    @Override
+    public Single<ListHouseResponse> doServerApiGetListHouseSearchCall(String searchStr) {
+        return null;
     }
 
 

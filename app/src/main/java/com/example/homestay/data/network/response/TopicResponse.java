@@ -1,11 +1,9 @@
-package com.example.homestay.data.network.model;
+package com.example.homestay.data.network.response;
 
-import com.example.homestay.data.network.model.entity.Topic;
-import com.google.android.gms.common.api.Api;
+import com.example.homestay.data.network.entity.Topic;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TopicResponse extends ApiResponse {

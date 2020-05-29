@@ -4,7 +4,7 @@ package com.example.homestay.data.network;
 import androidx.annotation.NonNull;
 
 import com.example.homestay.data.DataManager;
-import com.example.homestay.data.network.model.Token;
+import com.example.homestay.data.network.response.TokenResponse;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -85,9 +85,9 @@ public class TokenAuthenticator implements Authenticator {
             in.close();
 
             Gson gson = new Gson();
-            Token token = gson.fromJson(response.toString(), Token.class);
-            dataManager.setAccessToken(token.getToken());
-            apiHeader.getProtectedApiHeader().setAccessToken(token.getToken());
+            TokenResponse tokenResponse = gson.fromJson(response.toString(), TokenResponse.class);
+            dataManager.setAccessToken(tokenResponse.getToken());
+            apiHeader.getProtectedApiHeader().setAccessToken(tokenResponse.getToken());
             return true;
 
         } else {

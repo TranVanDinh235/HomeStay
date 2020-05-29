@@ -13,7 +13,7 @@
  * limitations under the License
  */
 
-package com.example.homestay.data.network.model;
+package com.example.homestay.data.network.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

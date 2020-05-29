@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,19 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.homestay.R;
-import com.example.homestay.data.network.model.entity.Topic;
-import com.example.homestay.data.network.model.entity.TopicItem;
-import com.example.homestay.di.component.ActivityComponent;
+import com.example.homestay.data.network.entity.Topic;
+import com.example.homestay.data.network.entity.TopicItem;
 import com.example.homestay.ui.base.BaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class TopicAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 

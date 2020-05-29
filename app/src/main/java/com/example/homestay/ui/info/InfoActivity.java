@@ -1,15 +1,13 @@
 package com.example.homestay.ui.info;
 
 import android.os.Bundle;
-import android.util.Log;
 
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.example.homestay.R;
-import com.example.homestay.data.network.model.entity.User;
+import com.example.homestay.data.network.entity.User;
 import com.example.homestay.ui.base.BaseActivity;
-import com.example.homestay.ui.login.LoginActivity;
 import com.google.android.material.appbar.AppBarLayout;
 
 import javax.inject.Inject;

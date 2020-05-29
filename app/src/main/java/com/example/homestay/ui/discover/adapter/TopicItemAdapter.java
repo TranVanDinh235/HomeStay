@@ -1,5 +1,6 @@
 package com.example.homestay.ui.discover.adapter;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,15 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.homestay.R;
-import com.example.homestay.data.network.model.entity.TopicItem;
+import com.example.homestay.data.network.entity.TopicItem;
 import com.example.homestay.ui.base.BaseViewHolder;
 import com.example.homestay.ui.list.ListHouseActivity;
+import com.example.homestay.ui.main.MainActivity;
 import com.example.homestay.utils.AppConstants;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.homestay.utils.AppConstants.TAG_LIST_HOUSE_TYPE;
+import static com.example.homestay.utils.AppConstants.TAG_TOPIC_ITEM_ID;
 
 public class TopicItemAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
@@ -113,13 +118,10 @@ public class TopicItemAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
             itemView.setOnClickListener(view -> {
                 Intent i = new Intent(itemView.getContext(), ListHouseActivity.class);
-                i.putExtra(AppConstants.TAG_LIST_HOUSE_TYPE, AppConstants.TAG_TOPIC_ITEM);
-                i.putExtra(AppConstants.TAG_LIST_HOUSE_ID, item.getId());
-                i.putExtra(AppConstants.TAG_LIST_HOUSE_PHOTO, item.getCoverPhoto());
-                i.putExtra(AppConstants.TAG_LIST_HOUSE_TITLE, item.getTitle());
-                i.putExtra(AppConstants.TAG_LIST_HOUSE_SUB_TITLE, item.getSubTitle());
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                itemView.getContext().startActivity(i);
+                i.putExtra(TAG_LIST_HOUSE_TYPE, AppConstants.TAG_TOPIC_ITEM);
+                i.putExtra(TAG_TOPIC_ITEM_ID, String.valueOf(item.getId()));
+                Activity activity = (MainActivity) itemView.getContext();
+                activity.startActivityForResult(i, 12);
             });
         }
     }

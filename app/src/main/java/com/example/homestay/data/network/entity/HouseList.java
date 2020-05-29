@@ -1,12 +1,18 @@
-package com.example.homestay.data.network.model.entity;
+package com.example.homestay.data.network.entity;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class TopicItem {
+import java.util.List;
+
+public class HouseList {
     @Expose
     @SerializedName("id")
     private int id;
+
+    @Expose
+    @SerializedName("topic_id")
+    private int topicId;
 
     @Expose
     @SerializedName("title")
@@ -14,7 +20,7 @@ public class TopicItem {
 
     @Expose
     @SerializedName("subtitle")
-    private String subTitle;
+    private String subtitle;
 
     @Expose
     @SerializedName("photo")
@@ -26,7 +32,11 @@ public class TopicItem {
 
     @Expose
     @SerializedName("views")
-    private String views;
+    private int views;
+
+    @Expose
+    @SerializedName("houses")
+    private List<House> houses;
 
     public int getId() {
         return id;
@@ -34,6 +44,14 @@ public class TopicItem {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getTopicId() {
+        return topicId;
+    }
+
+    public void setTopicId(int topicId) {
+        this.topicId = topicId;
     }
 
     public String getTitle() {
@@ -44,12 +62,12 @@ public class TopicItem {
         this.title = title;
     }
 
-    public String getSubTitle() {
-        return subTitle;
+    public String getSubtitle() {
+        return subtitle;
     }
 
-    public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle;
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 
     public String getPhoto() {
@@ -68,11 +86,19 @@ public class TopicItem {
         this.coverPhoto = coverPhoto;
     }
 
-    public String getViews() {
+    public int getViews() {
         return views;
     }
 
-    public void setViews(String views) {
+    public void setViews(int views) {
         this.views = views;
+    }
+
+    public List<House> getHouses() {
+        return houses;
+    }
+
+    public void setHouses(List<House> houses) {
+        this.houses = houses;
     }
 }

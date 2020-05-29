@@ -1,22 +1,20 @@
 package com.example.homestay.ui.discover;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.util.Pair;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
-import com.bumptech.glide.load.engine.cache.DiskCacheAdapter;
 import com.example.homestay.R;
-import com.example.homestay.data.network.model.CityResponse;
-import com.example.homestay.data.network.model.TopicResponse;
+import com.example.homestay.data.network.response.CityResponse;
+import com.example.homestay.data.network.response.TopicResponse;
 import com.example.homestay.di.PerActivity;
 import com.example.homestay.di.component.ActivityComponent;
 import com.example.homestay.ui.base.BaseFragment;
@@ -24,6 +22,7 @@ import com.example.homestay.ui.discover.adapter.CityAdapter;
 import com.example.homestay.ui.discover.adapter.TopicAdapter;
 import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.datepicker.MaterialDatePicker;
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 import javax.inject.Inject;
 
@@ -49,13 +48,14 @@ public class DiscoverFragment extends BaseFragment implements DiscoverView, City
     @Inject
     LinearLayoutManager mLayoutManagerVertical;
 
-    @BindView(R.id.layout_date_picker) ConstraintLayout layoutDatePicker;
-
     @BindView(R.id.layout_discover_cites)
-    RecyclerView mCityRecyclerView;
+    ViewPager2 mCityViewPager;
 
     @BindView(R.id.layout_discover_topics)
     RecyclerView mTopicRecyclerView;
+
+    @BindView(R.id.dots_indicator)
+    DotsIndicator dotsIndicator;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -75,20 +75,14 @@ public class DiscoverFragment extends BaseFragment implements DiscoverView, City
         MaterialDatePicker.Builder<?> builder = setupDateSelectorBuilder();
         CalendarConstraints.Builder constraintBuilder = setupConstraintBuilder();
 
-        layoutDatePicker.setOnClickListener(v -> {
-            builder.setCalendarConstraints(constraintBuilder.build());
-            MaterialDatePicker<?> picker = builder.build();
-            picker.show(getFragmentManager(), picker.toString());
-        });
         return root;
     }
 
     @Override
     protected void setUp(View view) {
-        mLayoutManagerHorizontal.setOrientation(LinearLayoutManager.HORIZONTAL);
-        mCityRecyclerView.setLayoutManager(mLayoutManagerHorizontal);
-        mCityRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mCityRecyclerView.setAdapter(mCityAdapter);
+        mCityViewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+        mCityViewPager.setAdapter(mCityAdapter);
+        dotsIndicator.setViewPager2(mCityViewPager);
 
         mLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);
         mTopicRecyclerView.setLayoutManager(mLayoutManagerVertical);

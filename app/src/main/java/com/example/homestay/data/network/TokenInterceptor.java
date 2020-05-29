@@ -3,7 +3,7 @@ package com.example.homestay.data.network;
 import androidx.annotation.NonNull;
 
 import com.example.homestay.data.DataManager;
-import com.example.homestay.data.network.model.Token;
+import com.example.homestay.data.network.response.TokenResponse;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -14,8 +14,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import javax.inject.Inject;
 
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -82,8 +80,8 @@ public class TokenInterceptor implements Interceptor {
             in.close();
 
             Gson gson = new Gson();
-            Token token = gson.fromJson(response.toString(), Token.class);
-            dataManager.setAccessToken(token.getToken());
+            TokenResponse tokenResponse = gson.fromJson(response.toString(), TokenResponse.class);
+            dataManager.setAccessToken(tokenResponse.getToken());
 
             return true;
 

@@ -31,10 +31,11 @@
     <string name="retry">Retry</string>
     <string name="mtrl_picker_save" description="Confirms the selection [CHAR_LIMIT=12]">Lưu</string>
 
+    <!--Discover-->
     <string name="title_default">2 Nguời lớn 1 Phòng 0 Trẻ em</string>
     <string name="check_in_label">Nhận phòng</string>
     <string name="check_out_label">Trả phòng</string>
-    <string name="search">Tìm kiếm</string>
+    <string name="search">Bạn muốn đi đâu?</string>
     <string name="finest_homestays">Lựa chọn tốt nhất</string>
     <string name="popular_place">Điểm đến hàng đầu</string>
     <string name="city_label">Bạn muốn đến thành phố nào?</string>
@@ -76,5 +77,11 @@
     <string name="about_us">Về chúng tôi</string>
     <string name="save_change">Lưu thay đổi</string>
     <string name="back">Back</string>
+    <string name="version">Phiên bản:</string>
+    <string name="app_name_splash">HOMES</string>
+
+
+    <!--list view-->
+    <string name="loading">Đang tải…</string>
 
 </resources>
