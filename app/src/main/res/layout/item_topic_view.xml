@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_12sdp"
-        android:fontFamily="@font/work_sans_bold"
-        android:textColor="@color/colorText1"
+        android:fontFamily="@font/merriweather_bold"
         android:textSize="18sp"
         android:layout_marginStart="16dp"
         tools:text="Deal of the Week: Ha Noi" />
@@ -21,8 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
-        android:fontFamily="@font/work_sans_medium"
-        android:textColor="@color/colorText2"
+        android:fontFamily="@font/merriweather"
         android:textSize="16sp"
         android:layout_marginStart="16dp"
         tools:text="Tận hưởng cảm giác thư gian với chỗ ở giá tốt" />

@@ -1,11 +1,9 @@
-package com.example.homestay.data.network.model.entity;
+package com.example.homestay.data.network.entity;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class Topic {
+public class TopicItem {
     @Expose
     @SerializedName("id")
     private int id;
@@ -19,8 +17,16 @@ public class Topic {
     private String subTitle;
 
     @Expose
-    @SerializedName("topic_item")
-    private List<TopicItem> topicItem;
+    @SerializedName("photo")
+    private String photo;
+
+    @Expose
+    @SerializedName("cover_photo")
+    private String coverPhoto;
+
+    @Expose
+    @SerializedName("views")
+    private String views;
 
     public int getId() {
         return id;
@@ -46,11 +52,27 @@ public class Topic {
         this.subTitle = subTitle;
     }
 
-    public List<TopicItem> getTopicItem() {
-        return topicItem;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setTopicItem(List<TopicItem> topicItem) {
-        this.topicItem = topicItem;
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getCoverPhoto() {
+        return coverPhoto;
+    }
+
+    public void setCoverPhoto(String coverPhoto) {
+        this.coverPhoto = coverPhoto;
+    }
+
+    public String getViews() {
+        return views;
+    }
+
+    public void setViews(String views) {
+        this.views = views;
     }
 }

@@ -26,4 +26,8 @@ public final class ApiEndPoint {
     // profile
     public static final String ENDPOINT_USER_INFO = AppConstants.IP_ADDRESS
             + "/user/{id}";
+
+    // list house
+    public static final String ENDPOINT_TOPIC_ITEM_DATA = AppConstants.IP_ADDRESS
+            + "/house/topic-item/{id}";
 }

@@ -5,10 +5,11 @@ import android.content.Context;
 import com.example.homestay.data.db.DbHelper;
 import com.example.homestay.data.network.ApiHeader;
 import com.example.homestay.data.network.ApiHelper;
-import com.example.homestay.data.network.model.AuthResponse;
-import com.example.homestay.data.network.model.CityResponse;
-import com.example.homestay.data.network.model.TopicResponse;
-import com.example.homestay.data.network.model.UserResponse;
+import com.example.homestay.data.network.response.AuthResponse;
+import com.example.homestay.data.network.response.CityResponse;
+import com.example.homestay.data.network.response.ListHouseResponse;
+import com.example.homestay.data.network.response.TopicResponse;
+import com.example.homestay.data.network.response.UserResponse;
 import com.example.homestay.data.prefs.PrefHelper;
 import com.example.homestay.di.ApplicationContext;
 
@@ -142,5 +143,15 @@ public class AppDataManager implements DataManager{
     @Override
     public Single<UserResponse> doServerApiGetUserInfoCall(String userId) {
         return mApiHelper.doServerApiGetUserInfoCall(userId);
+    }
+
+    @Override
+    public Single<ListHouseResponse> doServerApiGetListHouseTopicItemCall(String topicItemId) {
+        return mApiHelper.doServerApiGetListHouseTopicItemCall(topicItemId);
+    }
+
+    @Override
+    public Single<ListHouseResponse> doServerApiGetListHouseSearchCall(String searchStr) {
+        return null;
     }
 }

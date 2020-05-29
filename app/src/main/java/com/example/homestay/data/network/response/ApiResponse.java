@@ -1,6 +1,5 @@
-package com.example.homestay.data.network.model;
+package com.example.homestay.data.network.response;
 
-import com.example.homestay.data.network.model.entity.User;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

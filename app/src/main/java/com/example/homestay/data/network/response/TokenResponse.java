@@ -1,9 +1,9 @@
-package com.example.homestay.data.network.model;
+package com.example.homestay.data.network.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Token {
+public class TokenResponse {
     @Expose
     @SerializedName("accessToken")
     private String token;

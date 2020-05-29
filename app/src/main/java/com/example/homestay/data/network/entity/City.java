@@ -1,4 +1,4 @@
-package com.example.homestay.data.network.model.entity;
+package com.example.homestay.data.network.entity;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -15,6 +15,10 @@ public class City {
     @Expose
     @SerializedName("photo")
     private String photo;
+
+    @Expose
+    @SerializedName("title")
+    private String title;
 
     public int getId() {
         return id;
@@ -38,5 +42,13 @@ public class City {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

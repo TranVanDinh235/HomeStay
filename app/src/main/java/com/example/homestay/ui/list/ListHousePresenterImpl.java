@@ -16,12 +16,20 @@ public class ListHousePresenterImpl<V extends ListHouseView> extends BasePresent
     }
 
     @Override
-    public void onAttach(V view) {
+    public void getDataTopicItemListHouse(String topicItemString) {
 
+        getCompositeDisposable().add(getDataManager().doServerApiGetListHouseTopicItemCall(topicItemString)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(response -> {
+                    getView().showListHouse(response);
+                }, throwable -> {
+
+                }));
     }
 
     @Override
-    public void onDetach() {
+    public void getDataSearchListHouse(String searchStr) {
 
     }
 }

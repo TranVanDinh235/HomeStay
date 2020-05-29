@@ -25,7 +25,7 @@ import com.androidnetworking.common.ANConstants;
 import com.androidnetworking.error.ANError;
 import com.example.homestay.R;
 import com.example.homestay.data.DataManager;
-import com.example.homestay.data.network.model.ApiError;
+import com.example.homestay.data.network.response.ApiError;
 import com.example.homestay.utils.AppConstants;
 import com.example.homestay.utils.rx.SchedulerProvider;
 import com.google.gson.Gson;

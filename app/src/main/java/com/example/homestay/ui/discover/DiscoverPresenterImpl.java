@@ -26,9 +26,6 @@ public class DiscoverPresenterImpl<V extends DiscoverView> extends BasePresenter
 
     @Override
     public void loadTopic() {
-        Log.e("dinh", getDataManager().getCurrentUserId().toString());
-        Log.e("dinh", getDataManager().isUserLoggedInMode().toString());
-        Log.e("dinh", getDataManager().getRefreshToken());
         getView().showLoading();
 
         getCompositeDisposable().add(getDataManager().doServerApiGetTopicCall()

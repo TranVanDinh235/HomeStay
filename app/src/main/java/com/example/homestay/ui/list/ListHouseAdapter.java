@@ -3,19 +3,20 @@ package com.example.homestay.ui.list;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatRatingBar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.homestay.R;
-import com.example.homestay.data.network.model.entity.House;
+import com.example.homestay.data.network.entity.City;
+import com.example.homestay.data.network.entity.House;
 import com.example.homestay.ui.base.BaseViewHolder;
-import com.example.homestay.ui.discover.adapter.TopicAdapter;
 import com.example.homestay.utils.CommonUtils;
+import com.example.homestay.utils.StringUtils;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private List<House> mHouseList;
 
-    ListHouseAdapter(List<House> mHouseList){
+    public ListHouseAdapter(List<House> mHouseList){
         this.mHouseList = mHouseList;
     }
 
@@ -47,6 +48,16 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         return mHouseList.size();
     }
 
+    public void addItem(List<House> houseList){
+        mHouseList.addAll(houseList);
+        notifyDataSetChanged();
+    }
+
+    public void clear(){
+        mHouseList.clear();
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends BaseViewHolder{
 
         @BindView(R.id.item_house_photo)
@@ -65,13 +76,16 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         TextView addressTextView;
 
         @BindView(R.id.item_house_review)
-        TextView reviewTextView;
+        TextView mReviewTextView;
 
-        @BindView(R.id.item_house_rate)
-        TextView rateTextView;
+        @BindView(R.id.item_house_stars)
+        AppCompatRatingBar mRatingBar;
+
+        @BindView(R.id.item_house_old_rate)
+        TextView mOldRateTextView;
 
         @BindView(R.id.item_house_new_rate)
-        TextView newRateTextView;
+        TextView mNewRateTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -85,9 +99,9 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             typeTextView.setText("");
             detailTextView.setText("");
             addressTextView.setText("");
-            reviewTextView.setText("");
-            rateTextView.setText("");
-            newRateTextView.setText("");
+            mReviewTextView.setText("");
+            mOldRateTextView.setText("");
+            mNewRateTextView.setText("");
         }
 
         @Override
@@ -95,7 +109,7 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             super.onBind(position);
 
             final House item = mHouseList.get(position);
-            if(item.getPhoto() != null){
+            if(item.getPhoto() != null && !item.getPhoto().equalsIgnoreCase("")){
                 Glide.with(itemView.getContext())
                         .load(item.getPhoto())
                         .asBitmap()
@@ -103,10 +117,43 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                         .into(photoImageView);
             }
 
-            if(item.getTitle() != null) titleTextView.setText(item.getTitle());
+            if(item.getTitle() != null) titleTextView.setText(StringUtils.cutString(item.getTitle()));
 
             String type = CommonUtils.getHouseType(item.getType());
-            titleTextView.setText(type);
+            typeTextView.setText(type);
+
+            if(item.getAddress() != null)
+            addressTextView.setText(item.getAddress());
+
+            String detail = item.getBathrooms() + " phòng tắm - " + item.getBedrooms() +" phòng ngủ - " + item.getBeds() + " giường";
+            detailTextView.setText(detail);
+
+            if(item.getTotalReview() > 0){
+                mReviewTextView.setText(String.valueOf(item.getTotalReview()));
+                mRatingBar.setRating(item.getNumOfStars());
+                mReviewTextView.setVisibility(View.VISIBLE);
+                mRatingBar.setVisibility(View.VISIBLE);
+            } else {
+                mReviewTextView.setText(String.valueOf(item.getTotalReview()));
+                mRatingBar.setRating(item.getNumOfStars());
+                mReviewTextView.setVisibility(View.GONE);
+                mRatingBar.setVisibility(View.GONE);
+            }
+
+            if(item.getRate() != null) {
+                if (item.getPromotion() == 0) {
+                    mNewRateTextView.setText(StringUtils.toRate(item.getRate()));
+
+                    mOldRateTextView.setVisibility(View.GONE);
+                    mNewRateTextView.setVisibility(View.VISIBLE);
+                } else {
+                    mOldRateTextView.setText(item.getRate());
+                    mNewRateTextView.setText(StringUtils.toRate(item.getRate(), item.getPromotion()));
+
+                    mOldRateTextView.setVisibility(View.VISIBLE);
+                    mNewRateTextView.setVisibility(View.VISIBLE);
+                }
+            }
 
         }
     }

@@ -11,6 +11,7 @@ import com.example.homestay.ui.login.LoginActivity;
 import com.example.homestay.ui.main.MainActivity;
 import com.example.homestay.ui.message.MessageFragment;
 import com.example.homestay.ui.profile.ProfileFragment;
+import com.example.homestay.ui.splash.SplashActivity;
 
 import dagger.Component;
 
@@ -32,5 +33,7 @@ public interface ActivityComponent {
     void inject(LoginActivity loginActivity);
 
     void inject(InfoActivity infoActivity);
+
+    void inject(SplashActivity splashActivity);
 
 }

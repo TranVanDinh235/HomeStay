@@ -1,5 +1,7 @@
 package com.example.homestay.ui.main;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.navigation.NavController;
@@ -17,6 +19,8 @@ import javax.inject.Inject;
 @PerActivity
 public class MainActivity extends BaseActivity {
 
+    private static final String EXTRA_TAB_OPEN = "tab open";
+    private static final String EXTRA_FROM_NOTIFY_DATA = "notify data";
     @Inject
     MainPresenter<MainView> presenter;
 
@@ -37,6 +41,14 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void setUp() {
 
+    }
+
+    public static Intent getIntentMainActivity(Context context, int indexTabOpen, String notify_data) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra(EXTRA_TAB_OPEN, indexTabOpen);
+        intent.putExtra(EXTRA_FROM_NOTIFY_DATA, notify_data);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        return intent;
     }
 
 }

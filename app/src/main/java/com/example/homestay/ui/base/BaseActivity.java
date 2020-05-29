@@ -61,7 +61,6 @@ public abstract class BaseActivity extends AppCompatActivity
                 .activityModule(new ActivityModule(this))
                 .applicationComponent(((App) getApplication()).getComponent())
                 .build();
-
     }
 
     public ActivityComponent getActivityComponent() {
