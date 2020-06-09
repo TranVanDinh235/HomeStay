@@ -71,7 +71,7 @@ public class House {
     private int instantBooking;
 
     @Expose
-    @SerializedName("cancellation_policy")
+    @SerializedName("fragment_cancellation_policy")
     private int cancellationPolicy;
 
     @Expose
@@ -104,27 +104,27 @@ public class House {
 
     @Expose
     @SerializedName("facilities")
-    private Facilities facilities;
+    private String facilities;
 
     @Expose
     @SerializedName("kitchen_facilities")
-    private KitchenFacilities kitchenFacilities;
+    private String kitchenFacilities;
 
     @Expose
     @SerializedName("room_facilities")
-    private RoomFacilities roomFacilities;
+    private String roomFacilities;
 
     @Expose
     @SerializedName("entertainment")
-    private Entertainment entertainment;
+    private String entertainment;
 
     @Expose
     @SerializedName("special_facilities")
-    private SpecialFacilities specialFacilities;
+    private String specialFacilities;
 
     @Expose
     @SerializedName("families")
-    private Families families;
+    private String families;
 
     @Expose
     @SerializedName("views")
@@ -139,21 +139,48 @@ public class House {
     private int cityId;
 
     @Expose
+    @SerializedName("state")
+    private int state;
+
+    @Expose
+    @SerializedName("start_date")
+    private int startDate;
+
+    @Expose
+    @SerializedName("end_date")
+    private int endDate;
+
+    @Expose
     @SerializedName("calendar")
-    private List<Calendar> calendars;
+    private List<HouseDate> houseDates;
 
     @Expose
     @SerializedName("total_review")
     private int totalReview;
 
     @Expose
-    @SerializedName("num_of_stars")
-    private float numOfStars;
+    @SerializedName("rating")
+    private float rating;
 
     @Expose
-    @SerializedName("rate")
-    private String rate;
+    @SerializedName("price")
+    private String price;
 
+    @Expose
+    @SerializedName("addition_fee")
+    private String additionFee;
+
+    @Expose
+    @SerializedName("reviews")
+    private List<Review> reviews;
+
+    @Expose
+    @SerializedName("photos")
+    private List<String> photos;
+
+    @Expose
+    @SerializedName("time")
+    private String time;
 
     public int getId() {
         return id;
@@ -347,51 +374,51 @@ public class House {
         this.houseManual = houseManual;
     }
 
-    public Facilities getFacilities() {
+    public String getFacilities() {
         return facilities;
     }
 
-    public void setFacilities(Facilities facilities) {
+    public void setFacilities(String facilities) {
         this.facilities = facilities;
     }
 
-    public KitchenFacilities getKitchenFacilities() {
+    public String getKitchenFacilities() {
         return kitchenFacilities;
     }
 
-    public void setKitchenFacilities(KitchenFacilities kitchenFacilities) {
+    public void setKitchenFacilities(String kitchenFacilities) {
         this.kitchenFacilities = kitchenFacilities;
     }
 
-    public RoomFacilities getRoomFacilities() {
+    public String getRoomFacilities() {
         return roomFacilities;
     }
 
-    public void setRoomFacilities(RoomFacilities roomFacilities) {
+    public void setRoomFacilities(String roomFacilities) {
         this.roomFacilities = roomFacilities;
     }
 
-    public Entertainment getEntertainment() {
+    public String getEntertainment() {
         return entertainment;
     }
 
-    public void setEntertainment(Entertainment entertainment) {
+    public void setEntertainment(String entertainment) {
         this.entertainment = entertainment;
     }
 
-    public SpecialFacilities getSpecialFacilities() {
+    public String getSpecialFacilities() {
         return specialFacilities;
     }
 
-    public void setSpecialFacilities(SpecialFacilities specialFacilities) {
+    public void setSpecialFacilities(String specialFacilities) {
         this.specialFacilities = specialFacilities;
     }
 
-    public Families getFamilies() {
+    public String getFamilies() {
         return families;
     }
 
-    public void setFamilies(Families families) {
+    public void setFamilies(String families) {
         this.families = families;
     }
 
@@ -419,12 +446,12 @@ public class House {
         this.cityId = cityId;
     }
 
-    public List<Calendar> getCalendars() {
-        return calendars;
+    public List<HouseDate> getHouseDates() {
+        return houseDates;
     }
 
-    public void setCalendars(List<Calendar> calendars) {
-        this.calendars = calendars;
+    public void setHouseDates(List<HouseDate> houseDates) {
+        this.houseDates = houseDates;
     }
 
     public int getTotalReview() {
@@ -435,19 +462,75 @@ public class House {
         this.totalReview = totalReview;
     }
 
-    public float getNumOfStars() {
-        return numOfStars;
+    public float getRating() {
+        return rating;
     }
 
-    public void setNumOfStars(float numOfStars) {
-        this.numOfStars = numOfStars;
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 
-    public String getRate() {
-        return rate;
+    public String getPrice() {
+        return price;
     }
 
-    public void setRate(String rate) {
-        this.rate = rate;
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getAdditionFee() {
+        return additionFee;
+    }
+
+    public void setAdditionFee(String additionFee) {
+        this.additionFee = additionFee;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public List<String> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<String> photos) {
+        this.photos = photos;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public int getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(int startDate) {
+        this.startDate = startDate;
+    }
+
+    public int getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(int endDate) {
+        this.endDate = endDate;
     }
 }

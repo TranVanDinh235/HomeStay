@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/layout_house_rules_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lora"
+        android:textSize="@dimen/_13sdp"
+        android:layout_margin="@dimen/_12sdp"
+        tools:text="Có ai trong giống mình, tham gia vào cộng đồng VietDesigner từ xưa, cũng hay vào để xem mọi người đăng bài rồi tự nhiên thấy thích và quyết định mua đồ nghề, xách ba lô lên và đi như mình không?
+Cảm ơn ad duyệt bài, link xem full cả vlog cho các bạn ở đây nha https://youtu.be/v8vVBFx7ctQ"/>
+
+</LinearLayout>

@@ -24,6 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 
+import com.example.homestay.di.ApplicationContext;
 import com.example.homestay.di.component.ActivityComponent;
 import com.example.homestay.utils.CommonUtils;
 
@@ -33,6 +34,7 @@ import butterknife.Unbinder;
  * Created by janisharali on 27/01/17.
  */
 
+@ApplicationContext
 public abstract class BaseFragment extends Fragment implements MvpView {
 
     private BaseActivity mActivity;

@@ -13,4 +13,10 @@ public class SplashPresenterImpl<V extends SplashView> extends BasePresenter<V> 
     public SplashPresenterImpl(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
     }
+
+    @Override
+    public boolean isUserLogin() {
+        if(getDataManager().getCurrentUserId() != null && getDataManager().getCurrentUserId() != 0) return true;
+        return false;
+    }
 }

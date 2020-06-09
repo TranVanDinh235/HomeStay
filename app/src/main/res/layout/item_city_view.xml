@@ -51,6 +51,8 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:textAllCaps="false"
+        android:shadowColor="?attr/colorOnSecondary"
         android:layout_marginBottom="@dimen/_16sdp"
         android:layout_marginStart="@dimen/_16sdp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

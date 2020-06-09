@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import com.example.homestay.R;
 import com.example.homestay.data.network.response.ListHouseResponse;
 import com.example.homestay.ui.base.BaseActivity;
+import com.example.homestay.ui.house.HouseActivity;
 import com.example.homestay.utils.PullLoadMoreUtil;
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
@@ -27,7 +27,7 @@ import butterknife.ButterKnife;
 import static com.example.homestay.utils.AppConstants.TAG_SEARCH_STRING;
 import static com.example.homestay.utils.AppConstants.TAG_TOPIC_ITEM_ID;
 
-public class ListHouseActivity extends BaseActivity implements ListHouseView, PullLoadMoreRecyclerView.PullLoadMoreListener {
+public class ListHouseActivity extends BaseActivity implements ListHouseView, PullLoadMoreRecyclerView.PullLoadMoreListener, ListHouseAdapter.Callback {
 
     @Inject
     ListHousePresenter<ListHouseView> mPresenter;
@@ -35,17 +35,14 @@ public class ListHouseActivity extends BaseActivity implements ListHouseView, Pu
     @Inject
     ListHouseAdapter mListHouseAdapter;
 
-    @BindView(R.id.layout_list_house_app_bar)
-    FrameLayout mAppBarLayout;
-
-    @BindView(R.id.layout_list_house_cover_photo)
-    ImageView mPhotoImageView;
-
-    @BindView(R.id.layout_list_house_filter)
-    FloatingActionButton mFilterButton;
-
     @BindView(R.id.layout_list_house_title)
     TextView mTitleTextView;
+
+    @BindView(R.id.layout_list_house_date)
+    TextView mDateTextView;
+
+    @BindView(R.id.layout_list_house_room)
+    TextView mRoomTextView;
 
     @BindView(R.id.layout_list_house_rv)
     PullLoadMoreRecyclerView mListHouseRecyclerView;
@@ -63,6 +60,7 @@ public class ListHouseActivity extends BaseActivity implements ListHouseView, Pu
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(ListHouseActivity.this);
+        mListHouseAdapter.setCallback(this);
         setUp();
     }
 
@@ -112,5 +110,10 @@ public class ListHouseActivity extends BaseActivity implements ListHouseView, Pu
             finish();
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onItemClick(int houseId) {
+        startActivityForResult(HouseActivity.getIntentHouseActivity(this, String.valueOf(houseId)), 102);
     }
 }

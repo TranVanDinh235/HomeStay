@@ -15,15 +15,6 @@
 
 package com.example.homestay.ui.base;
 
-/**
- * Created by janisharali on 27/01/17.
- */
-
-/**
- * Base interface that any class that wants to act as a MvpView in the MVP (Model MvpView Presenter)
- * pattern must implement. Generally this interface will be extended by a more specific interface
- * that then usually will be implemented by an Activity or Fragment.
- */
 public interface SubMvpView extends MvpView {
 
     void onCreate();

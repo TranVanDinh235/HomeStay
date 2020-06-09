@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="@dimen/_12sdp"
+    android:layout_marginEnd="@dimen/_12sdp"
+    app:cardCornerRadius="@dimen/_12sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_110sdp">
+
+        <com.rishabhharit.roundedimageview.RoundedImageView
+            android:id="@+id/item_upcoming_photo"
+            android:layout_width="@dimen/_110sdp"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/img_temp"
+            android:scaleType="centerCrop"
+            app:cornerRadius="@dimen/_12sdp"
+            app:roundedCorners="topLeft|bottomLeft"/>
+
+        <TextView
+            android:id="@+id/item_upcoming_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/item_upcoming_photo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="nha rat dep" />
+
+        <TextView
+            android:id="@+id/item_upcoming_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/item_upcoming_photo"
+            app:layout_constraintTop_toBottomOf="@+id/item_upcoming_title"
+            tools:text="ha noi viet nam" />
+
+        <TextView
+            android:id="@+id/item_upcoming_get_qr_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:text="Lay ma"
+            android:textSize="@dimen/_16sdp"/>
+
+        <TextView
+            android:id="@+id/item_upcoming_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/item_upcoming_get_qr_code"
+            app:layout_constraintEnd_toStartOf="@+id/item_upcoming_get_qr_code"
+            android:text="Huy"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:textSize="@dimen/_16sdp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

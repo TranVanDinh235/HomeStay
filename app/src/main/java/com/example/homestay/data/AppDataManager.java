@@ -7,7 +7,9 @@ import com.example.homestay.data.network.ApiHeader;
 import com.example.homestay.data.network.ApiHelper;
 import com.example.homestay.data.network.response.AuthResponse;
 import com.example.homestay.data.network.response.CityResponse;
+import com.example.homestay.data.network.response.HouseResponse;
 import com.example.homestay.data.network.response.ListHouseResponse;
+import com.example.homestay.data.network.response.SearchResponse;
 import com.example.homestay.data.network.response.TopicResponse;
 import com.example.homestay.data.network.response.UserResponse;
 import com.example.homestay.data.prefs.PrefHelper;
@@ -153,5 +155,35 @@ public class AppDataManager implements DataManager{
     @Override
     public Single<ListHouseResponse> doServerApiGetListHouseSearchCall(String searchStr) {
         return null;
+    }
+
+    @Override
+    public Single<HouseResponse> doServerApiGetHouseDataCall(String houseId, String userId) {
+        return mApiHelper.doServerApiGetHouseDataCall(houseId, userId);
+    }
+
+    @Override
+    public Single<SearchResponse> doServerApiSearchHouseDataCall(JSONObject body) {
+        return mApiHelper.doServerApiSearchHouseDataCall(body);
+    }
+
+    @Override
+    public Single<SearchResponse> doServerApiSearchHostDataCall(JSONObject body) {
+        return mApiHelper.doServerApiSearchHostDataCall(body);
+    }
+
+    @Override
+    public Single<SearchResponse> doServerApiSearchAddressDataCall(JSONObject body) {
+        return mApiHelper.doServerApiSearchAddressDataCall(body);
+    }
+
+    @Override
+    public Single<ListHouseResponse> doServerApiTripsUpcomingDataCall(String userId) {
+        return mApiHelper.doServerApiTripsUpcomingDataCall(userId);
+    }
+
+    @Override
+    public Single<ListHouseResponse> doServerApiTripsFinishDataCall(String userId) {
+        return mApiHelper.doServerApiTripsFinishDataCall(userId);
     }
 }

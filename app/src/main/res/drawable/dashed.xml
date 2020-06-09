@@ -6,7 +6,7 @@
                 android:width="2dp"
                 android:dashGap="0dp"
                 android:dashWidth="5dp"
-                android:color="@color/colorPrimary" />
+                android:color="@color/colorText3"/>
         </shape>
     </item>
 </layer-list>
