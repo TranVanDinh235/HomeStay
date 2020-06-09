@@ -65,7 +65,7 @@ public class SplashActivity extends BaseActivity implements SplashView{
     }
 
     void openMainActivity(){
-        startActivity(MainActivity.getIntentMainActivity(getApplicationContext(), 1));
+        startActivity(MainActivity.getIntentMainActivity(getApplicationContext(), 0));
     }
 
     void openLoginActivity(){

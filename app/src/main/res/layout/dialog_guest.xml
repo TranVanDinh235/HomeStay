@@ -1,0 +1,132 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:background="@color/white"
+    app:cardCornerRadius="@dimen/_15sdp"
+    app:cardElevation="@dimen/_10sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_16sdp">
+
+        <TextView
+            android:id="@+id/dialog_guest_adult_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/adult"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/lora_bold"
+            app:layout_constraintBottom_toBottomOf="@+id/dialog_guest_adult_minus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dialog_guest_adult_minus" />
+
+        <ImageView
+            android:id="@+id/dialog_guest_adult_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_minus"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_guest_adult"
+            app:layout_constraintTop_toTopOf="@id/dialog_guest_adult_add" />
+
+
+
+        <TextView
+            android:id="@+id/dialog_guest_adult"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="wrap_content"
+            android:text="@string/_2"
+            android:gravity="center"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/lora_bold"
+            app:layout_constraintBottom_toBottomOf="@+id/dialog_guest_adult_add"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_guest_adult_add" />
+
+        <ImageView
+            android:id="@+id/dialog_guest_adult_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/ic_plus"/>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_guest_adult"
+            android:layout_marginTop="@dimen/_20sdp"/>
+
+
+        <TextView
+            android:id="@+id/dialog_guest_child_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/child"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/lora_bold"
+            app:layout_constraintBottom_toBottomOf="@+id/dialog_guest_child_minus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dialog_guest_child_minus" />
+
+        <ImageView
+            android:id="@+id/dialog_guest_child_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_minus"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_guest_child"
+            app:layout_constraintTop_toTopOf="@+id/dialog_guest_child_add" />
+
+        <TextView
+            android:id="@+id/dialog_guest_child"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="wrap_content"
+            android:text="@string/_0"
+            android:gravity="center"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/lora_bold"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_guest_child_add"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_guest_child_add" />
+
+        <ImageView
+            android:id="@+id/dialog_guest_child_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_plus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view1"
+            android:layout_marginTop="@dimen/_16sdp"/>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_guest_child"
+            android:layout_marginTop="@dimen/_16sdp"/>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/dialog_guest_apply"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:fontFamily="@font/lora_bold"
+            android:text="@string/apply"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

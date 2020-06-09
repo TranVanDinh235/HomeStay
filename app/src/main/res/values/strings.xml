@@ -54,18 +54,30 @@
     <string name="login_facebook">Facebook</string>
     <string name="not_account">Bạn chưa có tài khoản?</string>
     <string name="sign_up_with_email">Đăng ký</string>
+    <string name="or_login_with_mail">Hoặc đăng nhập với email</string>
+    <string name="or_sign_up_with_mail">Hoặc đăng ký với email</string>
 
-    <!--profile-->
-    <string name="full_name">*Họ và Tên</string>
+    <!--login google-->
+    <string name="server_client_id">233136474065-5s76pvccvu8l1ahujm9jt36h0ogh8t0k.apps.googleusercontent.com</string>
+
+    <!--info-->
+    <string name="full_name">Họ và Tên</string>
     <string name="gender">Giới tính</string>
     <string name="phone">Số điện thoại</string>
     <string name="address">Địa chỉ</string>
     <string name="birth_day">Ngày sinh</string>
     <string name="introduce">Giới thiệu bản thân</string>
     <string name="logout">Đăng xuất</string>
+    <string name="facebook">Facebook</string>
 
-    <!--login google-->
-    <string name="server_client_id">233136474065-5s76pvccvu8l1ahujm9jt36h0ogh8t0k.apps.googleusercontent.com</string>
+<!--    profile-->
+    <string name="view_and_edit_profile">Xem và chỉnh sửa hồ sơ</string>
+    <string name="payment">Thanh toán</string>
+    <string name="help_center">Trung tâm hỗ trợ</string>
+    <string name="credit_and_coupons">Tín dụng và phiếu giảm giá</string>
+    <string name="invite_friend">Mời bạn bè</string>
+    <string name="change_password">Thay đổi mật khẩu</string>
+
 
     <!--long text-->
     <string name="long_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet purus rhoncus ullamcorper ullamcorper. Nulla accumsan leo quis purus pretium mattis. Nunc in eros cursus, feugiat magna nec, pharetra nulla. Curabitur vel leo finibus, volutpat lorem sit amet, pharetra odio. Sed non arcu quis diam suscipit eleifend sit amet nec dui. Phasellus vel sagittis neque, vitae vulputate tortor. Phasellus a neque lectus. Sed venenatis nunc quis diam feugiat congue. Aliquam sit amet tempor arcu, nec vulputate orci. Integer nulla odio, suscipit tempor lacus id, varius laoreet nibh. In gravida tellus at iaculis finibus. Suspendisse potenti</string>
@@ -102,9 +114,100 @@
     <string name="see_more">Xem thêm</string>
     <string name="description">Mô tả</string>
     <string name="photos">Photos</string>
-    <string name="reviews">Reviews</string>
-    <string name="on_night">/1 đêm</string>
+    <string name="night">đêm</string>
     <string name="view_all">Xem tất cả</string>
     <string name="host">Chủ nhà</string>
     <string name="book_now">Đặt phòng ngay</string>
+    <string name="more_detail">Xem chi tiết</string>
+    <string name="apply">Áp dụng</string>
+    <string name="other">Khác</string>
+    <string name="service_apartment">Căn hộ dịch vụ</string>
+    <string name="studio_apartment">Căn hộ Studio</string>
+    <string name="filter">Bộ lọc</string>
+    <string name="connect">\u0020-\u0020</string>
+    <string name="per_night">/1 đêm</string>
+    <string name="get_code">Lấy mã \u0020</string>
+    <string name="booking">Đặt phòng</string>
+    <string name="house">Ngôi nhà</string>
+    <string name="date_and_guest">Ngày và số người</string>
+    <string name="cost">Chi phí</string>
+    <string name="num_of_night">Số đêm</string>
+    <string name="additional_fee">Phí tính thêm</string>
+    <string name="total_price">Thành tiền</string>
+    <string name="promotion">Giảm giá</string>
+    <string name="final_price">Tổng cộng</string>
+    <string name="edit_profile">Chỉnh sửa thông tin</string>
+    <string name="review">Nhận xét</string>
+
+    <!--sign up-->
+    <string name="sign_up">Đăng ký</string>
+    <string name="first_name">Họ</string>
+    <string name="last_name">Tên</string>
+    <string name="sign_up_agree">Bằng bấm vào nút đăng ký, bạn đồng ý với Điều khoản Dịch vụ và Chính sách Bảo mật của chúng tôi</string>
+    <string name="have_account">Đã có tài khoản?</string>
+    <string name="success">Thành công</string>
+    <string name="fail">Thất bại</string>
+    <string name="default_notification_channel_id">10</string>
+
+<!--    setting-->
+    <string name="notifications">Thông báo</string>
+    <string name="currency">Tiền tệ</string>
+    <string name="country">Quốc gia</string>
+    <string name="vnd">₫</string>
+    <string name="privacy_policy">Chính sách bảo mật</string>
+    <string name="adult">Người lớn</string>
+    <string name="child">Trẻ em</string>
+    <string name="bed_room">Phòng ngủ</string>
+    <string name="ok">Đồng ý</string>
+    <string name="cancel">Huỷ</string>
+    <string name="_0">0</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="bathroom">Phòng tắm</string>
+    <string name="guest">Khách</string>
+    <string name="booking_success_message">Chúc mừng bạn đã đặt phòng thành công!</string>
+    <string name="confirm_message">Bạn có chắc muồn huỷ đặt phòng không?</string>
+
+    <!--    facilities-->
+    <string name="choose_facilities">Chọn tiện nghi sẵn có</string>
+    <string name="wifi">Wifi miễn phí</string>
+    <string name="tv">TV</string>
+    <string name="air_condition">Điều hoà</string>
+    <string name="washing_machine">Máy giặt</string>
+    <string name="shampoo">Dầu gội đầu</string>
+    <string name="toilet_paper">Giấy vệ sinh</string>
+    <string name="tissue">Giấy ăn</string>
+    <string name="mineral_water">Nước đóng chai</string>
+    <string name="toothpaste">Kem đánh răng</string>
+    <string name="soap">Xà bông</string>
+    <string name="towel">Khăn tắm</string>
+    <string name="dryer">Máy sấy tóc</string>
+    <string name="conditioner">Dầu xả</string>
+    <string name="free_breakfast">Bữa sáng miễn phí</string>
+    <string name="shower_gel">Sữa tắm</string>
+
+    <string name="window">Cửa sổ</string>
+    <string name="balcony">Ban công</string>
+
+    <string name="electric_stove">Bếp điện</string>
+    <string name="microwave">Lò vi sóng</string>
+    <string name="fridge">Tủ lạnh</string>
+
+    <string name="smart_TV">Smart TV</string>
+
+    <string name="landscape">Phong cảnh</string>
+    <string name="pool">Bể bơi</string>
+    <string name="golf">Sân golf</string>
+    <string name="BBQ">BBQ</string>
+
+    <string name="no_smoking">Không hút thuốc</string>
+    <string name="children">Phù hợp với trẻ nhỏ</string>
+    <string name="input_num_of_room">Nhập số phòng</string>
+    <string name="input_num_of_bedroom">Số phòng ngủ</string>
+    <string name="room">phòng</string>
+    <string name="continue_btn">Tiếp tục</string>
+    <string name="bed">giường</string>
+    <string name="number_of_bathroom">Số phòng tắm</string>
+
+
 </resources>

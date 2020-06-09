@@ -6,4 +6,5 @@ import com.example.homestay.ui.base.Presenter;
 
 @PerActivity
 public interface FavoritesPresenter<V extends MvpView> extends Presenter<V> {
+    void getFavoritesHouse();
 }

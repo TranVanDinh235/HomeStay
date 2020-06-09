@@ -15,11 +15,16 @@
     <color name="dark_gray">#696969</color>
     <color name="bg_color">#f7f7f7</color>
     <color name="black">#000000</color>
-    <color name="white">#ffffff</color>
+    <color name="white">#FFFFFFFF</color>
     <color name="deep_purple_500">#673AB7</color>
     <color name="colorBtnFaceBook">#2196F3</color>
     <color name="colorText3">#9E9E9E</color>
+    <color name="gray50_500">#9E9E9E</color>
+    <color name="gray50_400">#BDBDBD</color>
     <color name="gray50_300">#E0E0E0</color>
     <color name="gray50_100">#F5F5F5</color>
+    <color name="gray50_50">#FAFAFA</color>
+    <color name="red50_400">#EF5350</color>
     <color name="background_dialog_color">#C3000000</color>
+    <color name="color_transparent">#A39E9E9E</color>
 </resources>

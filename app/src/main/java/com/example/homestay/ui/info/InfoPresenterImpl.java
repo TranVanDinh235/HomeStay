@@ -24,16 +24,14 @@ public class InfoPresenterImpl<V extends InfoView> extends BasePresenter<V> impl
         Log.e("tag", "refresh_token: "+getDataManager().getRefreshToken());
         Log.e("tag", "access_token: "+getDataManager().getAccessToken());
         String userId = String.valueOf(getDataManager().getCurrentUserId());
-        getView().showLoading();
         getCompositeDisposable().add(getDataManager()
                 .doServerApiGetUserInfoCall(userId)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(authResponse -> {
-                    getView().hideLoading();
-                    getView().loadData(authResponse.getUser());
                 }, throwable -> {
                     getView().hideLoading();
+                    throwable.printStackTrace();
                 }));
     }
 

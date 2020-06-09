@@ -1,5 +1,7 @@
 package com.example.homestay.ui.upcoming;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +13,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.homestay.R;
+import com.example.homestay.data.network.entity.Booking;
 import com.example.homestay.data.network.response.ListHouseResponse;
 import com.example.homestay.di.component.ActivityComponent;
 import com.example.homestay.ui.base.BaseFragment;
+import com.example.homestay.ui.house.HouseActivity;
+import com.example.homestay.ui.tripdetail.TripDetailActivity;
+import com.example.homestay.ui.tripdetail.TripDetailPresenter;
+import com.example.homestay.utils.AppConstants;
+import com.google.gson.Gson;
 
 import javax.inject.Inject;
 
@@ -57,12 +65,20 @@ public class UpcomingFragment extends BaseFragment implements UpcomingView, Upco
     }
 
     @Override
-    public void onItemClick(int houseId) {
+    public void onItemClick(Booking house) {
+        Intent intent = new Intent(getActivity(), TripDetailActivity.class);
+        intent.putExtra(AppConstants.TAG_DATA_BOOKING, new Gson().toJson(house));
+        startActivity(intent);
+    }
 
+    @Override
+    public void onGetQRCode(Bitmap bitmap) {
+        QRCodeDialog dialogFragment = new QRCodeDialog(bitmap);
+        dialogFragment.show(getChildFragmentManager(), "tag 1");
     }
 
     @Override
     public void showData(ListHouseResponse response) {
-        mAdapter.addItem(response.getHouseList().getHouses());
+        mAdapter.addItem(response.getHouseList().getBookings());
     }
 }

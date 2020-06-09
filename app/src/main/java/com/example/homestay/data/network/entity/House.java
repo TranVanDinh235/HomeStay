@@ -151,6 +151,14 @@ public class House {
     private int endDate;
 
     @Expose
+    @SerializedName("booking_id")
+    private int bookingId;
+
+    @Expose
+    @SerializedName("guest_id")
+    private int guestId;
+
+    @Expose
     @SerializedName("calendar")
     private List<HouseDate> houseDates;
 
@@ -532,5 +540,21 @@ public class House {
 
     public void setEndDate(int endDate) {
         this.endDate = endDate;
+    }
+
+    public int getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingId(int bookingId) {
+        this.bookingId = bookingId;
+    }
+
+    public int getGuestId() {
+        return guestId;
+    }
+
+    public void setGuestId(int guestId) {
+        this.guestId = guestId;
     }
 }

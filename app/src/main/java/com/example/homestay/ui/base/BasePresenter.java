@@ -116,20 +116,19 @@ public class BasePresenter<V extends MvpView> implements Presenter<V> {
         try {
             ApiError apiError = gson.fromJson(error.getErrorBody(), ApiError.class);
 
-            if (apiError == null || apiError.getMessage() == null) {
+            if (apiError == null || apiError.getError() == null) {
                 getView().onError(R.string.api_default_error);
                 return;
             }
 
             switch (error.getErrorCode()) {
-                case HttpsURLConnection.HTTP_UNAUTHORIZED:
                 case HttpsURLConnection.HTTP_FORBIDDEN:
                     setUserAsLoggedOut();
                     getView().openActivityOnTokenExpire();
                 case HttpsURLConnection.HTTP_INTERNAL_ERROR:
                 case HttpsURLConnection.HTTP_NOT_FOUND:
                 default:
-                    getView().onError(apiError.getMessage());
+                    getView().onError(apiError.getError());
             }
         } catch (JsonSyntaxException | NullPointerException e) {
             Log.e(TAG, "handleApiError", e);
@@ -141,6 +140,12 @@ public class BasePresenter<V extends MvpView> implements Presenter<V> {
     public void setUserAsLoggedOut() {
         getDataManager().setAccessToken(null);
         getDataManager().setRefreshToken(null);
+        getDataManager().setFireBaseToken(null);
+        getDataManager().setCurrentUserEmail(null);
+        getDataManager().setCurrentUserProfilePicUrl(null);
+        getDataManager().setCurrentUsername(null);
+        getDataManager().setCurrentUserId(null);
+        getDataManager().setUserLoggedInMode(false);
     }
 
     public static class MvpViewNotAttachedException extends RuntimeException {

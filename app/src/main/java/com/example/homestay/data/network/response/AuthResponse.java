@@ -19,6 +19,10 @@ public class AuthResponse extends ApiResponse{
     @SerializedName("refresh_token")
     private String refreshToken;
 
+    @Expose
+    @SerializedName("firebase_token")
+    private String firebaseToken;
+
     public User getUser() {
         return user;
     }
@@ -41,5 +45,13 @@ public class AuthResponse extends ApiResponse{
 
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
+    }
+
+    public String getFirebaseToken() {
+        return firebaseToken;
+    }
+
+    public void setFirebaseToken(String firebaseToken) {
+        this.firebaseToken = firebaseToken;
     }
 }

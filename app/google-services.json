@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "233136474065",
+    "firebase_url": "https://homestay160420.firebaseio.com",
+    "project_id": "homestay160420",
+    "storage_bucket": "homestay160420.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233136474065:android:48e1f092375e606d0c42f0",
+        "android_client_info": {
+          "package_name": "com.example.homestay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233136474065-mtfqifqae3un0gm0emsmt0fq6649mlhp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.homestay",
+            "certificate_hash": "f38307b5520f391a30f48b4bff26481e4765edcb"
+          }
+        },
+        {
+          "client_id": "233136474065-0jrakogvcqjaju1eve7pd8j2ndee4cav.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMA4IvrgIZi2uSEptwdJB6bM677pMBCXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233136474065-0jrakogvcqjaju1eve7pd8j2ndee4cav.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

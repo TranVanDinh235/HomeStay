@@ -1,6 +1,457 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_12sdp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/layout_filter_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/lora_bold"
+            android:text="@string/filter"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/layout_filter_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:src="@drawable/ic_close"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_filter_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_filter_title" />
+
+        <TextView
+            android:id="@+id/layout_filter_price_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/lora_bold"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:textColor="@color/colorText3"
+            android:text="Giá một đêm"
+            app:layout_constraintTop_toBottomOf="@+id/layout_filter_title" />
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="10000000"
+            app:thumbColor="@color/colorPrimary"
+            android:layout_marginTop="@dimen/_18sdp"
+            app:layout_constraintTop_toBottomOf="@id/layout_filter_price_label"
+            />
+
+        <TextView
+            android:id="@+id/layout_filter_price_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lora"
+            android:text="9999999đ"
+            android:textSize="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="@+id/slider"
+            app:layout_constraintTop_toBottomOf="@+id/slider" />
+
+        <TextView
+            android:id="@+id/view8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/lora"
+            android:text="@string/connect"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_filter_price_max"
+            app:layout_constraintEnd_toStartOf="@+id/layout_filter_price_max" />
+
+        <TextView
+            android:id="@+id/layout_filter_price_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lora"
+            android:text="0đ"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/view8"
+            app:layout_constraintEnd_toStartOf="@+id/view8" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50_300"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:layout_constraintTop_toBottomOf="@id/layout_filter_price_max"/>
+
+        <TextView
+            android:id="@+id/layout_filter_facilities_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Các tiện nghi phổ biến"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/colorText3"
+            android:fontFamily="@font/lora_bold"
+            app:layout_constraintTop_toBottomOf="@+id/view1"
+            android:layout_marginTop="@dimen/_18sdp"/>
+
+        <LinearLayout
+            android:id="@+id/layout_filter_facilities_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:layout_constraintTop_toBottomOf="@+id/layout_filter_facilities_label">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/CheckBoxTheme"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Wifi miến phí"
+                        android:textSize="@dimen/_13sdp"
+                        android:fontFamily="@font/lora"
+                        android:gravity="center_vertical"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/CheckBoxTheme"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Bữa sáng miễn phí"
+                        android:textSize="@dimen/_13sdp"
+                        android:fontFamily="@font/lora"
+                        android:gravity="center_vertical"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/CheckBoxTheme"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Phong cảnh đẹp"
+                        android:textSize="@dimen/_13sdp"
+                        android:fontFamily="@font/lora"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/CheckBoxTheme"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/_13sdp"
+                        android:fontFamily="@font/lora"
+                        android:text="Phù hợp vói trẻ em"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/CheckBoxTheme"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="BBQ"
+                        android:fontFamily="@font/lora"
+                        android:textSize="@dimen/_13sdp"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/CheckBoxTheme"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Bể bơi"
+                        android:textSize="@dimen/_13sdp"
+                        android:fontFamily="@font/lora"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/CheckBoxTheme"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/_13sdp"
+                        android:fontFamily="@font/lora"
+                        android:text="Sân golf"
+                        android:gravity="center_vertical"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/layout_filter_facilities_container"
+            android:layout_marginTop="@dimen/_16sdp"/>
+
+        <TextView
+            android:id="@+id/layout_filter_all_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Các loại nhà"
+            android:fontFamily="@font/lora_bold"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/colorText3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/layout_filter_all_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_filter_all_label"
+            style="@style/SwitchTheme"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"/>
+
+        <TextView
+            android:id="@+id/layout_filter_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tất cả"
+            android:fontFamily="@font/lora"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_filter_all_switch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_filter_all_switch" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/layout_filter_all_switch"
+            android:layout_marginTop="@dimen/_13sdp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/layout_filter_entire_house_switch"
+            style="@style/SwitchTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3"
+            android:layout_marginTop="@dimen/_12sdp"/>
+
+        <TextView
+            android:id="@+id/layout_filter_entire_house"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhà riêng"
+            android:fontFamily="@font/lora"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_filter_entire_house_switch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_filter_entire_house_switch" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/layout_filter_entire_house_switch"
+            android:layout_marginTop="@dimen/_12sdp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/layout_filter_condominium_switch"
+            style="@style/SwitchTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view4"
+            android:layout_marginTop="@dimen/_12sdp"/>
+
+        <TextView
+            android:id="@+id/layout_filter_condominium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lora"
+            android:text="Căn hộ chung cư"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_filter_condominium_switch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_filter_condominium_switch" />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/layout_filter_condominium_switch"
+            android:layout_marginTop="@dimen/_12sdp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/layout_filter_studio_apartment_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            style="@style/SwitchTheme"
+            app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+        <TextView
+            android:id="@+id/layout_filter_studio_apartment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lora"
+            android:text="@string/studio_apartment"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_filter_studio_apartment_switch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_filter_studio_apartment_switch" />
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/layout_filter_studio_apartment_switch"
+            android:layout_marginTop="@dimen/_12sdp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/layout_filter_service_apartment_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            style="@style/SwitchTheme"
+            app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+        <TextView
+            android:id="@+id/layout_filter_service_apartment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lora"
+            android:text="@string/service_apartment"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_filter_service_apartment_switch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_filter_service_apartment_switch" />
+
+        <View
+            android:id="@+id/view7"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/layout_filter_service_apartment_switch"
+            android:layout_marginTop="@dimen/_12sdp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/layout_filter_other_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            style="@style/SwitchTheme"
+            app:layout_constraintTop_toBottomOf="@+id/view7" />
+
+        <TextView
+            android:id="@+id/layout_filter_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lora"
+            android:text="@string/other"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_filter_other_switch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_filter_other_switch" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/layout_filter_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/apply"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_24sdp"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:layout_gravity="top"
+            android:fontFamily="@font/lora"
+            android:gravity="center_horizontal"
+            app:layout_constraintTop_toBottomOf="@id/layout_filter_other_switch"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

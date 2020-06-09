@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:fontFamily="@font/lora_bold"
             android:textSize="@dimen/_12sdp"
             android:layout_marginStart="@dimen/_6sdp"
             tools:text="Nha o sieu dep"/>

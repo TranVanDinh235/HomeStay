@@ -1,5 +1,7 @@
 package com.example.homestay.ui.profile;
 
+import android.util.Log;
+
 import com.androidnetworking.error.ANError;
 import com.example.homestay.data.DataManager;
 import com.example.homestay.ui.base.BasePresenter;
@@ -19,7 +21,16 @@ public class ProfilePresenterImpl<V extends ProfileView> extends BasePresenter<V
 
 
     @Override
-    public boolean isUserLoggedInMode() {
-        return getDataManager().isUserLoggedInMode();
+    public void getUserData() {
+        String userId = String.valueOf(getDataManager().getCurrentUserId());
+        getCompositeDisposable().add(getDataManager()
+                .doServerApiGetUserInfoCall(userId)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(authResponse -> {
+                    getView().loadData(authResponse.getUser());
+                }, throwable -> {
+                    getView().hideLoading();
+                }));
     }
 }

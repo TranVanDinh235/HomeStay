@@ -1,313 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorBackground1">
+    android:layout_height="wrap_content">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/layout_info_appbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBackground1"
-        android:elevation="0dp"
-        app:elevation="0dp">
+        android:paddingBottom="@dimen/_80sdp">
 
-        <FrameLayout
-            android:id="@+id/layout_info_appbar_container"
-            android:layout_width="match_parent"
-            android:layout_height="120dp">
+        <ImageView
+            android:id="@+id/layout_info_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/layout_info_back"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginStart="16dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_arrow_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:fontFamily="@font/work_sans"
-                    android:gravity="center_vertical"
-                    android:text="@string/back"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/layout_info_back_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:padding="6dp"
-                android:src="@drawable/ic_keyboard_arrow_left"
-                android:layout_marginStart="-48dp"/>
-
-            <LinearLayout
-                android:id="@+id/layout_info_title"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_gravity="bottom|start">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_semibold"
-                    android:textSize="24sp"
-                    android:layout_gravity="center"
-                    android:text="@string/personal_information"
-                    android:layout_marginStart="16dp"
-                    />
-            </LinearLayout>
-
-        </FrameLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/layout_info_logged_mode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/layout_info_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/lora_bold"
+            android:text="@string/edit_profile"
+            android:textSize="@dimen/_20sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_info_finish" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="8dp"
-                android:background="@color/white">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/layout_info_photo"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="@dimen/_140sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:src="@drawable/img_temp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_info_title" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_semibold"
-                    android:textSize="16sp"
-                    android:text="@string/full_name"/>
+        <ImageView
+            android:id="@+id/layout_info_camera"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:src="@drawable/ic_camera"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_info_photo"
+            app:layout_constraintEnd_toEndOf="@+id/layout_info_photo" />
 
-                <EditText
-                    android:id="@+id/layout_info_last_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/work_sans_medium"
-                    tools:text="Dinh"
-                    android:enabled="false"
-                    />
+        <TextView
+            android:id="@+id/layout_info_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:fontFamily="@font/lora_bold"
+            android:text="@string/full_name"
+            android:textColor="@color/colorText3"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@id/layout_info_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/layout_info_name" />
 
-            </LinearLayout>
+        <EditText
+            android:id="@+id/layout_info_name"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/background_transparent"
+            android:fontFamily="@font/lora_bold"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_info_photo"
+            tools:text="Dinh\" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="8dp">
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/layout_info_name" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_semibold"
-                    android:textSize="16sp"
-                    android:text="@string/email"/>
 
-                <EditText
-                    android:id="@+id/layout_info_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/work_sans_medium"
-                    tools:text="Tran Van"
-                    android:enabled="false"
-                    />
+        <TextView
+            android:id="@+id/layout_info_email_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:fontFamily="@font/lora_bold"
+            android:text="@string/email"
+            android:textColor="@color/colorText3"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_info_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_info_email" />
 
-            </LinearLayout>
+        <EditText
+            android:id="@+id/layout_info_email"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/background_transparent"
+            android:enabled="false"
+            android:fontFamily="@font/lora"
+            android:maxWidth="@dimen/_150sdp"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            tools:text="trandinhcn@gmail.com" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/white"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="8dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_semibold"
-                    android:textSize="16sp"
-                    android:text="@string/gender"/>
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/layout_info_email" />
 
-                <EditText
-                    android:id="@+id/layout_info_gender"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/work_sans_medium"
-                    tools:text="Nam"
-                    android:enabled="false"
-                    />
+        <TextView
+            android:id="@+id/layout_info_birthday_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:fontFamily="@font/lora_bold"
+            android:text="@string/birth_day"
+            android:textColor="@color/colorText3"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_info_birthday"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_info_birthday" />
 
-            </LinearLayout>
+        <EditText
+            android:id="@+id/layout_info_birthday"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/background_transparent"
+            android:fontFamily="@font/lora_bold"
+            android:inputType="date"
+            android:maxWidth="@dimen/_150sdp"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view1"
+            tools:text="Tran Van" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="8dp">
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/layout_info_birthday" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_semibold"
-                    android:textSize="16sp"
-                    android:text="@string/birth_day"/>
 
-                <EditText
-                    android:id="@+id/layout_info_birthday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/work_sans_medium"
-                    tools:text="Tran Van"
-                    android:enabled="false"
-                    />
+        <TextView
+            android:id="@+id/layout_info_phone_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:fontFamily="@font/lora_bold"
+            android:text="@string/phone"
+            android:textColor="@color/colorText3"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_info_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_info_phone" />
 
-            </LinearLayout>
+        <EditText
+            android:id="@+id/layout_info_phone"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/background_transparent"
+            android:fontFamily="@font/lora_bold"
+            android:inputType="phone"
+            android:maxWidth="@dimen/_150sdp"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view2"
+            tools:text="01232310" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="8dp"
-                android:background="@color/white">
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/layout_info_phone" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_semibold"
-                    android:textSize="16sp"
-                    android:text="@string/phone"/>
+        <TextView
+            android:id="@+id/layout_info_facebook_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:fontFamily="@font/lora_bold"
+            android:text="@string/login_facebook"
+            android:textColor="@color/colorText3"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_info_facebook"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_info_facebook" />
 
-                <EditText
-                    android:id="@+id/layout_info_phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/work_sans_medium"
-                    tools:text="01232310"
-                    android:inputType="phone"
-                    android:enabled="false"
-                    />
+        <EditText
+            android:id="@+id/layout_info_facebook"
+            android:enabled="false"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/background_transparent"
+            android:fontFamily="@font/lora_bold"
+            android:inputType="textMultiLine"
+            android:maxWidth="@dimen/_150sdp"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view3"
+            tools:text="df" />
 
-            </LinearLayout>
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/layout_info_facebook" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="8dp">
+        <TextView
+            android:id="@+id/layout_info_address_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:fontFamily="@font/lora_bold"
+            android:text="@string/address"
+            android:textColor="@color/colorText3"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_info_address"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_info_address"
+            app:layout_goneMarginStart="@dimen/_12sdp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_semibold"
-                    android:textSize="16sp"
-                    android:text="@string/address"/>
+        <EditText
+            android:id="@+id/layout_info_address"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:background="@drawable/background_transparent"
+            android:fontFamily="@font/lora_bold"
+            android:inputType="textMultiLine"
+            android:maxWidth="@dimen/_150sdp"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view4"
+            tools:text="df" />
 
-                <EditText
-                    android:id="@+id/layout_info_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/work_sans_medium"
-                    android:inputType="textMultiLine"
-                    tools:text="@string/two_line_text"
-                    android:enabled="false"
-                    />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="8dp"
-                android:layout_marginBottom="120dp"
-                android:background="@color/white">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/work_sans_semibold"
-                    android:textSize="16sp"
-                    android:text="@string/introduce"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/layout_info_introduce"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:errorEnabled="true"
-                    android:visibility="visible">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/layout_info_edt_introduce"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:maxLines="10"
-                        android:inputType="textMultiLine"
-                        android:textColor="@color/colorText2"
-                        android:textAlignment="viewStart"
-                        android:textSize="14sp"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/layout_info_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/save_change"
-        app:icon="@drawable/ic_check"
-        android:layout_marginBottom="40dp"
-        android:textColor="@color/white"
-        app:iconTint="@color/white"
-        app:backgroundTint="@color/colorPrimary"
-        android:layout_margin="24dp"
-        android:layout_gravity="bottom|end"/>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="@dimen/_8sdp">
-    
+    android:layout_marginStart="@dimen/_16sdp"
+    android:layout_marginEnd="@dimen/_16sdp"
+    android:layout_marginBottom="@dimen/_24sdp">
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -18,9 +20,10 @@
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
         android:src="@drawable/img_temp"
+        android:layout_marginStart="@dimen/_6sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/_12sdp"/>
+        android:layout_marginTop="@dimen/_18sdp"/>
 
     <TextView
         android:id="@+id/item_review_name"
@@ -35,12 +38,13 @@
 
     <TextView
         android:id="@+id/item_review_content"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
         android:fontFamily="@font/lora"
         android:textSize="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/item_review_rating_tv"
+        app:layout_constraintStart_toStartOf="@+id/item_review_avatar"
         app:layout_constraintTop_toBottomOf="@+id/item_review_avatar"
         tools:text="Nha nay rat dep rat an tuuong voi mot nguoi kho tinh nhu toi" />
 
@@ -63,15 +67,16 @@
         tools:text="Khá tệ"
         android:textSize="@dimen/_13sdp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/_6sdp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/_12sdp"/>
+        android:layout_marginTop="@dimen/_18sdp"/>
 
     <androidx.appcompat.widget.AppCompatRatingBar
         android:id="@+id/item_review_rating"
         style="?android:attr/ratingBarStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/item_review_rating_tv"
         app:layout_constraintTop_toBottomOf="@+id/item_review_rating_tv" />
 
 

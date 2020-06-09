@@ -38,6 +38,10 @@ public class HouseList {
     @SerializedName("houses")
     private List<House> houses;
 
+    @Expose
+    @SerializedName("bookings")
+    private List<Booking> bookings;
+
     public int getId() {
         return id;
     }
@@ -100,5 +104,13 @@ public class HouseList {
 
     public void setHouses(List<House> houses) {
         this.houses = houses;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
     }
 }

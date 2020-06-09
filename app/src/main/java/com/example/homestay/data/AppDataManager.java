@@ -5,11 +5,14 @@ import android.content.Context;
 import com.example.homestay.data.db.DbHelper;
 import com.example.homestay.data.network.ApiHeader;
 import com.example.homestay.data.network.ApiHelper;
+import com.example.homestay.data.network.request.BookingBody;
+import com.example.homestay.data.network.response.ApiResponse;
 import com.example.homestay.data.network.response.AuthResponse;
 import com.example.homestay.data.network.response.CityResponse;
 import com.example.homestay.data.network.response.HouseResponse;
 import com.example.homestay.data.network.response.ListHouseResponse;
 import com.example.homestay.data.network.response.SearchResponse;
+import com.example.homestay.data.network.response.TokenResponse;
 import com.example.homestay.data.network.response.TopicResponse;
 import com.example.homestay.data.network.response.UserResponse;
 import com.example.homestay.data.prefs.PrefHelper;
@@ -113,6 +116,16 @@ public class AppDataManager implements DataManager{
     }
 
     @Override
+    public String getFireBaseToken() {
+        return mPreferencesHelper.getFireBaseToken();
+    }
+
+    @Override
+    public void setFireBaseToken(String token) {
+        mPreferencesHelper.setFireBaseToken(token);
+    }
+
+    @Override
     public ApiHeader getApiHeader() {
         return mApiHelper.getApiHeader();
     }
@@ -153,6 +166,11 @@ public class AppDataManager implements DataManager{
     }
 
     @Override
+    public Single<ListHouseResponse> doServerApiGetFavoritesHouseItemCall(String userId) {
+        return mApiHelper.doServerApiGetFavoritesHouseItemCall(userId);
+    }
+
+    @Override
     public Single<ListHouseResponse> doServerApiGetListHouseSearchCall(String searchStr) {
         return null;
     }
@@ -186,4 +204,20 @@ public class AppDataManager implements DataManager{
     public Single<ListHouseResponse> doServerApiTripsFinishDataCall(String userId) {
         return mApiHelper.doServerApiTripsFinishDataCall(userId);
     }
+
+    @Override
+    public Single<ApiResponse> doServerApiBookingCall(JSONObject body) {
+        return mApiHelper.doServerApiBookingCall(body);
+    }
+
+    @Override
+    public Single<ApiResponse> doServerApiUnBookingCall(JSONObject body) {
+        return mApiHelper.doServerApiUnBookingCall(body);
+    }
+
+    @Override
+    public Single<AuthResponse> doServerApiUpdateFirebaseTokenCall(JSONObject body) {
+        return mApiHelper.doServerApiUpdateFirebaseTokenCall(body);
+    }
+
 }

@@ -6,6 +6,7 @@ import com.example.homestay.data.network.request.LoginBody;
 import com.example.homestay.ui.base.BasePresenter;
 import com.example.homestay.utils.CommonUtils;
 import com.example.homestay.utils.rx.SchedulerProvider;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -19,10 +20,17 @@ public class LoginPresenterImpl<V extends LoginView> extends BasePresenter<V> im
     @Inject
     public LoginPresenterImpl(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnSuccessListener(instanceIdResult -> {
+                    String token = instanceIdResult.getToken();
+                    getDataManager().setFireBaseToken(token);
+                });
     }
 
     @Override
     public void onLoginClick(String email, String password) {
+        String firebaseToken = getDataManager().getFireBaseToken();
+        if (firebaseToken == null) return;
         if (email == null || email.isEmpty()) {
             getView().onError(R.string.empty_email);
             return;
@@ -35,10 +43,8 @@ public class LoginPresenterImpl<V extends LoginView> extends BasePresenter<V> im
             getView().onError(R.string.empty_password);
             return;
         }
-        getView().showLoading();
         try {
-            LoginBody loginBody = new LoginBody(email, password);
-
+            LoginBody loginBody = new LoginBody(email, password, firebaseToken);
             String json = new Gson().toJson(loginBody);
             JSONObject body = new JSONObject(json);
             getCompositeDisposable().add(getDataManager()
@@ -46,7 +52,6 @@ public class LoginPresenterImpl<V extends LoginView> extends BasePresenter<V> im
                     .subscribeOn(getSchedulerProvider().io())
                     .observeOn(getSchedulerProvider().ui())
                     .subscribe(authResponse -> {
-                        getView().hideLoading();
                         int statusCode = authResponse.getStatusCode();
                         if(statusCode == 200){
                             getDataManager().setUserLoggedInMode(true);
@@ -71,16 +76,17 @@ public class LoginPresenterImpl<V extends LoginView> extends BasePresenter<V> im
 
     @Override
     public void onGoogleLoginClick(String token) {
-        getView().showLoading();
+        String firebaseToken = getDataManager().getFireBaseToken();
+        if (firebaseToken == null) return;
         try {
-            String data = "{\"token\":\""+ token + "\"}";
-            JSONObject body = new JSONObject(data);
+            LoginBody loginBody = new LoginBody(token, firebaseToken);
+            String json = new Gson().toJson(loginBody);
+            JSONObject body = new JSONObject(json);
             getCompositeDisposable().add(getDataManager()
                     .doServerApiLoginGoogleCall(body)
                     .subscribeOn(getSchedulerProvider().io())
                     .observeOn(getSchedulerProvider().ui())
                     .subscribe(authResponse -> {
-                        getView().hideLoading();
                         int statusCode = authResponse.getStatusCode();
                         if(statusCode == 200){
                             getDataManager().setUserLoggedInMode(true);
@@ -104,16 +110,17 @@ public class LoginPresenterImpl<V extends LoginView> extends BasePresenter<V> im
 
     @Override
     public void onFacebookLoginClick(String token) {
-        getView().showLoading();
+        String firebaseToken = getDataManager().getFireBaseToken();
+        if (firebaseToken == null) return;
         try {
-            String data = "{\"token\":\""+ token + "\"}";
-            JSONObject body = new JSONObject(data);
+            LoginBody loginBody = new LoginBody(token, firebaseToken);
+            String json = new Gson().toJson(loginBody);
+            JSONObject body = new JSONObject(json);
             getCompositeDisposable().add(getDataManager()
                     .doServerApiLoginFacebookCall(body)
                     .subscribeOn(getSchedulerProvider().io())
                     .observeOn(getSchedulerProvider().ui())
                     .subscribe(authResponse -> {
-                        getView().hideLoading();
                         int statusCode = authResponse.getStatusCode();
                         if(statusCode == 200){
                             getDataManager().setUserLoggedInMode(true);

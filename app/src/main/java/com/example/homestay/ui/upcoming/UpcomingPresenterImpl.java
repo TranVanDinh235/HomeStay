@@ -19,14 +19,12 @@ public class UpcomingPresenterImpl<V extends UpcomingView> extends BasePresenter
 
     @Override
     public void getTripsUpcomingData() {
-        getView().showLoading();
         if(getDataManager().getCurrentUserId() == null) return;
 
         getCompositeDisposable().add(getDataManager().doServerApiTripsUpcomingDataCall(String.valueOf(getDataManager().getCurrentUserId()))
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(response -> {
-                    getView().hideLoading();
                     getView().showData(response);
                 }, throwable -> {
 

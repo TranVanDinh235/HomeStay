@@ -1,55 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_60sdp"
-            android:background="@color/white">
+        <ImageView
+            android:id="@+id/layout_list_house_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_arrow"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_list_house_app_bar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/layout_list_house_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lora_bold"
+            android:text="@string/title_discover"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_list_house_back_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layout_list_house_back_icon" />
 
-                <ImageView
-                    android:id="@+id/layout_list_house_back_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_back_arrow"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    app:layout_constraintBottom_toBottomOf="@+id/layout_list_house_title"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/layout_list_house_title" />
-
-                <TextView
-                    android:id="@+id/layout_list_house_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_discover"
-                    android:fontFamily="@font/merriweather_bold"
-                    android:textSize="@dimen/_16sdp"
-                    android:layout_marginBottom="@dimen/_8sdp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_list_house_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layout_list_house_title"
+            android:paddingTop="@dimen/_12sdp"
+            android:background="@color/gray50_50"
+            android:paddingBottom="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_18sdp">
 
             <View
                 android:id="@+id/view"
@@ -69,21 +61,36 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_12sdp"
                 android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/lora"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/view"
                 android:text="Chọn ngày:" />
 
             <TextView
-                android:id="@+id/layout_list_house_date"
+                android:id="@+id/layout_list_house_date_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@+id/view"
+                android:maxWidth="@dimen/_120sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layout_list_house_date_label"
-                android:text="22 Dec - 24 Dec"
-                android:textStyle="bold"
+                android:text="Th3 20/07"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/lora_bold"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:textSize="@dimen/_13sdp"/>
+
+            <TextView
+                android:id="@+id/layout_list_house_date_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lora_bold"
+                android:maxWidth="@dimen/_120sdp"
+                android:text="- Th5 22/07"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintEnd_toStartOf="@+id/view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_list_house_date_start" />
 
             <TextView
                 android:id="@+id/layout_list_house_room_label"
@@ -92,6 +99,7 @@
                 android:text="Số phòng:"
                 android:textSize="@dimen/_12sdp"
                 android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/lora"
                 app:layout_constraintStart_toEndOf="@+id/view"
                 app:layout_constraintTop_toTopOf="@+id/view" />
 
@@ -103,17 +111,47 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/view"
                 app:layout_constraintTop_toBottomOf="@id/layout_list_house_room_label"
-                android:text="2 PHÒNG - 2 NGƯỜI LỚN - 1 TRẺ EM"
+                android:text="1 Phòng ngủ - 1 Phòng tắm - 1 Khách"
+                android:fontFamily="@font/lora_bold"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:textSize="@dimen/_13sdp"
-                android:textStyle="bold"/>
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
+        <TextView
+            android:id="@+id/layout_list_house_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lora_bold"
+            android:textColor="@color/colorText3"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_list_house_container"
+            tools:text="(500 ket qua)" />
+
+        <TextView
+            android:id="@+id/layout_list_house_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:fontFamily="@font/lora_bold"
+            android:textColor="@color/colorText3"
+            android:textSize="@dimen/_12sdp"
+            android:text="@string/filter"
+            android:drawableEnd="@drawable/ic_filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_list_house_container" />
+
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/layout_list_house_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_60sdp"
+            app:layout_constraintTop_toBottomOf="@+id/layout_list_house_total" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

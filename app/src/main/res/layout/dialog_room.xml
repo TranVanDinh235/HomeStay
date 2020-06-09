@@ -1,6 +1,170 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_16sdp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/dialog_room_bedroom_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bed_room"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/lora_bold"
+            app:layout_constraintBottom_toBottomOf="@+id/dialog_room_bedroom_minus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dialog_room_bedroom_minus" />
+
+        <ImageView
+            android:id="@+id/dialog_room_bedroom_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_minus"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_room_bedroom"
+            app:layout_constraintTop_toTopOf="@id/dialog_room_bedroom_add" />
+
+        <TextView
+            android:id="@+id/dialog_room_bedroom"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="wrap_content"
+            android:text="@string/_2"
+            android:gravity="center"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/lora_bold"
+            app:layout_constraintBottom_toBottomOf="@+id/dialog_room_bedroom_add"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_room_bedroom_add" />
+
+        <ImageView
+            android:id="@+id/dialog_room_bedroom_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/ic_plus"/>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_room_bedroom"
+            android:layout_marginTop="@dimen/_20sdp"/>
+
+
+        <TextView
+            android:id="@+id/dialog_room_bathroom_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bathroom"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/lora_bold"
+            app:layout_constraintBottom_toBottomOf="@+id/dialog_room_bathroom_minus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dialog_room_bathroom_minus" />
+
+        <ImageView
+            android:id="@+id/dialog_room_bathroom_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_minus"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_room_bathroom"
+            app:layout_constraintTop_toTopOf="@+id/dialog_room_bathroom_add" />
+
+        <TextView
+            android:id="@+id/dialog_room_bathroom"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="wrap_content"
+            android:text="@string/_0"
+            android:gravity="center"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/lora_bold"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_room_bathroom_add"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_room_bathroom_add" />
+
+        <ImageView
+            android:id="@+id/dialog_room_bathroom_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_plus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view1"
+            android:layout_marginTop="@dimen/_16sdp"/>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_room_bathroom"
+            android:layout_marginTop="@dimen/_20sdp"/>
+
+        <TextView
+            android:id="@+id/dialog_room_guest_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guest"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/lora_bold"
+            app:layout_constraintBottom_toBottomOf="@+id/dialog_room_guest_minus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dialog_room_guest_minus" />
+
+        <ImageView
+            android:id="@+id/dialog_room_guest_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_minus"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_room_guest"
+            app:layout_constraintTop_toTopOf="@+id/dialog_room_guest_add" />
+
+
+        <TextView
+            android:id="@+id/dialog_room_guest"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/merriweather_bold"
+            android:gravity="center"
+            android:text="@string/_1"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_room_guest_add"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_room_guest_add"
+            />
+
+        <ImageView
+            android:id="@+id/dialog_room_guest_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_plus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2"
+            android:layout_marginTop="@dimen/_16sdp"/>
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray50_300"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_room_guest"
+            android:layout_marginTop="@dimen/_16sdp"/>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/dialog_room_apply"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:fontFamily="@font/lora_bold"
+            android:text="@string/apply"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

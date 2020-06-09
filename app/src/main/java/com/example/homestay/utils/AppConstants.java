@@ -20,10 +20,11 @@ package com.example.homestay.utils;
  */
 
 public final class AppConstants {
-//    public static final String IP_ADDRESS = "http://10.1.60.76:3030/homestay/v1/api";
+//    public static final String IP_ADDRESS = "http://10.1.60.93:3030/homestay/v1/api";
 //    public static final String IP_ADDRESS = "http://10.0.2.2:3030/homestay/v1/api";
-    public static final String IP_ADDRESS = "http://12.22.88.102:3030/homestay/v1/api";
-//    public static final String IP_ADDRESS = "http://192.168.1.10:3030/homestay/v1/api";
+//    public static final String IP_ADDRESS = "http://192.168.43.126:3030/homestay/v1/api";
+    public static final String IP_ADDRESS = "http://10.1.60.68:3030/homestay/v1/api";
+//    public static final String IP_ADDRESS = "http://12.22.88.102:3030/homestay/v1/api";
 
     public static final String STATUS_CODE_SUCCESS = "success";
     public static final String STATUS_CODE_FAILED = "failed";
@@ -68,6 +69,24 @@ public final class AppConstants {
     public static final String UPCOMING = "Đang diễn ra";
     public static final String FINISH = "Kết thúc";
     public static final String FAVORITES = "Yêu thích";
+    public static final String TAG_DATA_CALENDAR = "tag data calendar";
+    public static final int LAUNCH_BOOKING_ACTIVITY = 22;
+    public static final String TAG_DATA_HOUSE_ID = "tag data house id";
+    public static final String TAG_DATA_HOUSE = "tag data house";
+    public static final int LAUNCH_ACTIVITY_OVERVIEW = 23;
+    public static final String TAG_DATA_USER = "tag data user";
+    public static final int LAUNCH_FILTER_ACTIVITY = 24;
+    public static final int LAUNCH_SIGN_UP_ACTIVITY = 25;
+    public static final int OPEN_TAB_NOTIFICATION = 26;
+    public static final String CHANNEL_ID = "notify homestay app id";
+    public static final String GROUP_KEY_NOTIFICATION = "com.example.homestay.notification_group";
+    public static final String TAG_DATA_BOOKING = "tag data booking";
+    public static final String TAG_ROOM_DIALOG = "tag room dialog";
+
+    public static final int LAUNCH_ACTIVITY_DATE = 27;
+    public static final String TAG_DATA_DATE = "tag extra date";
+    public static final String TAG_DATA_ADULT = "tag data adult";
+    public static final String TAG_DATA_CHILD = "tag data child";
 
     private AppConstants() {
         // This utility class is not publicly instantiable

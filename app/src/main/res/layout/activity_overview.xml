@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/layout_overview_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/img_temp"
+        android:scaleType="centerCrop"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layout_overview_cv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_170sdp"
+        android:layout_margin="@dimen/_12sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/color_transparent"
+        app:layout_constraintBottom_toTopOf="@+id/layout_overview_more">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/extendedFloatingActionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_12sdp"
+                android:text="@string/book_now"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:fontFamily="@font/lora_bold"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <RatingBar
+                android:id="@+id/layout_overview_rating_bar"
+                style="@style/RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_12sdp"
+                app:layout_constraintBottom_toTopOf="@+id/extendedFloatingActionButton"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/layout_overview_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/layout_overview_rating_bar"
+                tools:text="mai dich ha noi viet nam"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:fontFamily="@font/lora"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/layout_overview_title"
+                android:layout_width="@dimen/_230sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:fontFamily="@font/lora_bold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_22sdp"
+                android:maxLines="2"
+                android:lines="2"
+                app:layout_constraintBottom_toTopOf="@+id/layout_overview_address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Khach san 10000 sao" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/layout_overview_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/more_detail"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:fontFamily="@font/lora"
+        android:layout_marginBottom="@dimen/_46sdp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

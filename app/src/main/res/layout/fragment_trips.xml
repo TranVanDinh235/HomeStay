@@ -11,10 +11,10 @@
         android:id="@+id/layout_trips_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_32sdp"
+        android:layout_marginTop="@dimen/_24sdp"
         android:text="Chuyến đi"
-        android:fontFamily="@font/merriweather_bold"
-        android:textSize="@dimen/_24sdp"
+        android:fontFamily="@font/lora_bold"
+        android:textSize="@dimen/_18sdp"
         android:layout_marginStart="@dimen/_12sdp"/>
 
     <androidx.cardview.widget.CardView
@@ -41,5 +41,5 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/layout_trips_vp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 </LinearLayout>
