@@ -5,4 +5,5 @@ import com.example.homestay.ui.base.Presenter;
 
 @PerActivity
 public interface SplashPresenter<V extends SplashView> extends Presenter<V> {
+    boolean isUserLogin();
 }

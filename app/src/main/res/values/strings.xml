@@ -39,22 +39,21 @@
     <string name="finest_homestays">Lựa chọn tốt nhất</string>
     <string name="popular_place">Điểm đến hàng đầu</string>
     <string name="city_label">Bạn muốn đến thành phố nào?</string>
-    <string name="home">Home</string>
-    <string name="collection">Yêu thích</string>
-    <string name="booking">Đặt chỗ</string>
+    <string name="discover">Khám phá</string>
+    <string name="trips">Chuyến đi</string>
     <string name="account">Cá nhân</string>
     <string name="near_you">Gần bạn</string>
 
     <!--login-->
-    <string name="homes">HomeS</string>
+    <string name="homes">HOMES</string>
     <string name="email">Email</string>
     <string name="password">Mật khẩu</string>
     <string name="forgot_password">Quên mật khẩu?</string>
-    <string name="login">ĐĂNG NHẬP</string>
-    <string name="login_google">ĐĂNG NHẬP VỚI GOOGLE</string>
-    <string name="login_facebook">ĐĂNG NHẬP VỚI FACEBOOK</string>
+    <string name="login">Đăng nhập</string>
+    <string name="login_google">Google</string>
+    <string name="login_facebook">Facebook</string>
     <string name="not_account">Bạn chưa có tài khoản?</string>
-    <string name="sign_up_with_email">ĐĂNG KÝ VỚI EMAIL</string>
+    <string name="sign_up_with_email">Đăng ký</string>
 
     <!--profile-->
     <string name="full_name">*Họ và Tên</string>
@@ -84,4 +83,28 @@
     <!--list view-->
     <string name="loading">Đang tải…</string>
 
+    <!--detail view-->
+    <string name="facilities">Tiện nghi</string>
+    <string name="room_facilities">Tiện nghi phòng</string>
+    <string name="kitchen_facilities">Tiện nghi bếp</string>
+    <string name="special_facilities">Tiện nghi đặc biệt</string>
+    <string name="entertainment">Hoạt động</string>
+    <string name="families">Tiện nghi gia đình</string>
+    <string name="rating">Rating</string>
+    <string name="addition_fee">Phí khách tăng thêm</string>
+    <string name="min_date">Số đêm tối thiểu</string>
+    <string name="price">Giá phòng</string>
+    <string name="seven_day">7 ngày trước khi check-in</string>
+    <string name="check_in">Check-in</string>
+    <string name="check_out">Check-out</string>
+    <string name="_48h">48h sau khi dặt phòng</string>
+    <string name="booking_success">Đặt phòng thành công</string>
+    <string name="see_more">Xem thêm</string>
+    <string name="description">Mô tả</string>
+    <string name="photos">Photos</string>
+    <string name="reviews">Reviews</string>
+    <string name="on_night">/1 đêm</string>
+    <string name="view_all">Xem tất cả</string>
+    <string name="host">Chủ nhà</string>
+    <string name="book_now">Đặt phòng ngay</string>
 </resources>

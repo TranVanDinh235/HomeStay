@@ -1,5 +1,10 @@
 package com.example.homestay.utils;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class StringUtils {
     public static String toRate(String rate){
         return rate + "₫";
@@ -20,5 +25,10 @@ public class StringUtils {
             return str.substring(0, 50) + "..";
         }
         return str;
+    }
+
+    public static List<String> strToList(String str){
+        String[] strings = str.split(";");
+        return Arrays.asList(strings);
     }
 }

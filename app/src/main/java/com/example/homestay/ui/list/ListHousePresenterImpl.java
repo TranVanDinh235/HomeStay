@@ -23,9 +23,7 @@ public class ListHousePresenterImpl<V extends ListHouseView> extends BasePresent
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(response -> {
                     getView().showListHouse(response);
-                }, throwable -> {
-
-                }));
+                }, Throwable::printStackTrace));
     }
 
     @Override

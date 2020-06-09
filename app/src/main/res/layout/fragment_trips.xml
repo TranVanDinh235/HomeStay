@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/layout_trips_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_32sdp"
+        android:text="Chuyến đi"
+        android:fontFamily="@font/merriweather_bold"
+        android:textSize="@dimen/_24sdp"
+        android:layout_marginStart="@dimen/_12sdp"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layout_trips_tab_bar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/gray50_100"
+        app:cardCornerRadius="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/layout_trips_tab_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_transparent"
+            app:tabTextAppearance="@style/tab_text"
+            app:tabMode="scrollable"
+            app:tabGravity="center"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/layout_trips_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

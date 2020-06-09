@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatRatingBar;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -25,6 +26,7 @@ import butterknife.ButterKnife;
 
 public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
+    private Callback mCallback;
     private List<House> mHouseList;
 
     public ListHouseAdapter(List<House> mHouseList){
@@ -34,7 +36,7 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     @NonNull
     @Override
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ListHouseAdapter.ViewHolder(
+        return new ViewHolder(
                 LayoutInflater.from(parent.getContext()).inflate(R.layout.item_house_view, parent, false));
     }
 
@@ -58,7 +60,15 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends BaseViewHolder{
+    public void setCallback(Callback callback){
+        this.mCallback = callback;
+    }
+
+    public interface Callback {
+        void onItemClick(int houseId);
+    }
+
+    public class ViewHolder extends BaseViewHolder implements View.OnClickListener {
 
         @BindView(R.id.item_house_photo)
         ImageView photoImageView;
@@ -87,9 +97,12 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @BindView(R.id.item_house_new_rate)
         TextView mNewRateTextView;
 
+        private House item;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
         }
 
         @Override
@@ -108,7 +121,7 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public void onBind(int position) {
             super.onBind(position);
 
-            final House item = mHouseList.get(position);
+            item = mHouseList.get(position);
             if(item.getPhoto() != null && !item.getPhoto().equalsIgnoreCase("")){
                 Glide.with(itemView.getContext())
                         .load(item.getPhoto())
@@ -130,31 +143,36 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
             if(item.getTotalReview() > 0){
                 mReviewTextView.setText(String.valueOf(item.getTotalReview()));
-                mRatingBar.setRating(item.getNumOfStars());
+                mRatingBar.setRating(item.getRating());
                 mReviewTextView.setVisibility(View.VISIBLE);
                 mRatingBar.setVisibility(View.VISIBLE);
             } else {
                 mReviewTextView.setText(String.valueOf(item.getTotalReview()));
-                mRatingBar.setRating(item.getNumOfStars());
+                mRatingBar.setRating(item.getRating());
                 mReviewTextView.setVisibility(View.GONE);
                 mRatingBar.setVisibility(View.GONE);
             }
 
-            if(item.getRate() != null) {
+            if(item.getPrice() != null) {
                 if (item.getPromotion() == 0) {
-                    mNewRateTextView.setText(StringUtils.toRate(item.getRate()));
+                    mNewRateTextView.setText(StringUtils.toRate(item.getPrice()));
 
                     mOldRateTextView.setVisibility(View.GONE);
                     mNewRateTextView.setVisibility(View.VISIBLE);
                 } else {
-                    mOldRateTextView.setText(item.getRate());
-                    mNewRateTextView.setText(StringUtils.toRate(item.getRate(), item.getPromotion()));
+                    mOldRateTextView.setText(StringUtils.toRate(item.getPrice()));
+                    mNewRateTextView.setText(StringUtils.toRate(item.getPrice(), item.getPromotion()));
 
                     mOldRateTextView.setVisibility(View.VISIBLE);
                     mNewRateTextView.setVisibility(View.VISIBLE);
                 }
             }
 
+        }
+
+        @Override
+        public void onClick(View v) {
+            mCallback.onItemClick(item.getId());
         }
     }
 }

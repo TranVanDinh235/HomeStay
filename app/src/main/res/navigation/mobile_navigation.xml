@@ -3,35 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_discover">
+    app:startDestination="@+id/navigation_explore">
 
     <fragment
-        android:id="@+id/navigation_discover"
-        android:name="com.example.homestay.ui.discover.DiscoverFragment"
-        android:label="@string/title_discover"
-        tools:layout="@layout/fragment_discover" />
+        android:id="@+id/navigation_explore"
+        android:name="com.example.homestay.ui.explore.ExploreFragment"
+        tools:layout="@layout/fragment_explore" />
 
     <fragment
-        android:id="@+id/navigation_collection"
-        android:name="com.example.homestay.ui.collection.CollectionFragment"
-        android:label="@string/collection"
-        tools:layout="@layout/fragment_collection" />
-
-    <fragment
-        android:id="@+id/navigation_booking"
-        android:name="com.example.homestay.ui.booking.BookingFragment"
-        android:label="@string/booking"
-        tools:layout="@layout/fragment_booking" />
-
-    <fragment
-        android:id="@+id/navigation_message"
-        android:name="com.example.homestay.ui.message.MessageFragment"
-        android:label="@string/title_message"
-        tools:layout="@layout/fragment_message" />
+        android:id="@+id/navigation_trips"
+        android:name="com.example.homestay.ui.trips.TripsFragment"
+        tools:layout="@layout/fragment_trips" />
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.homestay.ui.profile.ProfileFragment"
-        android:label="@string/title_more"
         tools:layout="@layout/fragment_profile" />
 </navigation>

@@ -46,6 +46,13 @@ public final class AppConstants {
     public static final String STUDIO_APARTMENT = "CĂN HỘ STUDIO";
     public static final String OTHER = "KHÁC";
 
+    public static final String FACILITIES = "Tiện nghi";
+    public static final String PRICE = "Giá phòng";
+    public static final String REVIEW = "Bình luận";
+    public static final String DETAIL = "Chi tiết";
+    public static final String CANCELLATION_POLICY = "Chính sách huỷ";
+    public static final String HOUSE_RULES = "Quy tắc chỗ ở";
+
     public static final String TAG_LIST_HOUSE_TYPE = "list house type";
     public static final String TAG_TOPIC_ITEM = "topic item";
     public static final String TAG_CITY = "city";
@@ -53,7 +60,14 @@ public final class AppConstants {
     public static final String TAG_TOPIC_ITEM_ID = "tag topic item id";
     public static final String TAG_SEARCH_STRING = "tag search string";
 
+    public static final String VERY_GOOD = "Rất tốt";
+    public static final String GOOD = "Tốt";
+    public static final String NORMAL = "Bình thường";
+    public static final String BAD = "Khá tệ";
 
+    public static final String UPCOMING = "Đang diễn ra";
+    public static final String FINISH = "Kết thúc";
+    public static final String FAVORITES = "Yêu thích";
 
     private AppConstants() {
         // This utility class is not publicly instantiable

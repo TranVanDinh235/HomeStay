@@ -160,4 +160,31 @@ public final class CommonUtils {
         dataEncrypted = dataEncrypted.replaceAll("\r", "");
         return dataEncrypted;
     }
+
+    public static String getHouseTabTitle(int position){
+        switch (position){
+            case 0: return AppConstants.DETAIL;
+            case 1: return AppConstants.FACILITIES;
+            case 2: return AppConstants.PRICE;
+            case 3: return AppConstants.HOUSE_RULES;
+        }
+        return "";
+    }
+
+    public static String getTripsTabTitle(int position){
+        switch (position){
+            case 0: return AppConstants.UPCOMING;
+            case 1: return AppConstants.FINISH;
+            case 2: return AppConstants.FAVORITES;
+        }
+        return "";
+    }
+
+    public static String getRatingText(float rating){
+        if(rating >= 4.0) return AppConstants.VERY_GOOD;
+        if(rating >= 3.0) return AppConstants.GOOD;
+        if(rating >= 2.0) return AppConstants.NORMAL;
+        if(rating >= 1.0) return AppConstants.BAD;
+        return "";
+    }
 }

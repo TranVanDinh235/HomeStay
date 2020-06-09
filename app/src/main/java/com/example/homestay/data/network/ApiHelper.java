@@ -1,8 +1,11 @@
 package com.example.homestay.data.network;
 
+import com.example.homestay.data.network.entity.SearchResult;
 import com.example.homestay.data.network.response.AuthResponse;
 import com.example.homestay.data.network.response.CityResponse;
+import com.example.homestay.data.network.response.HouseResponse;
 import com.example.homestay.data.network.response.ListHouseResponse;
+import com.example.homestay.data.network.response.SearchResponse;
 import com.example.homestay.data.network.response.TopicResponse;
 import com.example.homestay.data.network.response.UserResponse;
 
@@ -28,5 +31,17 @@ public interface ApiHelper {
     Single<ListHouseResponse> doServerApiGetListHouseTopicItemCall(String topicItemId);
 
     Single<ListHouseResponse> doServerApiGetListHouseSearchCall(String searchStr);
+
+    Single<HouseResponse> doServerApiGetHouseDataCall(String houseId, String userId);
+
+    Single<SearchResponse> doServerApiSearchHouseDataCall(JSONObject body);
+
+    Single<SearchResponse> doServerApiSearchHostDataCall(JSONObject body);
+
+    Single<SearchResponse> doServerApiSearchAddressDataCall(JSONObject body);
+
+    Single<ListHouseResponse> doServerApiTripsUpcomingDataCall(String userId);
+
+    Single<ListHouseResponse> doServerApiTripsFinishDataCall(String userId);
 
 }

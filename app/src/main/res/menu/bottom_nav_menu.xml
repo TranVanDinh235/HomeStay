@@ -2,24 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_discover"
-        android:icon="@drawable/ic_home"
-        android:title="@string/home" />
+        android:id="@+id/navigation_explore"
+        android:icon="@drawable/ic_explore"
+        android:title="@string/discover" />
 
     <item
-        android:id="@+id/navigation_collection"
-        android:icon="@drawable/ic_heart"
-        android:title="@string/collection" />
-
-    <item
-        android:id="@+id/navigation_booking"
-        android:icon="@drawable/ic_booking"
-        android:title="@string/booking" />
-
-    <item
-        android:id="@+id/navigation_message"
-        android:icon="@drawable/ic_message"
-        android:title="@string/title_message" />
+        android:id="@+id/navigation_trips"
+        android:icon="@drawable/ic_trips"
+        android:title="@string/trips" />
 
     <item
         android:id="@+id/navigation_profile"

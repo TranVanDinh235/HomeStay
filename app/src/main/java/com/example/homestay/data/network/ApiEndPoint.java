@@ -30,4 +30,24 @@ public final class ApiEndPoint {
     // list house
     public static final String ENDPOINT_TOPIC_ITEM_DATA = AppConstants.IP_ADDRESS
             + "/house/topic-item/{id}";
+
+    //house
+    public static final String ENDPOINT_HOUSE_DATA = AppConstants.IP_ADDRESS
+            + "/house/{id}";
+
+    //search
+    public static final String ENDPOINT_SEARCH_HOUSE_DATA = AppConstants.IP_ADDRESS
+            + "/search/house";
+
+    public static final String ENDPOINT_SEARCH_HOST_DATA = AppConstants.IP_ADDRESS
+            + "/search/host";
+
+    public static final String ENDPOINT_SEARCH_ADDRESS_DATA = AppConstants.IP_ADDRESS
+            + "/search/address";
+
+    public static final String ENDPOINT_TRIPS_UPCOMING_DATA = AppConstants.IP_ADDRESS
+            + "/trips/guest/upcoming/{id}";
+
+    public static final String ENDPOINT_TRIPS_FINISH_DATA = AppConstants.IP_ADDRESS
+            + "/trips/guest/finish/{id}";
 }

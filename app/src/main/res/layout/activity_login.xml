@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorBackground1">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,12 +13,49 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:fontFamily="@font/work_sans_bold"
-            android:textSize="28sp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="12dp"
-            android:text="@string/homes"/>
+            android:fontFamily="@font/merriweather_bold"
+            android:textSize="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:text="@string/login"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginBottom="@dimen/_24sdp"
+            android:orientation="horizontal"
+            android:padding="@dimen/_4sdp">
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/layout_login_google"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:text="@string/login_google"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                app:elevation="0dp"
+                android:backgroundTint="@color/white"/>
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/layout_login_facebook"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="@string/login_facebook"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                app:elevation="0dp"
+                android:textColor="@color/white"
+                app:icon="@drawable/com_facebook_button_icon"
+                app:iconTint="@color/white"
+                android:backgroundTint="@color/com_facebook_blue"/>
+        </LinearLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layout_login_input_layout_email"
@@ -33,12 +70,11 @@
                 android:id="@+id/layout_login_edt_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorBackground2"
                 android:hint="@string/email"
+                android:fontFamily="@font/merriweather"
                 android:maxLines="2"
                 android:inputType="text"
-                android:textColor="@color/colorText2"
-                android:textSize="14sp"/>
+                android:textSize="@dimen/_12sdp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -54,11 +90,11 @@
                 android:id="@+id/layout_login_edt_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorBackground2"
                 android:hint="@string/password"
                 android:maxLines="2"
+                android:fontFamily="@font/merriweather"
                 android:inputType="textPassword"
-                android:textSize="14sp"/>
+                android:textSize="@dimen/_12sdp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -66,91 +102,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="textEnd"
-            android:fontFamily="@font/work_sans_medium"
-            android:textSize="16sp"
-            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/merriweather"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
             android:text="@string/forgot_password"/>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/layout_login_native"
             android:layout_width="match_parent"
-            android:layout_height="54dp"
-            app:cardCornerRadius="30dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:cardBackgroundColor="@color/colorPrimary">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:fontFamily="@font/work_sans_medium"
-                android:textSize="16sp"
-                android:text="@string/login"
-                android:textColor="@color/colorBackground1" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/layout_login_google"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            app:cardCornerRadius="30dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/white">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:fontFamily="@font/work_sans_medium"
-                android:textSize="16sp"
-                android:text="@string/login_google" />
-        </androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:text="@string/login"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"/>
 
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/layout_login_facebook"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            app:cardCornerRadius="30dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/colorBtnFaceBook">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:fontFamily="@font/work_sans_medium"
-                android:textSize="16sp"
-                android:text="@string/login_facebook"
-                android:textColor="@color/colorBackground1" />
-        </androidx.cardview.widget.CardView>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/work_sans_medium"
             android:textSize="16sp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/_60sdp"
             android:text="@string/not_account"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/layout_login_sign_up"
             android:layout_width="match_parent"
-            android:layout_height="54dp"
+            android:layout_height="50dp"
             app:cardCornerRadius="30dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             app:cardElevation="0dp"

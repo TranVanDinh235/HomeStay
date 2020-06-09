@@ -24,4 +24,18 @@ public class HousePresenterImpl<V extends HouseView> extends BasePresenter<V> im
     public void onDetach() {
         super.onDetach();
     }
+
+    @Override
+    public void getData(String houseId) {
+        Integer userId = getDataManager().getCurrentUserId();
+        String userIdStr = userId != null ? String.valueOf(userId) : "0";
+        getCompositeDisposable().add(getDataManager().doServerApiGetHouseDataCall(houseId, userIdStr)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(response -> {
+                    getView().showHouse(response);
+                }, throwable -> {
+
+                }));
+    }
 }
