@@ -38,6 +38,11 @@ public class MainActivity extends BaseActivity {
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
+
+        int index = getIntent().getIntExtra(EXTRA_TAB_OPEN, 0);
+        if(index == 1) navController.navigate(R.id.navigation_trips);
+        if(index == 2) navController.navigate(R.id.navigation_profile);
+        setUp();
     }
 
     @Override

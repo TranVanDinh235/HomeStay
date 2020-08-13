@@ -7,14 +7,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.homestay.data.network.entity.SearchResult;
 import com.example.homestay.di.ActivityContext;
+import com.example.homestay.ui.booking.BookingPresenter;
+import com.example.homestay.ui.booking.BookingPresenterImpl;
+import com.example.homestay.ui.booking.BookingView;
 import com.example.homestay.ui.explore.ExplorePresenter;
 import com.example.homestay.ui.explore.ExplorePresenterImpl;
 import com.example.homestay.ui.explore.ExploreView;
 import com.example.homestay.ui.explore.adapter.CityAdapter;
 import com.example.homestay.ui.explore.adapter.TopicAdapter;
+import com.example.homestay.ui.favorites.FavoritesAdapter;
 import com.example.homestay.ui.favorites.FavoritesPresenter;
 import com.example.homestay.ui.favorites.FavoritesPresenterImpl;
 import com.example.homestay.ui.favorites.FavoritesView;
+import com.example.homestay.ui.finish.FinishAdapter;
 import com.example.homestay.ui.finish.FinishPresenterImpl;
 import com.example.homestay.ui.house.HousePresenter;
 import com.example.homestay.ui.house.HousePresenterImpl;
@@ -37,6 +42,9 @@ import com.example.homestay.ui.map.MapPresenterImpl;
 import com.example.homestay.ui.map.MapView;
 import com.example.homestay.ui.finish.FinishPresenter;
 import com.example.homestay.ui.finish.FinishView;
+import com.example.homestay.ui.overview.OverViewPresenter;
+import com.example.homestay.ui.overview.OverViewPresenterImpl;
+import com.example.homestay.ui.overview.OverViewView;
 import com.example.homestay.ui.profile.ProfilePresenter;
 import com.example.homestay.ui.profile.ProfilePresenterImpl;
 import com.example.homestay.ui.profile.ProfileView;
@@ -45,9 +53,15 @@ import com.example.homestay.ui.search.SearchBarPresenter;
 import com.example.homestay.ui.search.SearchPresenter;
 import com.example.homestay.ui.search.SearchPresenterImpl;
 import com.example.homestay.ui.search.SearchView;
+import com.example.homestay.ui.setting.SettingPresenter;
+import com.example.homestay.ui.setting.SettingPresenterImpl;
+import com.example.homestay.ui.setting.SettingView;
 import com.example.homestay.ui.splash.SplashPresenter;
 import com.example.homestay.ui.splash.SplashPresenterImpl;
 import com.example.homestay.ui.splash.SplashView;
+import com.example.homestay.ui.tripdetail.TripDetailPresenter;
+import com.example.homestay.ui.tripdetail.TripDetailPresenterImpl;
+import com.example.homestay.ui.tripdetail.TripDetailView;
 import com.example.homestay.ui.trips.TripsPresenter;
 import com.example.homestay.ui.trips.TripsPresenterImpl;
 import com.example.homestay.ui.trips.TripsView;
@@ -185,6 +199,30 @@ public class ActivityModule {
     }
 
     @Provides
+    BookingPresenter<BookingView> provideBookingPresenter(
+            BookingPresenterImpl<BookingView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    OverViewPresenter<OverViewView> provideOverViewPresenter(
+            OverViewPresenterImpl<OverViewView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    TripDetailPresenter<TripDetailView> provideTripDetailPresenter(
+            TripDetailPresenterImpl<TripDetailView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    SettingPresenter<SettingView> provideSettingPresenter(
+            SettingPresenterImpl<SettingView> presenter) {
+        return presenter;
+    }
+
+    @Provides
     LinearLayoutManager provideLinearLayoutManager(AppCompatActivity activity){
         return new LinearLayoutManager(activity){
             @Override
@@ -217,5 +255,15 @@ public class ActivityModule {
     @Provides
     UpcomingAdapter provideUpcomingAdapter() {
         return new UpcomingAdapter(new ArrayList<>());
+    }
+
+    @Provides
+    FinishAdapter provideFinishAdapter() {
+        return new FinishAdapter(new ArrayList<>());
+    }
+
+    @Provides
+    FavoritesAdapter provideFavoritesAdapter() {
+        return new FavoritesAdapter(new ArrayList<>());
     }
 }

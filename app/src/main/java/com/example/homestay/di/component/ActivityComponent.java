@@ -2,6 +2,7 @@ package com.example.homestay.di.component;
 
 import com.example.homestay.di.PerActivity;
 import com.example.homestay.di.module.ActivityModule;
+import com.example.homestay.ui.booking.BookingActivity;
 import com.example.homestay.ui.favorites.FavoritesFragment;
 import com.example.homestay.ui.explore.ExploreFragment;
 import com.example.homestay.ui.filter.FilterActivity;
@@ -12,10 +13,13 @@ import com.example.homestay.ui.login.LoginActivity;
 import com.example.homestay.ui.main.MainActivity;
 import com.example.homestay.ui.map.MapActivity;
 import com.example.homestay.ui.finish.FinishFragment;
+import com.example.homestay.ui.overview.OverViewActivity;
 import com.example.homestay.ui.photo.PhotoActivity;
 import com.example.homestay.ui.profile.ProfileFragment;
 import com.example.homestay.ui.search.SearchActivity;
+import com.example.homestay.ui.setting.SettingActivity;
 import com.example.homestay.ui.splash.SplashActivity;
+import com.example.homestay.ui.tripdetail.TripDetailActivity;
 import com.example.homestay.ui.trips.TripsFragment;
 import com.example.homestay.ui.upcoming.UpcomingFragment;
 
@@ -55,5 +59,13 @@ public interface ActivityComponent {
     void inject(FinishFragment finishFragment);
 
     void inject(FavoritesFragment favoritesFragment);
+
+    void inject(BookingActivity bookingActivity);
+
+    void inject(OverViewActivity overViewActivity);
+
+    void inject(TripDetailActivity tripDetailActivity);
+
+    void inject(SettingActivity settingActivity);
 
 }

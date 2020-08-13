@@ -14,9 +14,7 @@ import com.example.homestay.R;
 import com.example.homestay.data.network.entity.Review;
 import com.example.homestay.ui.base.BaseViewHolder;
 import com.example.homestay.utils.CommonUtils;
-import com.example.homestay.utils.TimeUtils;
-
-import org.w3c.dom.Text;
+import com.example.homestay.utils.DateTimeUtils;
 
 import java.util.List;
 
@@ -106,7 +104,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             }
 
             if(item.getTime() != null)
-                timeTextView.setText(TimeUtils.timeReview(item.getTime()));
+                timeTextView.setText(DateTimeUtils.timeReview(item.getTime()));
 
             ratingTextView.setText(CommonUtils.getRatingText(item.getRating()));
             ratingBar.setRating(item.getRating());

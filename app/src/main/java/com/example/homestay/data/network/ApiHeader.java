@@ -1,7 +1,5 @@
 package com.example.homestay.data.network;
 
-import android.util.Log;
-
 import com.example.homestay.di.ApiInfo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

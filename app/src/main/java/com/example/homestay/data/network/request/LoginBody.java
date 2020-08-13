@@ -12,9 +12,23 @@ public class LoginBody {
     @SerializedName("password")
     private String password;
 
-    public LoginBody(String email, String password) {
+    @Expose
+    @SerializedName("firebase_token")
+    private String firebaseToken;
+
+    @Expose
+    @SerializedName("token")
+    private String token;
+
+    public LoginBody(String email, String password, String firebaseToken) {
         this.email = email;
         this.password = password;
+        this.firebaseToken = firebaseToken;
+    }
+
+    public LoginBody(String token, String firebaseToken) {
+        this.firebaseToken = firebaseToken;
+        this.token = token;
     }
 
     public String getEmail() {
@@ -31,5 +45,21 @@ public class LoginBody {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFirebaseToken() {
+        return firebaseToken;
+    }
+
+    public void setFirebaseToken(String firebaseToken) {
+        this.firebaseToken = firebaseToken;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

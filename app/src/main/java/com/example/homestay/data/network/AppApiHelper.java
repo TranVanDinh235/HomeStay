@@ -1,11 +1,14 @@
 package com.example.homestay.data.network;
 
+import com.example.homestay.data.network.request.BookingBody;
 import com.example.homestay.data.network.request.LoginBody;
+import com.example.homestay.data.network.response.ApiResponse;
 import com.example.homestay.data.network.response.AuthResponse;
 import com.example.homestay.data.network.response.CityResponse;
 import com.example.homestay.data.network.response.HouseResponse;
 import com.example.homestay.data.network.response.ListHouseResponse;
 import com.example.homestay.data.network.response.SearchResponse;
+import com.example.homestay.data.network.response.TokenResponse;
 import com.example.homestay.data.network.response.TopicResponse;
 import com.example.homestay.data.network.response.UserResponse;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
@@ -101,6 +104,17 @@ public class AppApiHelper implements ApiHelper{
     }
 
     @Override
+    public Single<ListHouseResponse> doServerApiGetFavoritesHouseItemCall(String userId) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_FAVORITES_HOUSE_DATA)
+                .addHeaders("Content-Type", "application/json")
+                .addHeaders("Accept", "application/json")
+                .addHeaders("x-access-token", mApiHeader.getProtectedApiHeader().getAccessToken())
+                .addPathParameter("id", userId)
+                .build()
+                .getObjectSingle(ListHouseResponse.class);
+    }
+
+    @Override
     public Single<ListHouseResponse> doServerApiGetListHouseSearchCall(String searchStr) {
         return null;
     }
@@ -164,6 +178,36 @@ public class AppApiHelper implements ApiHelper{
                 .addPathParameter("id", userId)
                 .build()
                 .getObjectSingle(ListHouseResponse.class);
+    }
+
+    @Override
+    public Single<ApiResponse> doServerApiBookingCall(JSONObject body) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_BOOKING)
+                .addHeaders("Content-Type", "application/json")
+                .addHeaders("Accept", "application/json")
+                .addJSONObjectBody(body)
+                .build()
+                .getObjectSingle(ApiResponse.class);
+    }
+
+    @Override
+    public Single<ApiResponse> doServerApiUnBookingCall(JSONObject body) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_UN_BOOKING)
+                .addHeaders("Content-Type", "application/json")
+                .addHeaders("Accept", "application/json")
+                .addJSONObjectBody(body)
+                .build()
+                .getObjectSingle(ApiResponse.class);
+    }
+
+    @Override
+    public Single<AuthResponse> doServerApiUpdateFirebaseTokenCall(JSONObject body) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_UPDATE_TOKEN)
+                .addHeaders("Content-Type", "application/json")
+                .addHeaders("Accept", "application/json")
+                .addJSONObjectBody(body)
+                .build()
+                .getObjectSingle(AuthResponse.class);
     }
 
 

@@ -204,17 +204,17 @@ public class SearchBarPresenter extends RecyclerViewPresenter<SearchResult> impl
                 item = mSearchResultList.get(position);
                 switch (item.getType()){
                     case 0: {
-                        mContentTextView.setText(StringUtils.cutString(item.getHostName()));
+                        mContentTextView.setText(StringUtils.cutString(item.getHostName(), 50));
                         mIconImageView.setImageResource(R.drawable.ic_host);
                         break;
                     }
                     case 1: {
-                        mContentTextView.setText(StringUtils.cutString(item.getTitle()));
+                        mContentTextView.setText(StringUtils.cutString(item.getTitle(), 50));
                         mIconImageView.setImageResource(R.drawable.ic_house);
                         break;
                     }
                     case 2: {
-                        mContentTextView.setText(StringUtils.cutString(item.getAddress()));
+                        mContentTextView.setText(StringUtils.cutString(item.getAddress(), 50));
                         break;
                     }
                 }

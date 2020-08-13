@@ -1,6 +1,7 @@
 package com.example.homestay;
 
 import com.example.homestay.utils.CommonUtils;
+import com.example.homestay.utils.DateTimeUtils;
 
 import org.junit.Test;
 
@@ -21,8 +22,9 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         System.out.println(CommonUtils.getTimeStamp());
         Date date = new Date();
-        System.out.println(System.currentTimeMillis());
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
+
+        System.out.println(calendar.getTimeInMillis());
+
     }
 }

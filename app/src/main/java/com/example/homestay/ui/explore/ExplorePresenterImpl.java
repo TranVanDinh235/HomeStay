@@ -23,13 +23,10 @@ public class ExplorePresenterImpl<V extends ExploreView> extends BasePresenter<V
 
     @Override
     public void loadTopic() {
-        getView().showLoading();
-
         getCompositeDisposable().add(getDataManager().doServerApiGetTopicCall()
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(response -> {
-                    getView().hideLoading();
                     getView().showTopic(response);
                 }, throwable -> {
 
@@ -38,13 +35,10 @@ public class ExplorePresenterImpl<V extends ExploreView> extends BasePresenter<V
 
     @Override
     public void loadCity() {
-        getView().showLoading();
-
         getCompositeDisposable().add(getDataManager().doServerApiGetCityCall()
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(response -> {
-                    getView().hideLoading();
                     getView().showCity(response);
                 }, throwable -> {
 

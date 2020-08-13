@@ -20,6 +20,7 @@ public class AppPrefHelper implements PrefHelper {
             = "PREF_KEY_CURRENT_USER_PROFILE_PIC_URL";
     private static final String PREF_KEY_ACCESS_TOKEN = "PREF_KEY_ACCESS_TOKEN";
     private static final String PREF_KEY_REFRESH_TOKEN = "PREF_KEY_REFRESH_TOKEN";
+    private static final String PREF_KEY_FIREBASE_TOKEN = "PREF_KEY_FIREBASE_TOKEN";
 
     private final SharedPreferences mPrefs;
 
@@ -99,5 +100,15 @@ public class AppPrefHelper implements PrefHelper {
     @Override
     public void setCurrentUserProfilePicUrl(String url) {
         mPrefs.edit().putString(PREF_KEY_CURRENT_USER_PROFILE_PIC_URL, url).apply();
+    }
+
+    @Override
+    public String getFireBaseToken() {
+        return mPrefs.getString(PREF_KEY_FIREBASE_TOKEN, null);
+    }
+
+    @Override
+    public void setFireBaseToken(String token) {
+        mPrefs.edit().putString(PREF_KEY_FIREBASE_TOKEN, token).apply();
     }
 }

@@ -1,6 +1,7 @@
 package com.example.homestay.ui.house;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,13 +16,17 @@ import com.applandeo.materialcalendarview.CalendarUtils;
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
+import com.archit.calendardaterangepicker.customviews.CalendarListener;
+import com.archit.calendardaterangepicker.customviews.DateRangeCalendarView;
 import com.example.homestay.R;
 import com.example.homestay.data.event.SelectedDateEvent;
 import com.example.homestay.data.network.entity.HouseDate;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import org.greenrobot.eventbus.EventBus;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -29,67 +34,73 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CalendarDialog extends AppCompatDialogFragment {
+public class CalendarDialog extends Dialog {
 
     private List<HouseDate> mHouseDateList;
 
-    @BindView(R.id.layout_date_start)
+    @BindView(R.id.dialog_date_start)
     TextView mStartDateTextView;
 
-    @BindView(R.id.layout_date_end)
+    @BindView(R.id.dialog_date_end)
     TextView mEndDateTextView;
 
-    @BindView(R.id.calendarView)
-    CalendarView mCalendarView;
+    @BindView(R.id.calendar)
+    DateRangeCalendarView mCalendarView;
 
-    @BindView(R.id.layout_date_apply)
+    @BindView(R.id.dialog_date_apply)
     ExtendedFloatingActionButton mApplyButton;
 
-    private Dialog dialog;
+    private List<Calendar> selectedCalendar = new ArrayList<>();
 
-    CalendarDialog(List<HouseDate> houseDateList){
-        this.mHouseDateList = houseDateList;
+    public CalendarDialog(@NonNull Context context) {
+        super(context);
     }
 
-    @NonNull
     @Override
-    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_date_picker, null);
-        ButterKnife.bind(this, view);
-
-        dialog = new Dialog(getActivity(), android.R.style.Theme_Translucent_NoTitleBar);
-        dialog.setContentView(view);
-        dialog.setCanceledOnTouchOutside(true);
-
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.dialog_date_picker);
+        ButterKnife.bind(this);
         setUpCalendarView();
-
-        dialog.show();
-        return dialog;
     }
 
     void setUpCalendarView(){
         Calendar today = Calendar.getInstance();
+        today.setTimeInMillis(System.currentTimeMillis());
+
         Calendar min = Calendar.getInstance();
-        min.set(2020,1,1);
 
         Calendar max = Calendar.getInstance();
-        max.set(2022, 1, 1);
+        max.add(Calendar.MONTH, 6);
 
-        mCalendarView.setMinimumDate(min);
-        mCalendarView.setMaximumDate(max);
-        mCalendarView.setDisabledDays(CalendarUtils.getDatesRange(min, today));
-        mCalendarView.setOnDayClickListener(eventDay -> {
-            Calendar day = eventDay.getCalendar();
+
+        mCalendarView.setSelectableDateRange(min, max);
+//        List<Calendar> disableDay = CalendarUtils.getDatesRange(min, today);
+//        for(int i = 0; i < mHouseDateList.size(); i ++){
+//            if(mHouseDateList.get(i).getState() == 2){
+//                Calendar calendar = Calendar.getInstance();
+//                long time = (long)mHouseDateList.get(i).getDate() * 1000;
+//                calendar.setTimeInMillis(time);
+//                disableDay.add(calendar);
+//            }
+//        }
+
+        mCalendarView.setCalendarListener(new CalendarListener() {
+            @Override
+            public void onFirstDateSelected(@NotNull Calendar calendar) {
+
+            }
+
+            @Override
+            public void onDateRangeSelected(@NotNull Calendar startDate, @NotNull Calendar endDate) {
+
+            }
         });
-
     }
 
-    @OnClick(R.id.layout_date_apply)
+    @OnClick(R.id.dialog_date_apply)
     void onApplyButtonClick(View view){
-        List<Calendar> calendars = mCalendarView.getSelectedDates();
-        if(calendars != null && calendars.size() > 1) EventBus.getDefault().post(new SelectedDateEvent(calendars));
-        dialog.dismiss();
+        if(selectedCalendar != null && selectedCalendar.size() > 1) EventBus.getDefault().post(new SelectedDateEvent(selectedCalendar));
+        dismiss();
     }
 }

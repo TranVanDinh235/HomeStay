@@ -30,4 +30,7 @@ public interface PrefHelper {
 
     void setCurrentUserProfilePicUrl(String url);
 
+    String getFireBaseToken();
+
+    void setFireBaseToken(String token);
 }

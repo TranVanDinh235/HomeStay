@@ -15,14 +15,14 @@ public class StringUtils {
         return rateInt + "₫";
     }
 
-    public static String cutString(String str){
-        if(str.length() > 50){
-            for(int i = 50; i > 40; i --){
+    public static String cutString(String str, int length){
+        if(str.length() > length){
+            for(int i = length; i > length - 10; i --){
                 if(str.charAt(i) == ' '){
                     return str.substring(0, i) + "..";
                 }
             }
-            return str.substring(0, 50) + "..";
+            return str.substring(0, length) + "..";
         }
         return str;
     }

@@ -130,7 +130,7 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                         .into(photoImageView);
             }
 
-            if(item.getTitle() != null) titleTextView.setText(StringUtils.cutString(item.getTitle()));
+            if(item.getTitle() != null) titleTextView.setText(StringUtils.cutString(item.getTitle(), 30));
 
             String type = CommonUtils.getHouseType(item.getType());
             typeTextView.setText(type);
@@ -142,13 +142,12 @@ public class ListHouseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             detailTextView.setText(detail);
 
             if(item.getTotalReview() > 0){
-                mReviewTextView.setText(String.valueOf(item.getTotalReview()));
+                String review = " (" + item.getTotalReview() + ")";
+                mReviewTextView.setText(review);
                 mRatingBar.setRating(item.getRating());
                 mReviewTextView.setVisibility(View.VISIBLE);
                 mRatingBar.setVisibility(View.VISIBLE);
             } else {
-                mReviewTextView.setText(String.valueOf(item.getTotalReview()));
-                mRatingBar.setRating(item.getRating());
                 mReviewTextView.setVisibility(View.GONE);
                 mRatingBar.setVisibility(View.GONE);
             }

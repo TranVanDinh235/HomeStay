@@ -1,63 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginStart="@dimen/_12sdp"
-    android:layout_marginEnd="@dimen/_12sdp"
-    app:cardCornerRadius="@dimen/_12sdp">
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/item_upcoming_time"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_110sdp">
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_15sdp"
+        android:fontFamily="@font/lora_bold"
+        tools:text="Th3 23/06 - Th4 24/06"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_6sdp"/>
 
-        <com.rishabhharit.roundedimageview.RoundedImageView
-            android:id="@+id/item_upcoming_photo"
-            android:layout_width="@dimen/_110sdp"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/img_temp"
-            android:scaleType="centerCrop"
-            app:cornerRadius="@dimen/_12sdp"
-            app:roundedCorners="topLeft|bottomLeft"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        app:cardElevation="3dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/item_upcoming_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/item_upcoming_photo"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="nha rat dep" />
+            <com.rishabhharit.roundedimageview.RoundedImageView
+                android:id="@+id/item_upcoming_photo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_temp"
+                app:cornerRadius="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:roundedCorners="topLeft|topRight" />
 
-        <TextView
-            android:id="@+id/item_upcoming_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/item_upcoming_photo"
-            app:layout_constraintTop_toBottomOf="@+id/item_upcoming_title"
-            tools:text="ha noi viet nam" />
+            <TextView
+                android:id="@+id/item_upcoming_title"
+                android:layout_width="@dimen/_160sdp"
+                android:layout_height="wrap_content"
+                android:maxWidth="@dimen/_180sdp"
+                tools:text="nha rat sach "
+                android:maxLines="2"
+                android:lines="2"
+                android:fontFamily="@font/lora_bold"
+                android:textSize="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_upcoming_photo"/>
 
-        <TextView
-            android:id="@+id/item_upcoming_get_qr_code"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="@dimen/_12sdp"
-            android:layout_marginBottom="@dimen/_12sdp"
-            android:text="Lay ma"
-            android:textSize="@dimen/_16sdp"/>
+            <TextView
+                android:id="@+id/item_upcoming_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:fontFamily="@font/lora"
+                tools:text="ha noi viet nam"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:lines="2"
+                android:maxLines="2"
+                app:layout_constraintTop_toBottomOf="@id/item_upcoming_title"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-        <TextView
-            android:id="@+id/item_upcoming_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/item_upcoming_get_qr_code"
-            app:layout_constraintEnd_toStartOf="@+id/item_upcoming_get_qr_code"
-            android:text="Huy"
-            android:layout_marginEnd="@dimen/_12sdp"
-            android:textSize="@dimen/_16sdp"/>
+            <RatingBar
+                android:id="@+id/item_upcoming_rating"
+                style="@style/RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="@dimen/_16sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/_4sdp"
+                app:layout_constraintTop_toBottomOf="@+id/item_upcoming_address" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/item_upcoming_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:fontFamily="@font/lora"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toBottomOf="@id/item_upcoming_rating"
+                app:layout_constraintStart_toEndOf="@id/item_upcoming_rating"
+                app:layout_constraintTop_toTopOf="@+id/item_upcoming_rating"
+                tools:text="100 nhan xet" />
+
+            <TextView
+                android:id="@+id/item_upcoming_price_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:fontFamily="@font/lora"
+                android:text="@string/per_night"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_upcoming_price" />
+
+            <TextView
+                android:id="@+id/item_upcoming_old_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:fontFamily="@font/lora_bold"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/item_upcoming_title"
+                android:background="@drawable/dashed"
+                tools:text="1000000d"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/item_upcoming_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:fontFamily="@font/lora_bold"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/item_upcoming_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/item_upcoming_title"
+                tools:text="1000000d" />
+
+            <TextView
+                android:id="@+id/item_upcoming_qr_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:drawableEnd="@drawable/ic_qr_code"
+                android:fontFamily="@font/lora_bold"
+                android:gravity="center"
+                android:text="@string/get_code"
+                android:textSize="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_upcoming_address" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

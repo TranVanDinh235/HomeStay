@@ -3,13 +3,17 @@ package com.example.homestay.ui.login;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 
 import com.example.homestay.R;
 import com.example.homestay.ui.base.BaseActivity;
 import com.example.homestay.ui.main.MainActivity;
+import com.example.homestay.ui.signup.SignUpActivity;
+import com.example.homestay.utils.AppConstants;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -24,6 +28,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.Arrays;
 
@@ -40,14 +45,14 @@ public class LoginActivity extends BaseActivity implements LoginView{
     @Inject
     LoginPresenter<LoginView> mPresenter;
 
-    @BindView(R.id.layout_login_input_layout_email)
-    TextInputLayout emailTextInputLayout;
-    @BindView(R.id.layout_login_edt_email)
+    @BindView(R.id.layout_login_email)
     EditText emailEditText;
-    @BindView(R.id.layout_login_input_layout_password)
-    TextInputLayout passwordTextInputLayout;
-    @BindView(R.id.layout_login_edt_password)
+
+    @BindView(R.id.layout_login_password)
     EditText passwordEditText;
+
+    @BindView(R.id.layout_login_sign_up_container)
+    LinearLayout signUpLinearLayout;
 
     GoogleSignInClient mGoogleSignInClient;
     CallbackManager callbackManager;
@@ -62,6 +67,12 @@ public class LoginActivity extends BaseActivity implements LoginView{
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(LoginActivity.this);
+
+        setUp();
+    }
+
+    @Override
+    protected void setUp() {
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.server_client_id))
@@ -111,13 +122,8 @@ public class LoginActivity extends BaseActivity implements LoginView{
 
     @OnClick(R.id.layout_login_sign_up)
     void onSignUpClick(){
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        // ...
-                    }
-                });
+        Intent intent = new Intent(this, SignUpActivity.class);
+        startActivityForResult(intent, AppConstants.LAUNCH_SIGN_UP_ACTIVITY);
     }
 
     @OnClick(R.id.layout_login_forgot_password)
@@ -125,15 +131,17 @@ public class LoginActivity extends BaseActivity implements LoginView{
 
     }
 
+    @OnClick(R.id.layout_login_sign_up_container)
+    void onSignUpContainerClick(View view){
+        Intent intent = new Intent(this, SignUpActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
     @Override
     protected void onDestroy() {
         mPresenter.onDetach();
         super.onDestroy();
-    }
-
-    @Override
-    protected void setUp() {
-
     }
 
     @Override

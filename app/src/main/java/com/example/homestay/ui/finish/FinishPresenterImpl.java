@@ -18,22 +18,16 @@ public class FinishPresenterImpl<V extends FinishView> extends BasePresenter<V>
     }
 
     @Override
-    public void onAttach(V mvpView) {
+    public void getTripsFinishData() {
+        if(getDataManager().getCurrentUserId() == null) return;
 
-    }
+        getCompositeDisposable().add(getDataManager().doServerApiTripsFinishDataCall(String.valueOf(getDataManager().getCurrentUserId()))
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(response -> {
+                    getView().showData(response);
+                }, throwable -> {
 
-    @Override
-    public void onDetach() {
-
-    }
-
-    @Override
-    public void handleApiError(ANError error) {
-
-    }
-
-    @Override
-    public void setUserAsLoggedOut() {
-
+                }));
     }
 }

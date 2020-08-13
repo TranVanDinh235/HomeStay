@@ -11,11 +11,11 @@ public class User {
     private int id;
 
     @Expose
-    @SerializedName("name")
+    @SerializedName("user_name")
     private String name;
 
     @Expose
-    @SerializedName("pic")
+    @SerializedName("pic_url")
     private String pic;
 
     @Expose
@@ -27,16 +27,12 @@ public class User {
     private Date birthDay;
 
     @Expose
-    @SerializedName("gender")
-    private String gender;
+    @SerializedName("facebook")
+    private String facebook;
 
     @Expose
     @SerializedName("address")
     private String address;
-
-    @Expose
-    @SerializedName("introduce")
-    private String introduce;
 
     public int getId() {
         return id;
@@ -78,12 +74,12 @@ public class User {
         this.birthDay = birthDay;
     }
 
-    public String getGender() {
-        return gender;
+    public String getFacebook() {
+        return facebook;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
     }
 
     public String getAddress() {
@@ -92,13 +88,5 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getIntroduce() {
-        return introduce;
-    }
-
-    public void setIntroduce(String introduce) {
-        this.introduce = introduce;
     }
 }

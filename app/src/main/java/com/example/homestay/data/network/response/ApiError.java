@@ -18,6 +18,8 @@ package com.example.homestay.data.network.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class ApiError {
 
     private int errorCode;
@@ -27,13 +29,13 @@ public class ApiError {
     private String statusCode;
 
     @Expose
-    @SerializedName("message")
-    private String message;
+    @SerializedName("error")
+    private String error;
 
-    public ApiError(int errorCode, String statusCode, String message) {
+    public ApiError(int errorCode, String statusCode, String error) {
         this.errorCode = errorCode;
         this.statusCode = statusCode;
-        this.message = message;
+        this.error = error;
     }
 
     public int getErrorCode() {
@@ -52,12 +54,12 @@ public class ApiError {
         this.statusCode = statusCode;
     }
 
-    public String getMessage() {
-        return message;
+    public String getError() {
+        return error;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setError(String error) {
+        this.error = error;
     }
 
     @Override
@@ -68,10 +70,10 @@ public class ApiError {
         ApiError apiError = (ApiError) object;
 
         if (errorCode != apiError.errorCode) return false;
-        if (statusCode != null ? !statusCode.equals(apiError.statusCode)
-                : apiError.statusCode != null)
+        if (!Objects.equals(statusCode, apiError.statusCode)) {
             return false;
-        return message != null ? message.equals(apiError.message) : apiError.message == null;
+        }
+        return Objects.equals(error, apiError.error);
 
     }
 
@@ -79,7 +81,7 @@ public class ApiError {
     public int hashCode() {
         int result = errorCode;
         result = 31 * result + (statusCode != null ? statusCode.hashCode() : 0);
-        result = 31 * result + (message != null ? message.hashCode() : 0);
+        result = 31 * result + (error != null ? error.hashCode() : 0);
         return result;
     }
 }

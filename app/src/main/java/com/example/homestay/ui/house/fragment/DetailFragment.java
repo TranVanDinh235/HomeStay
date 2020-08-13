@@ -54,9 +54,9 @@ public class DetailFragment extends BaseFragment {
 
     @Override
     protected void setUp(View view) {
-        String bathroom = mHouse.getBathrooms() + " phòng";
+        String bathroom = mHouse.getBathrooms() + " phòng tắm";
         bathroomTextView.setText(bathroom);
-        String bedroom = mHouse.getBedrooms() + " phòng";
+        String bedroom = mHouse.getBedrooms() + " phòng ngủ";
         bedroomTextView.setText(bedroom);
         String bed = mHouse.getBeds() + " giường";
         bedTextView.setText(bed);

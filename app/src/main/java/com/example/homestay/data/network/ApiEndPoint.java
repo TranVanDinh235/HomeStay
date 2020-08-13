@@ -23,6 +23,10 @@ public final class ApiEndPoint {
     public static final String ENDPOINT_LOGIN_FACEBOOK = AppConstants.IP_ADDRESS
             + "/auth/social/facebook";
 
+    // update firebase token
+    public static final String ENDPOINT_UPDATE_TOKEN = AppConstants.IP_ADDRESS
+            + "/auth/firebase-token";
+
     // profile
     public static final String ENDPOINT_USER_INFO = AppConstants.IP_ADDRESS
             + "/user/{id}";
@@ -30,6 +34,10 @@ public final class ApiEndPoint {
     // list house
     public static final String ENDPOINT_TOPIC_ITEM_DATA = AppConstants.IP_ADDRESS
             + "/house/topic-item/{id}";
+
+    // favorites house
+    public static final String ENDPOINT_FAVORITES_HOUSE_DATA = AppConstants.IP_ADDRESS
+            + "/house/favorites/{id}";
 
     //house
     public static final String ENDPOINT_HOUSE_DATA = AppConstants.IP_ADDRESS
@@ -45,9 +53,17 @@ public final class ApiEndPoint {
     public static final String ENDPOINT_SEARCH_ADDRESS_DATA = AppConstants.IP_ADDRESS
             + "/search/address";
 
+    // trips
     public static final String ENDPOINT_TRIPS_UPCOMING_DATA = AppConstants.IP_ADDRESS
-            + "/trips/guest/upcoming/{id}";
+            + "/trips/upcoming/{id}";
 
     public static final String ENDPOINT_TRIPS_FINISH_DATA = AppConstants.IP_ADDRESS
-            + "/trips/guest/finish/{id}";
+            + "/trips/finish/{id}";
+
+    // booking
+    public static final String ENDPOINT_BOOKING = AppConstants.IP_ADDRESS
+            + "/house/booking";
+
+    public static final String ENDPOINT_UN_BOOKING = AppConstants.IP_ADDRESS
+            + "/house/unbooking";
 }
